@@ -1,5 +1,5 @@
 const mongoose = require('mongoose')
-const {formattedDate} = require("../../utils/daysStay");
+const {formattedDate} = require("../../utils/dates");
 
 const DocumentSchema = new mongoose.Schema(
     {

@@ -1,5 +1,5 @@
 const mongoose = require('mongoose')
-const { formattedDate, calculateDaysStay } = require('../../utils/daysStay')
+const { formattedDate, calculateDaysStay } = require('../../utils/dates')
 const { DateTime } = require('luxon')
 
 const BookingSchema = new mongoose.Schema(

@@ -1,5 +1,5 @@
 const mongoose = require('mongoose')
-const { formattedDate, calculateDaysStay } = require('../../utils/daysStay')
+const { formattedDate, calculateDaysStay, getExpireDate } = require('../../utils/daysStay')
 
 const QuoteRequestSchema = new mongoose.Schema(
     {
@@ -39,6 +39,16 @@ const QuoteRequestSchema = new mongoose.Schema(
             type: Boolean,
             required: true,
             default: false
+        },
+        expire: {
+            type: Date,
+            set: (value) => getExpireDate(value),
+            required: false
+        },
+        isExpired: {
+            type: Boolean,
+            required: true,
+            default: false
         }
     }, { timestamps: true, strict: true }
 )
@@ -51,6 +61,9 @@ QuoteRequestSchema.pre('save', function(next) {
     }
 
     quoteRequest.daysStay = calculateDaysStay(quoteRequest.checkOut, quoteRequest.checkIn)
+
+    const now = Datetime.now()
+    quoteRequest.expire = now.plus({ days: 7 }).endOf('day')
 
     next()
 })

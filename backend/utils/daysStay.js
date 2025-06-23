@@ -2,6 +2,10 @@ const formattedDate = (date) => {
     return date.startOf('day')
 }
 
+const getExpireDate = (date) => {
+    return date.endOf('day')
+}
+
 const calculateDaysStay = (checkIn, checkOut) => {
     const inDate = checkIn.startOf('day')
     const outDate = checkOut.startOf('day')
@@ -13,5 +17,6 @@ const calculateDaysStay = (checkIn, checkOut) => {
 
 module.exports = {
     formattedDate,
-    calculateDaysStay
+    calculateDaysStay,
+    getExpireDate
 }

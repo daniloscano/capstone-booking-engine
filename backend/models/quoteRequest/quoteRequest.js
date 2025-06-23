@@ -1,4 +1,5 @@
 const mongoose = require('mongoose')
+const { DateTime } = require('luxon')
 const { formattedDate, calculateDaysStay, getExpireDate } = require('../../utils/daysStay')
 
 const QuoteRequestSchema = new mongoose.Schema(
@@ -62,7 +63,7 @@ QuoteRequestSchema.pre('save', function(next) {
 
     quoteRequest.daysStay = calculateDaysStay(quoteRequest.checkOut, quoteRequest.checkIn)
 
-    const now = Datetime.now()
+    const now = DateTime.now()
     quoteRequest.expire = now.plus({ days: 7 }).endOf('day')
 
     next()

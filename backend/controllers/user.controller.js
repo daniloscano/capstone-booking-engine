@@ -53,14 +53,6 @@ const createUser = async (req, res, next) => {
     const userData = req.body
 
     try {
-        /*
-        const existingUser = UserSchema.findOne({ email: userData.email })
-        console.log(existingUser)
-        if (existingUser) {
-            throw new ExistingUserException()
-        }
-
-         */
         const user = await userService.createUser(userData)
 
         const { password, ...cleanUser } = user.toObject()

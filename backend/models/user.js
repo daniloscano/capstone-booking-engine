@@ -62,7 +62,7 @@ UserSchema.pre('save', async function(next) {
 UserSchema.pre('findOneAndUpdate', async function(next) {
     const update = this.getUpdate()
 
-    if (!update || update.password) {
+    if (!update || !update.password) {
         return next()
     }
 

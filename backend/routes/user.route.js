@@ -7,6 +7,6 @@ user.get("/", userController.getAllUsers)
 user.get("/:userId", userController.findUserById)
 user.post("/create", userController.createUser)
 user.patch("/:userId/edit", userController.updateUserById)
-user.delete("/:userId", userController.deleteUserById)
+user.delete("/:userId/delete", userController.deleteUserById)
 
 module.exports = user

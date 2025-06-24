@@ -1,8 +1,20 @@
 const mongoose = require('mongoose')
+const HTTPException = require('../exceptions/index')
 
 const errorHandler = (err, req, res, next) => {
-    process.env.NODE_ENV === 'dev' && console.error(err)
+    if (err instanceof HTTPException) {
+        return res
+            .status(err.statusCode)
+            .send(
+                {
+                    statusCode: err.statusCode,
+                    message: err.message,
+                    error: err.error
+                }
+            )
+    }
 
+    process.env.NODE_ENV === 'dev' && console.error(err)
     res
         .status(500)
         .send(

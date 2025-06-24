@@ -4,7 +4,7 @@ class UserNotFoundException extends HTTPException {
     constructor(
         message = "No user found!",
         statusCode = 404,
-        error: "No user found in this collection"
+        error = "No user found in this collection"
     ) {
         super(
             message,

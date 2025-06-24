@@ -8,7 +8,6 @@ const RoomTypeSchema = new mongoose.Schema(
         },
         type: {
             type: String,
-            unique: true,
             required: true,
             max: 5
         },

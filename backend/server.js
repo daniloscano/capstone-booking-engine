@@ -11,7 +11,7 @@ const server = express()
 server.use(express.json())
 server.use(cors())
 
-server.use("/user", userRoute)
+server.use("/users", userRoute)
 server.use(errorHandler)
 
 databaseConnection()

@@ -8,7 +8,7 @@ const getAllUsers = async (page, pageSize, filter, sort) => {
 }
 
 const findUserById = async (userId) => {
-    return UserSchema.findById(userId)
+    return UserSchema.findById(userId, '-password')
 }
 
 const createUser = async (userData) => {

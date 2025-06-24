@@ -13,6 +13,7 @@ const RoomTypeSchema = new mongoose.Schema(
         },
         category: {
             type: String,
+            unique: true,
             required: true,
             max: 5
         },

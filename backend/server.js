@@ -6,6 +6,7 @@ const PORT = process.env.PORT || 9099
 
 const userRoute = require('./modules/user/user.route')
 const roomTypeRoute = require('./modules/room/roomType/roomType.route')
+const roomBedRoute = require('./modules/room/roomBed/roomBed.route')
 const errorHandler = require('./shared/middlewares/errorHandler')
 
 const server = express()
@@ -14,6 +15,7 @@ server.use(cors())
 
 server.use("/users", userRoute)
 server.use("/roomTypes", roomTypeRoute)
+server.use("/roomBeds", roomBedRoute)
 server.use(errorHandler)
 
 databaseConnection()

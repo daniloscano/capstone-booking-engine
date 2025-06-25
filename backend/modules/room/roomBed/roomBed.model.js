@@ -20,7 +20,7 @@ const RoomBedSchema = new mongoose.Schema(
         },
         layout: {
             type: String,
-            required: true
+            required: false
         }
     }, { timestamps: true, strict: true }
 )
@@ -43,13 +43,17 @@ RoomBedSchema.pre('save', async function(next) {
 
 RoomBedSchema.pre('findOneAndUpdate', async function(next) {
     const update = this.getUpdate()
-
-    const isUpdated = update.king || update.single || update.crib
-
-    if (!isUpdated) return next()
+    const id = this.getQuery()._id
 
     try {
-        update.layout = generateLayout(update.king, update.single, update.crib)
+        const document = await this.model.findById(id)
+        if (!document) return next()
+
+        const kingUpdate = update.king ?? document.king
+        const singleUpdate = update.single ?? document.single
+        const cribUpdate = update.crib ?? document.crib
+
+        update.layout = generateLayout(kingUpdate, singleUpdate, cribUpdate)
         this.setUpdate(update)
 
         next()

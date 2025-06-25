@@ -15,7 +15,7 @@ const createValidationRules = [
         .notEmpty()
         .isString()
         .isLength({ min: 3, max: 40 })
-        .withMessage('lastName must be a not empty string, between 3 and 40 characters'),
+        .withMessage('username must be a not empty string, between 3 and 40 characters'),
     body('email')
         .notEmpty()
         .isEmail()
@@ -63,7 +63,7 @@ const updateValidationRules = [
         .notEmpty()
         .isString()
         .isLength({ min: 3, max: 40 })
-        .withMessage('lastName must be a not empty string, between 3 and 40 characters'),
+        .withMessage('username must be a not empty string, between 3 and 40 characters'),
     body('email')
         .optional()
         .notEmpty()

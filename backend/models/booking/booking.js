@@ -93,7 +93,7 @@ BookingSchema.pre('save', function(next) {
         return next()
     }
 
-    booking.daysStay = calculateDaysStay(booking.checkOut, booking.checkIn)
+    booking.daysStay = calculateDaysStay(booking.checkIn, booking.checkOut)
 
     next()
 })
@@ -109,7 +109,7 @@ BookingSchema.pre('findOneAndUpdate', async function(next) {
         const checkIn = update.checkIn ?? document.checkIn
         const checkOut = update.checkOut ?? document.checkOut
 
-        update.daysStay = calculateDaysStay(checkOut, checkIn)
+        update.daysStay = calculateDaysStay(checkIn, checkOut)
         this.setUpdate(update)
 
         next()

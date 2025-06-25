@@ -61,7 +61,7 @@ QuoteRequestSchema.pre('save', function(next) {
         return next()
     }
 
-    quoteRequest.daysStay = calculateDaysStay(quoteRequest.checkOut, quoteRequest.checkIn)
+    quoteRequest.daysStay = calculateDaysStay(quoteRequest.checkIn, quoteRequest.checkOut)
 
     const now = DateTime.now()
     quoteRequest.expire = now.plus({ days: 7 }).endOf('day')
@@ -80,7 +80,7 @@ QuoteRequestSchema.pre('findOneAndUpdate', async function(next) {
         const checkIn = update.checkIn ?? document.checkIn
         const checkOut = update.checkOut ?? document.checkOut
 
-        update.daysStay = calculateDaysStay(checkOut, checkIn)
+        update.daysStay = calculateDaysStay(checkIn, checkOut)
         this.setUpdate(update)
 
         next()

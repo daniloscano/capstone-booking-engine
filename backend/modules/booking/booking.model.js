@@ -6,7 +6,7 @@ const BookingSchema = new mongoose.Schema(
     {
         quoteRequestId: {
             type: mongoose.Schema.Types.ObjectId,
-            ref: 'quote'
+            ref: 'quoteRequest'
         },
         masterGuestId: {
             type: mongoose.Schema.Types.ObjectId,

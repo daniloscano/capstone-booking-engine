@@ -89,4 +89,4 @@ QuoteRequestSchema.pre('findOneAndUpdate', async function(next) {
     }
 })
 
-module.exports = mongoose.model('quote', QuoteRequestSchema, 'quoteRequests')
+module.exports = mongoose.model('quoteRequest', QuoteRequestSchema, 'quoteRequests')

@@ -4,7 +4,7 @@ const QuoteSolutionSchema = new mongoose.Schema(
     {
         quoteRequestId: {
             type: mongoose.Schema.Types.ObjectId,
-            ref: 'quote'
+            ref: 'quoteRequest'
         },
         roomTypeId: {
             type: mongoose.Schema.Types.ObjectId,

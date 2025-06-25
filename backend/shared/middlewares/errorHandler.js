@@ -1,5 +1,5 @@
 const mongoose = require('mongoose')
-const HTTPException = require('../exceptions')
+const HTTPException = require('../exceptions/index')
 
 const errorHandler = (err, req, res, next) => {
     if (err.name === 'MongoServerError' && err.code === 11000) {

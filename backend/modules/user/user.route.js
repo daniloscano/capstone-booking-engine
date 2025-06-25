@@ -1,6 +1,6 @@
 const express = require('express')
-const userController = require('../controllers/user.controller')
-const { createValidationRules, updateValidationRules, userValidator } = require('../middlewares/validations/userValidation')
+const userController = require('./user.controller')
+const { createValidationRules, updateValidationRules, userValidator } = require('./userValidation')
 
 const user = express.Router()
 

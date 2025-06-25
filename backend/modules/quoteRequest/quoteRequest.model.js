@@ -1,6 +1,6 @@
 const mongoose = require('mongoose')
 const { DateTime } = require('luxon')
-const { formattedDate, calculateDaysStay, getExpireDate } = require('../../utils/dates')
+const { formattedDate, calculateDaysStay, getExpireDate } = require('../../shared/utils/dates')
 
 const QuoteRequestSchema = new mongoose.Schema(
     {

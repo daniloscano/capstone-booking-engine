@@ -1,5 +1,5 @@
 const mongoose = require('mongoose')
-const {formattedDate} = require("../../utils/dates");
+const {formattedDate} = require("../../shared/utils/dates");
 
 const GuestSchema = new mongoose.Schema(
     {

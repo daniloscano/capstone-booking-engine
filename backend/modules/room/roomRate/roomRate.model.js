@@ -1,5 +1,5 @@
 const mongoose = require('mongoose')
-const RoomUnit = require('./roomUnit')
+const RoomUnit = require('../roomUnit/roomUnit.model')
 
 const RoomRateSchema = new mongoose.Schema(
     {

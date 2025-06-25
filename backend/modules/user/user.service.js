@@ -1,6 +1,6 @@
-const UserSchema = require('../models/user')
+const UserSchema = require('./user.model')
 
-const Pagination = require('../utils/pagination')
+const Pagination = require('../../shared/utils/pagination')
 const pagination = new Pagination(UserSchema)
 
 const getAllUsers = async (page, pageSize, filter, sort) => {

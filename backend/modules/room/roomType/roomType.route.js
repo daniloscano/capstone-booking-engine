@@ -1,6 +1,6 @@
 const express = require('express')
-const roomTypeController = require('../../controllers/room/roomType.controller')
-const { createValidationRules, updateValidationRules, roomTypeValidator } = require('../../middlewares/validations/room/roomTypeValidation')
+const roomTypeController = require('./roomType.controller')
+const { createValidationRules, updateValidationRules, roomTypeValidator } = require('./roomTypeValidation')
 
 const roomType = express.Router()
 

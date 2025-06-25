@@ -1,5 +1,5 @@
 const mongoose = require('mongoose')
-const generateLayout = require('../../utils/roomBed')
+const generateLayout = require('../../../shared/utils/roomBed')
 
 const RoomBedSchema = new mongoose.Schema(
     {

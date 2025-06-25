@@ -1,12 +1,12 @@
 const express = require('express')
 require('dotenv').config()
 const cors = require('cors')
-const databaseConnection = require('./config/database')
+const databaseConnection = require('./shared/config/database')
 const PORT = process.env.PORT || 9099
 
-const userRoute = require('./routes/user.route')
-const roomTypeRoute = require('./routes/room/roomType.route')
-const errorHandler = require('./middlewares/errorHandler')
+const userRoute = require('./modules/user/user.route')
+const roomTypeRoute = require('./modules/room/roomType/roomType.route')
+const errorHandler = require('./shared/middlewares/errorHandler')
 
 const server = express()
 server.use(express.json())

@@ -3,7 +3,7 @@ const mongoose = require('mongoose')
 const RoomUnitSchema = new mongoose.Schema(
     {
         number: {
-            type: String,
+            type: Number,
             unique: true,
             required: true
         },

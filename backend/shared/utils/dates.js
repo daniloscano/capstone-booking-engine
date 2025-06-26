@@ -1,16 +1,16 @@
 const { DateTime } = require('luxon')
 
 const formattedDate = (date) => {
-    return DateTime(date).startOf('day')
+    return DateTime.fromISO(date).startOf('day')
 }
 
 const getExpireDate = (date) => {
-    return DateTime(date).endOf('day')
+    return DateTime.fromISO(date).endOf('day')
 }
 
 const calculateDaysStay = (checkIn, checkOut) => {
-    const inDate = DateTime(checkIn).startOf('day')
-    const outDate = DateTime(checkOut).startOf('day')
+    const inDate = DateTime.fromISO(checkIn).startOf('day')
+    const outDate = DateTime.fromISO(checkOut).startOf('day')
 
     const days = outDate.diff(inDate, 'days').days
 

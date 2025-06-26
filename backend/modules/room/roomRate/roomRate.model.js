@@ -1,6 +1,5 @@
 const mongoose = require('mongoose')
 const RoomUnit = require('../roomUnit/roomUnit.model')
-const {formattedDate} = require("../../../shared/utils/dates")
 
 const RoomRateSchema = new mongoose.Schema(
     {
@@ -10,20 +9,18 @@ const RoomRateSchema = new mongoose.Schema(
         },
         totalUnits: {
             type: Number,
-            required: false
+            required: true
         },
         soldUnits: {
             type: Number,
-            required: true,
-            default: 0
+            required: true
         },
         availableUnits: {
             type: Number,
-            required: false
+            required: true
         },
         date: {
             type: Date,
-            set: (value) => formattedDate(value),
             required: true
         },
         basePrice: {
@@ -31,7 +28,7 @@ const RoomRateSchema = new mongoose.Schema(
             required: true
         },
         basePriceIncrement: {
-            type: Number,
+            type: String,
             required: true
         },
         price: {

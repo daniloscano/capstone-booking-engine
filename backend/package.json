@@ -31,6 +31,7 @@
     "@userModules": "modules/user",
     "@shared": "shared",
     "@exceptions": "shared/exceptions",
+    "@guestExceptions": "shared/exceptions/guest",
     "@roomExceptions": "shared/exceptions/room",
     "@userExceptions": "shared/exceptions/user",
     "@middlewares": "shared/middlewares",

@@ -1,6 +1,6 @@
 const RoomUnitSchema = require('./roomUnit.model')
 
-const Pagination = require('../../../shared/utils/pagination')
+const Pagination = require('@utils/pagination')
 const pagination = new Pagination(RoomUnitSchema)
 
 const getALlRoomUnits = async (page, pageSize, filter, sort) => {

@@ -1,5 +1,5 @@
 const userService = require('./user.service')
-const UserNotFoundException = require('../../shared/exceptions/user/userNotFoundException')
+const UserNotFoundException = require('@userExceptions/userNotFoundException')
 
 const getAllUsers = async (req, res, next) => {
     const { page = 1, pageSize = 10 } = req.query

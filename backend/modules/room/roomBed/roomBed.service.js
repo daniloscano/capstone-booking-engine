@@ -1,6 +1,6 @@
 const RoomBedSchema = require('./roomBed.model')
 
-const Pagination = require('../../../shared/utils/pagination')
+const Pagination = require('@utils/pagination')
 const pagination = new Pagination(RoomBedSchema)
 
 const getAllRoomBeds = async (page, pageSize, filter, sort) => {

@@ -1,5 +1,5 @@
 const roomUnitService = require('./roomUnit.service')
-const RoomUnitNotFoundException = require("../../../shared/exceptions/room/roomUnit/roomUnitNotFoundException")
+const RoomUnitNotFoundException = require("@roomExceptions/roomUnit/roomUnitNotFoundException")
 
 const getAllRoomUnits = async (req, res, next) => {
     const { page = 1, pageSize = 10 } = req.query

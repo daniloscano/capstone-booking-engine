@@ -1,5 +1,5 @@
 const roomRateService = require('./roomRate.service')
-const RoomRateNotFoundException = require("../../../shared/exceptions/room/roomRate/roomRateNotFoundException")
+const RoomRateNotFoundException = require("@roomExceptions/roomRate/roomRateNotFoundException")
 
 const getAllRoomRates = async (req, res, next) => {
     const { page = 1, pageSize = 10 } = req.query

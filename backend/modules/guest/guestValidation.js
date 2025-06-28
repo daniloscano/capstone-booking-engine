@@ -10,7 +10,7 @@ const createValidationRules = [
         .notEmpty()
         .isString()
         .isLength({ max: 40 })
-        .withMessage('lastName must be a not empty string, with a maximum of 40 characters'),
+        .withMessage('lastName must be a not empty string, with a maximum of 80 characters'),
     body('isMaster')
         .isBoolean()
         .withMessage('isMaster must be a boolean value (true/false)'),
@@ -53,7 +53,7 @@ const updateValidationRules = [
         .notEmpty()
         .isString()
         .isLength({ max: 40 })
-        .withMessage('lastName must be a not empty string, with a maximum of 40 characters'),
+        .withMessage('lastName must be a not empty string, with a maximum of 80 characters'),
     body('isMaster')
         .optional()
         .isBoolean()

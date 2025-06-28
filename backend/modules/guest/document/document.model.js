@@ -16,7 +16,7 @@ const DocumentSchema = new mongoose.Schema(
             type: String,
             required: true
         },
-        expireSate: {
+        expireDate: {
             type: Date,
             set: (value) => formattedDate(value),
             required: true

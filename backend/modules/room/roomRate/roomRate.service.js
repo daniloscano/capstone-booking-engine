@@ -1,6 +1,6 @@
 const RoomRateSchema = require('./roomRate.model')
 
-const Pagination = require('../../../shared/utils/pagination')
+const Pagination = require('@utils/pagination')
 const pagination = new Pagination(RoomRateSchema)
 
 const getAllRoomRates = async (page, pageSize, filter, sort) => {

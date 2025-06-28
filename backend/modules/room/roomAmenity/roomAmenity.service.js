@@ -1,6 +1,6 @@
 const RoomAmenitySchema = require('./roomAmenity.model')
 
-const Pagination = require('../../../shared/utils/pagination')
+const Pagination = require('@utils/pagination')
 const pagination = new Pagination(RoomAmenitySchema)
 
 const getAllRoomAmenities = async (page, pageSize, filter, sort) => {

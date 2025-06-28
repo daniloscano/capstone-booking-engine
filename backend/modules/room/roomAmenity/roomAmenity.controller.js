@@ -1,7 +1,5 @@
 const roomAmenityService = require('./roomAmenity.service')
-const RoomAmenityNotFoundException = require("../../../shared/exceptions/room/roomAmenity/roomAmenityNotFoundException")
-const roomTypeService = require("../roomType/roomType.service");
-const RoomTypeNotFoundException = require("../../../shared/exceptions/room/roomType/roomTypeNotFoundException");
+const RoomAmenityNotFoundException = require("@roomExceptions/roomAmenity/roomAmenityNotFoundException")
 
 const getAllRoomAmenities = async (req, res, next) => {
     const { page = 1, pageSize = 10 } = req.query

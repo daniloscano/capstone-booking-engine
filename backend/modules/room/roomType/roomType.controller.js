@@ -1,5 +1,5 @@
 const roomTypeService = require('./roomType.service')
-const RoomTypeNotFoundException = require("../../../shared/exceptions/room/roomType/roomTypeNotFoundException")
+const RoomTypeNotFoundException = require("@roomExceptions/roomType/roomTypeNotFoundException")
 
 const getAllRoomTypes = async (req, res, next) => {
     const { page = 1, pageSize = 10 } = req.query

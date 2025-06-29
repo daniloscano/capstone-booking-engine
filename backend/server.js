@@ -16,6 +16,8 @@ const addressRoute = require('@guestModules/address/address.route')
 const documentRoute = require('@guestModules/document/document.route')
 const ancillaryRoute = require('@hotelModules/ancillary/ancillary.route')
 const bookingPolicyRoute = require('@hotelModules/bookingPolicy/bookingPolicy.route')
+
+const bookingPaymentRoute = require('@bookingModules/bookingPayment/bookingPayment.route')
 const errorHandler = require('./shared/middlewares/errorHandler')
 
 const server = express()
@@ -33,6 +35,8 @@ server.use("/addresses", addressRoute)
 server.use("/documents", documentRoute)
 server.use("/ancillaries", ancillaryRoute)
 server.use("/bookingPolicies", bookingPolicyRoute)
+
+server.use("/bookingPayments", bookingPaymentRoute)
 server.use(errorHandler)
 
 databaseConnection()

@@ -32,6 +32,7 @@
     "@shared": "shared",
     "@exceptions": "shared/exceptions",
     "@bookingExceptions": "shared/exceptions/booking",
+    "@quoteRequestExceptions": "shared/exceptions/quoteRequest",
     "@guestExceptions": "shared/exceptions/guest",
     "@hotelExceptions": "shared/exceptions/hotel",
     "@roomExceptions": "shared/exceptions/room",

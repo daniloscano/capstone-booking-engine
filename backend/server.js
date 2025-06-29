@@ -5,6 +5,7 @@ const cors = require('cors')
 const databaseConnection = require('./shared/config/database')
 const PORT = process.env.PORT || 9099
 
+
 const userRoute = require('@userModules/user.route')
 const roomTypeRoute = require('@roomModules/roomType/roomType.route')
 const roomBedRoute = require('@roomModules/roomBed/roomBed.route')
@@ -18,7 +19,10 @@ const ancillaryRoute = require('@hotelModules/ancillary/ancillary.route')
 const bookingPolicyRoute = require('@hotelModules/bookingPolicy/bookingPolicy.route')
 
 const bookingPaymentRoute = require('@bookingModules/bookingPayment/bookingPayment.route')
+
+const quoteSolutionRoute = require('@quoteRequestModules/quoteSolution/quoteSolution.route')
 const errorHandler = require('./shared/middlewares/errorHandler')
+
 
 const server = express()
 server.use(express.json())
@@ -37,7 +41,11 @@ server.use("/ancillaries", ancillaryRoute)
 server.use("/bookingPolicies", bookingPolicyRoute)
 
 server.use("/bookingPayments", bookingPaymentRoute)
+
+server.use("/quoteSolutions", quoteSolutionRoute)
+
 server.use(errorHandler)
+
 
 databaseConnection()
 

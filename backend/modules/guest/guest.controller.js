@@ -1,7 +1,7 @@
 const guestService = require('./guest.service')
 const GuestNotFoundException = require("@guestExceptions/guestNotFoundException")
 
-const getAlGuests = async (req, res, next) => {
+const getAllGuests = async (req, res, next) => {
     const { page = 1, pageSize = 10 } = req.query
 
     try {
@@ -117,7 +117,7 @@ const deleteGuestById = async (req, res, next) => {
 }
 
 module.exports = {
-    getAlGuests,
+    getAllGuests,
     getGuestById,
     createGuest,
     updateGuestById,

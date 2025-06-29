@@ -4,7 +4,7 @@ const { createValidationRules, updateValidationRules, guestValidator } = require
 
 const guest = express.Router()
 
-guest.get("/", guestController.getAlGuests)
+guest.get("/", guestController.getAllGuests)
 guest.get("/:guestId", guestController.getGuestById)
 guest.post("/create", [ createValidationRules, guestValidator ], guestController.createGuest)
 guest.patch("/:guestId/edit", [ updateValidationRules, guestValidator ], guestController.updateGuestById)

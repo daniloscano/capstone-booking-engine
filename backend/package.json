@@ -32,6 +32,7 @@
     "@shared": "shared",
     "@exceptions": "shared/exceptions",
     "@guestExceptions": "shared/exceptions/guest",
+    "@hotelExceptions": "shared/exceptions/hotel",
     "@roomExceptions": "shared/exceptions/room",
     "@userExceptions": "shared/exceptions/user",
     "@middlewares": "shared/middlewares",

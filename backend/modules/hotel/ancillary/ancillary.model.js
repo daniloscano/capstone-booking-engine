@@ -1,6 +1,6 @@
 const mongoose = require('mongoose')
 
-const ExtraServiceSchema = new mongoose.Schema(
+const AncillarySchema = new mongoose.Schema(
     {
         name: {
             type: String,
@@ -18,9 +18,9 @@ const ExtraServiceSchema = new mongoose.Schema(
             type: String,
             required: true,
             default: 'none',
-            enum: [ 'none', 'perNight', 'perAdult', 'perChild' ]
+            enum: [ 'none', 'perNight', 'perOccupancy' ]
         }
     }, { timestamps: true, strict: true }
 )
 
-module.exports = mongoose.model('extraService', ExtraServiceSchema, 'extraServices')
+module.exports = mongoose.model('ancillary', AncillarySchema, 'ancillaries')

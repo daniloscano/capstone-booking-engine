@@ -1,6 +1,5 @@
 const mongoose = require('mongoose')
-const { formattedDate, calculateDaysStay } = require('../../shared/utils/dates')
-const { DateTime } = require('luxon')
+const { formattedDate, calculateDaysStay } = require('@utils/dates')
 
 const BookingSchema = new mongoose.Schema(
     {
@@ -57,13 +56,13 @@ const BookingSchema = new mongoose.Schema(
             type: Number,
             required: true
         },
-        extraServicesIds: [
+        ancillariesIds: [
             {
                 type: mongoose.Schema.Types.ObjectId,
-                ref: 'extraService'
+                ref: 'ancillary'
             }
         ],
-        extraPrice: {
+        ancillariesPrice: {
             type: Number,
             required: true
         },

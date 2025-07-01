@@ -25,7 +25,8 @@ const BookingPaymentSchema = new mongoose.Schema(
         completedDate: {
             type: Date,
             set: (value) => formattedDate(value),
-            required: true
+            required: true,
+            default: null
         }
     }, { timestamps: true, strict: true }
 )

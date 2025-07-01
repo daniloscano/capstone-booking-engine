@@ -1,6 +1,6 @@
 const mongoose = require('mongoose')
 const { DateTime } = require('luxon')
-const { formattedDate, calculateDaysStay, getExpireDate } = require('../../shared/utils/dates')
+const { formattedDate, calculateDaysStay, getExpireDate } = require('@utils/dates')
 
 const QuoteRequestSchema = new mongoose.Schema(
     {
@@ -16,7 +16,7 @@ const QuoteRequestSchema = new mongoose.Schema(
         },
         daysStay: {
             type: Number,
-            required: true
+            required: false
         },
         adults: {
             type: Number,

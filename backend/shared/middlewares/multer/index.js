@@ -10,11 +10,12 @@ cloudinary.config(
     }
 )
 
-const roomsStorage = (imageName = '') => {
+const roomsStorage = (fileName = 'image') => {
     return new CloudinaryStorage(
         {
             cloudinary: cloudinary,
             params: (req, file) => {
+                const imageName = fileName.toLowerCase().split(' ').join('-')
                 const filePath = `rooms/${imageName}`
                 file.originalname = imageName + '.jpg'
 
@@ -29,12 +30,12 @@ const roomsStorage = (imageName = '') => {
     )
 }
 
-const roomsUpload = (imageName) => {
-    const storage = roomsStorage(imageName)
+const roomsUpload = (fileName) => {
+    const storage = roomsStorage(fileName)
     return multer({ storage })
 }
 
-const iconsStorage = (imageName) => {
+const iconsStorage = () => {
     return new CloudinaryStorage(
         {
             cloudinary: cloudinary,
@@ -43,15 +44,16 @@ const iconsStorage = (imageName) => {
                 return {
                     folder: 'icons',
                     format: 'png',
-                    public_id: imageName
+                    use_filename: true,
+                    unique_filename: true
                 }
             }
         }
     )
 }
 
-const iconsUpload = (imageName) => {
-    const storage = iconsStorage(imageName)
+const iconsUpload = () => {
+    const storage = iconsStorage()
     return multer({ storage })
 }
 

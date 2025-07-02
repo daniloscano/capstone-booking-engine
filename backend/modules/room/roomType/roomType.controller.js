@@ -49,8 +49,13 @@ const findRoomTypeById = async (req, res, next) => {
 
 const createRoomType = async (req, res, next) => {
     const roomTypeData = req.body
+    const { files } = req
 
     try {
+        if (files && files.length > 0) {
+            roomTypeData.images = files.map(file => file.path)
+        }
+
         const roomType = await roomTypeService.createRoomType(roomTypeData)
 
         res
@@ -70,8 +75,13 @@ const createRoomType = async (req, res, next) => {
 const updateRoomTypeById = async (req, res, next) => {
     const { roomTypeId } = req.params
     const roomTypeData = req.body
+    const { files } = req
 
     try {
+        if (files && files.length > 0) {
+            roomTypeData.images = files.map(file => file.path)
+        }
+
         const roomType = await roomTypeService.updateRoomTypeById(roomTypeId, roomTypeData)
 
         if (!roomType) {

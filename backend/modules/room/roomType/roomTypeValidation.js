@@ -20,9 +20,11 @@ const createValidationRules = [
         .isString()
         .withMessage('description must be a not empty string'),
     body('bedsId')
+        .optional()
         .isMongoId()
         .withMessage('bedsId must be a valid ObjectId'),
     body('amenitiesIds')
+        .optional()
         .isArray()
         .withMessage('amenitiesIds must be an array'),
     body('amenitiesIds.*')

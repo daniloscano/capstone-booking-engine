@@ -1,4 +1,5 @@
 const AddressSchema = require('./address.model')
+const GuestSchema = require('../guest.model')
 
 const Pagination = require('@utils/pagination')
 const pagination = new Pagination(AddressSchema)
@@ -13,7 +14,11 @@ const getAddressById = async (addressId) => {
 
 const createAddress = async (addressData) => {
     const newAddress = new AddressSchema(addressData)
-    return await newAddress.save()
+    const savedAddress = await newAddress.save()
+
+    GuestSchema.findByIdAndUpdate({ _id: addressData.guestId }, { addressId: savedAddress._id })
+
+    return savedAddress
 }
 
 const updateAddressById = async (addressId, addressData) => {
@@ -21,7 +26,11 @@ const updateAddressById = async (addressId, addressData) => {
 }
 
 const deleteAddressById = async (addressId) => {
-    return AddressSchema.findByIdAndDelete(addressId)
+    const address = await AddressSchema.findByIdAndDelete(addressId)
+
+    await GuestSchema.findByIdAndUpdate({ _id: address.guestId }, { $unset: { addressId: '' } })
+
+    return address
 }
 
 module.exports = {

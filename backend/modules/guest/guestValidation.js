@@ -11,6 +11,12 @@ const createValidationRules = [
         .isString()
         .isLength({ max: 40 })
         .withMessage('lastName must be a not empty string, with a maximum of 80 characters'),
+    body('gender')
+        .optional()
+        .notEmpty()
+        .isString()
+        .isIn([ 'male', 'female' ])
+        .withMessage('gender must be either male or female'),
     body('isMaster')
         .isBoolean()
         .withMessage('isMaster must be a boolean value (true/false)'),
@@ -54,6 +60,12 @@ const updateValidationRules = [
         .isString()
         .isLength({ max: 40 })
         .withMessage('lastName must be a not empty string, with a maximum of 80 characters'),
+    body('gender')
+        .optional()
+        .notEmpty()
+        .isString()
+        .isIn([ 'male', 'female' ])
+        .withMessage('gender must be either male or female'),
     body('isMaster')
         .optional()
         .isBoolean()

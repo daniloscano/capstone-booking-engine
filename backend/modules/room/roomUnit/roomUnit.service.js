@@ -4,11 +4,29 @@ const Pagination = require('@utils/pagination')
 const pagination = new Pagination(RoomUnitSchema)
 
 const getALlRoomUnits = async (page, pageSize, filter, sort) => {
-    return await pagination.getPaginatedData(page, pageSize, filter, sort)
+    const fieldToPopulate = {
+        path: 'roomTypeId',
+        select: 'name type category',
+        populate: {
+            path: 'bedsId',
+            select: 'layout'
+        }
+    }
+    return await pagination.getPaginatedData(page, pageSize, filter, sort, fieldToPopulate)
 }
 
 const getRoomUnitById = async (roomUnitId) => {
     return RoomUnitSchema.findById(roomUnitId)
+        .populate(
+            {
+                path: 'roomTypeId',
+                select: 'name type category',
+                populate: {
+                    path: 'bedsId',
+                    select: 'layout'
+                }
+            }
+        )
 }
 
 const createRoomUnit = async (roomUnitData) => {

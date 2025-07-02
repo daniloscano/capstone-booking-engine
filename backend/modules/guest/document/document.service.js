@@ -1,4 +1,5 @@
 const DocumentSchema = require('./document.model')
+const GuestSchema = require('../guest.model')
 
 const Pagination = require('@utils/pagination')
 const pagination = new Pagination(DocumentSchema)
@@ -13,7 +14,11 @@ const getDocumentById = async (documentId) => {
 
 const createDocument = async (documentData) => {
     const newDocument = new DocumentSchema(documentData)
-    return await newDocument.save()
+    const savedDocument = await newDocument.save()
+
+    await GuestSchema.findByIdAndUpdate({ _id: documentData.guestId }, { documentId: savedDocument._id })
+
+    return savedDocument
 }
 
 const updateDocumentById = async (documentId, documentData) => {
@@ -21,7 +26,11 @@ const updateDocumentById = async (documentId, documentData) => {
 }
 
 const deleteDocumentById = async (documentId) => {
-    return DocumentSchema.findByIdAndDelete(documentId)
+    const document = await DocumentSchema.findByIdAndDelete(documentId)
+
+    await GuestSchema.findByIdAndUpdate({ _id: document.guestId }, { $unset: { documentId: '' } })
+
+    return document
 }
 
 module.exports = {

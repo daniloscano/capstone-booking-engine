@@ -1,4 +1,6 @@
 const GuestSchema = require('./guest.model')
+const AddressSchema = require('./address/address.model')
+const DocumentSchema = require('./document/document.model')
 
 const Pagination = require('@utils/pagination')
 const pagination = new Pagination(GuestSchema)
@@ -45,7 +47,12 @@ const updateGuestById = async (guestId, guestData) => {
 }
 
 const deleteGuestById = async (guestId) => {
-    return GuestSchema.findByIdAndDelete(guestId)
+    const guest = await GuestSchema.findByIdAndDelete(guestId)
+
+    await AddressSchema.findOneAndDelete({ guestId: guestId })
+    await DocumentSchema.findOneAndDelete({ guestId: guestId })
+
+    return guest
 }
 
 module.exports = {

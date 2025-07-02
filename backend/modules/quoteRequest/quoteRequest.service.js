@@ -3,12 +3,38 @@ const QuoteRequestSchema = require('./quoteRequest.model')
 const Pagination = require('@utils/pagination')
 const pagination = new Pagination(QuoteRequestSchema)
 
+const fieldsToPopulate = {
+    path: 'quoteSolutionsIds',
+    select: 'price isConfirmed',
+    populate: [
+        {
+            path: 'roomTypeId',
+            select: 'name type category description dimensions images maxOccupancy hasCrib',
+            populate: [
+                {
+                    path: 'bedsId',
+                    select: 'king single crib'
+                },
+                {
+                    path: 'amenitiesIds',
+                    select: 'name icon'
+                },
+            ]
+        },
+        {
+            path: 'bookingPolicyId',
+            select: 'name'
+        }
+    ]
+}
+
 const getAllQuoteRequests = async (page, pageSize, filter, sort) => {
-    return await pagination.getPaginatedData(page, pageSize, filter, sort)
+    return await pagination.getPaginatedData(page, pageSize, filter, sort, fieldsToPopulate)
 }
 
 const getQuoteRequestById = async (quoteRequestId) => {
     return QuoteRequestSchema.findById(quoteRequestId)
+        .populate(fieldsToPopulate)
 }
 
 const createQuoteRequest = async (quoteRequestData) => {

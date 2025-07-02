@@ -49,8 +49,13 @@ const getRoomAmenityById = async (req, res, next) => {
 
 const createRoomAmenity = async (req, res, next) => {
     const roomAmenityData = req.body
+    const { file } = req
 
     try {
+        if (file && file.path) {
+            roomAmenityData.icon = file.path
+        }
+
         const roomAmenity = await roomAmenityService.createRoomAmenity(roomAmenityData)
 
         res
@@ -70,8 +75,12 @@ const createRoomAmenity = async (req, res, next) => {
 const updateRoomAmenityById = async (req, res, next) => {
     const { roomAmenityId } = req.params
     const roomAmenityData = req.body
+    const { file } = req
 
     try {
+        if (file && file.path) {
+            roomAmenityData.icon = file.path
+        }
         const roomAmenity = await roomAmenityService.updateRoomAmenityById(roomAmenityId, roomAmenityData)
 
         if (!roomAmenity) {

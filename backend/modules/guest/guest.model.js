@@ -13,6 +13,12 @@ const GuestSchema = new mongoose.Schema(
             required: true,
             max: 80
         },
+        gender: {
+            type: String,
+            required: true,
+            default: 'male',
+            enum: [ 'male', 'female' ]
+        },
         isMaster: {
             type: Boolean,
             required: true,

@@ -26,6 +26,7 @@
   },
   "_moduleAliases": {
     "@modules": "modules",
+    "@checkAvailabilityModules": "modules/checkAvailability",
     "@bookingModules": "modules/booking",
     "@guestModules": "modules/guest",
     "@hotelModules": "modules/hotel",

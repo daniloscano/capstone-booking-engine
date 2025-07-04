@@ -27,6 +27,7 @@
   "_moduleAliases": {
     "@modules": "modules",
     "@checkAvailabilityModules": "modules/checkAvailability",
+    "@roomAvailabilityModules": "modules/roomAvailability",
     "@bookingModules": "modules/booking",
     "@guestModules": "modules/guest",
     "@hotelModules": "modules/hotel",

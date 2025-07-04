@@ -37,8 +37,8 @@ const checkAvailability = async (quoteRequestData) => {
             // trova camere occupate
             const occupiedRoomsIds = await BookingSchema.find(
                 {
-                    checkIn: {$lt: requestCheckIn},
-                    checkOut: {$gt: requestCheckOut}
+                    checkIn: {$lt: requestCheckOut},
+                    checkOut: {$gt: requestCheckIn}
                 }
             ).distinct('roomId').session(session)
 

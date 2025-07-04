@@ -17,7 +17,6 @@ const roomsStorage = (fileName = 'image') => {
             params: (req, file) => {
                 const imageName = fileName.toLowerCase().split(' ').join('-')
                 const filePath = `rooms/${imageName}`
-                file.originalname = imageName + '.jpg'
 
                 return {
                     folder: filePath,

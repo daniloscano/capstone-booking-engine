@@ -7,8 +7,8 @@ const roomType = express.Router()
 
 roomType.get("/", roomTypeController.getAllRoomTypes)
 roomType.get("/:roomTypeId", roomTypeController.findRoomTypeById)
-roomType.post("/create", [ roomsUpload.array('images', 5), createValidationRules, roomTypeValidator ], roomTypeController.createRoomType)
-roomType.patch("/:roomTypeId/edit", [ roomsUpload.array('images', 5), updateValidationRules, roomTypeValidator ], roomTypeController.updateRoomTypeById)
+roomType.post("/create", [ roomsUpload().array('images', 5), createValidationRules, roomTypeValidator ], roomTypeController.createRoomType)
+roomType.patch("/:roomTypeId/edit", [ roomsUpload().array('images', 5), updateValidationRules, roomTypeValidator ], roomTypeController.updateRoomTypeById)
 roomType.delete("/:roomTypeId/delete", roomTypeController.deleteRoomTypeById)
 
 module.exports = roomType

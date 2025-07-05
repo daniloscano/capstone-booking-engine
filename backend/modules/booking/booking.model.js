@@ -74,7 +74,7 @@ const BookingSchema = new mongoose.Schema(
             type: String,
             required: true,
             default: 'waiting for deposit',
-            enum: [ 'waiting for deposit', 'waiting for balance', 'confirmed', 'canceled' ]
+            enum: [ 'waitingForDeposit', 'waitingForBalance', 'confirmed', 'canceled' ]
         },
         paymentsIds: [
             {

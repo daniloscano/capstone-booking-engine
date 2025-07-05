@@ -7,6 +7,8 @@ const PORT = process.env.PORT || 9099
 
 
 const checkAvailabilityRoute = require('@checkAvailabilityModules/checkAvailability.route')
+const checkRoomAvailabilityRoute = require('@roomAvailabilityModules/roomAvailability.route')
+const createBookingRoute = require('@createBookingModules/createBooking.route')
 const userRoute = require('@userModules/user.route')
 const roomTypeRoute = require('@roomModules/roomType/roomType.route')
 const roomBedRoute = require('@roomModules/roomBed/roomBed.route')
@@ -30,6 +32,8 @@ server.use(express.json())
 server.use(cors())
 
 server.use("/check-availability", checkAvailabilityRoute)
+server.use("/room-availability", checkRoomAvailabilityRoute)
+server.use("/create-booking", createBookingRoute)
 server.use("/users", userRoute)
 server.use("/roomTypes", roomTypeRoute)
 server.use("/roomBeds", roomBedRoute)

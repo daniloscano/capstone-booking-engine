@@ -28,6 +28,7 @@
     "@modules": "modules",
     "@checkAvailabilityModules": "modules/checkAvailability",
     "@roomAvailabilityModules": "modules/roomAvailability",
+    "@createBookingModules": "modules/createBooking",
     "@bookingModules": "modules/booking",
     "@guestModules": "modules/guest",
     "@hotelModules": "modules/hotel",

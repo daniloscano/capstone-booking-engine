@@ -28,8 +28,6 @@ const createBooking = async (
             .session(session)
         const quoteRequest = await QuoteRequestSchema.findById(quoteSolution.quoteRequestId)
             .session(session)
-        const roomUnit = await RoomUnitSchema.findById(roomUnitId)
-            .session(session)
 
         const nights = quoteRequest.daysStay
         const adults = quoteRequest.adults

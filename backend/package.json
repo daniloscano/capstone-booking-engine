@@ -19,7 +19,8 @@
     "module-alias": "^2.2.3",
     "mongoose": "^8.16.0",
     "multer": "^2.0.1",
-    "multer-storage-cloudinary": "^4.0.0"
+    "multer-storage-cloudinary": "^4.0.0",
+    "nodemailer": "^7.0.4"
   },
   "devDependencies": {
     "nodemon": "^3.1.10"
@@ -37,6 +38,7 @@
     "@userModules": "modules/user",
     "@shared": "shared",
     "@exceptions": "shared/exceptions",
+    "@mailer": "shared/mailer",
     "@bookingExceptions": "shared/exceptions/booking",
     "@quoteRequestExceptions": "shared/exceptions/quoteRequest",
     "@guestExceptions": "shared/exceptions/guest",

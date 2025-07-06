@@ -21,11 +21,10 @@ const checkAvailability = async (quoteRequestData) => {
 
     const session = await mongoose.startSession()
     await session.withTransaction(async () => {
-            // salvataggio booking policies
+
             const standardPolicy = await BookingPolicySchema.findOne({code: 'std'}).session(session)
             const notRefundablePolicy = await BookingPolicySchema.findOne({code: 'nref'}).session(session)
 
-            // filtro room types che soddisfano occupazione e infant
             const roomTypes = await RoomTypeSchema.find(
                 {
                     maxOccupancy: {$gte: totalGuests},
@@ -34,7 +33,6 @@ const checkAvailability = async (quoteRequestData) => {
                 }
             ).session(session)
 
-            // trova camere occupate
             const occupiedRoomsIds = await BookingSchema.find(
                 {
                     checkIn: {$lt: requestCheckOut},
@@ -55,7 +53,6 @@ const checkAvailability = async (quoteRequestData) => {
                 throw new Error('No available rooms for this quote request')
             }
 
-            // crea le quoteSolutions
             for (const roomTypeId of availableRoomTypeIds) {
                 const rates = await RoomRateSchema.find(
                     {

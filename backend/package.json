@@ -38,6 +38,7 @@
     "@userModules": "modules/user",
     "@shared": "shared",
     "@exceptions": "shared/exceptions",
+    "@mailer": "shared/mailer",
     "@bookingExceptions": "shared/exceptions/booking",
     "@quoteRequestExceptions": "shared/exceptions/quoteRequest",
     "@guestExceptions": "shared/exceptions/guest",

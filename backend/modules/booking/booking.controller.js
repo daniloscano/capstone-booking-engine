@@ -47,6 +47,30 @@ const getBookingById = async (req, res, next) => {
     }
 }
 
+const getBookingsByMasterGuestId = async (req, res, next) => {
+    const { page = 1, pageSize = 10 } = req.query
+    const { masterGuestId } = req.params
+
+    try {
+        const bookings = await bookingService.getBookingsByMasterGuestId(masterGuestId, page, pageSize)
+
+        if (bookings.data.length === 0) {
+            throw new BookingNotFoundException()
+        }
+
+        res
+            .status(200)
+            .send(
+                {
+                    statusCode: 200,
+                    bookings
+                }
+            )
+    } catch (err) {
+        next(err)
+    }
+}
+
 const createBooking = async (req, res, next) => {
     const bookingData = req.body
 
@@ -119,6 +143,7 @@ const deleteBookingById = async (req, res, next) => {
 module.exports = {
     getAllBookings,
     getBookingById,
+    getBookingsByMasterGuestId,
     createBooking,
     updateBookingById,
     deleteBookingById

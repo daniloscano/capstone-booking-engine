@@ -43,6 +43,11 @@ const getBookingById = async (bookingId) => {
         .populate(fieldsToPopulate)
 }
 
+const getBookingsByMasterGuestId = async (masterGuestId, page, pageSize, sort) => {
+    const filter = { masterGuestId: masterGuestId }
+    return await pagination.getPaginatedData(page, pageSize, filter, sort, fieldsToPopulate)
+}
+
 const createBooking = async (bookingData) => {
     const newBooking = new BookingSchema(bookingData)
     return await newBooking.save()
@@ -59,6 +64,7 @@ const deleteBookingById = async (bookingId) => {
 module.exports = {
     getAllBookings,
     getBookingById,
+    getBookingsByMasterGuestId,
     createBooking,
     updateBookingById,
     deleteBookingById

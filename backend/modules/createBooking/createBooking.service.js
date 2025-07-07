@@ -1,13 +1,15 @@
 const mongoose = require('mongoose')
 const QuoteRequestSchema = require('@quoteRequestModules/quoteRequest.model')
 const QuoteSolutionSchema = require('@quoteRequestModules/quoteSolution/quoteSolution.model')
-const RoomUnitSchema = require('@roomModules/roomUnit/roomUnit.model')
 const AncillarySchema = require('@hotelModules/ancillary/ancillary.model')
 const GuestSchema = require('@guestModules/guest.model')
 const AddressSchema = require('@guestModules/address/address.model')
 const DocumentSchema = require('@guestModules/document/document.model')
+const UserSchema = require('@userModules/user.model')
 const BookingSchema = require('@bookingModules/booking.model')
 const BookingPaymentSchema = require('@bookingModules/bookingPayment/bookingPayment.model')
+const jwt = require('jsonwebtoken')
+const sendEmail = require("@mailer/config")
 
 const createBooking = async (
     {
@@ -34,7 +36,7 @@ const createBooking = async (
         const children = quoteRequest.children
 
         const ancillaryPriceItems = []
-        for (const { ancillaryId } of ancillariesData) {
+        for (const {ancillaryId} of ancillariesData) {
             const ancillary = await AncillarySchema.findById(ancillaryId)
                 .session(session)
 
@@ -73,17 +75,53 @@ const createBooking = async (
                 documentId: document._id
             }
         )
-        await masterGuest.save({ session })
+        await masterGuest.save({session})
+
+        const existingUser = await UserSchema.findOne({email: masterGuestData.email})
+            .session(session)
+
+        if (!existingUser) {
+            const randomPassword = crypto.randomBytes(6).toString('hex')
+            const newUsername = `${masterGuestData.firstName.toLowerCase()}${masterGuestData.lastName.toLowerCase()}`
+            const newUser = new UserSchema(
+                {
+                    firstName: masterGuestData.firstName,
+                    lastName: masterGuestData.lastName,
+                    email: masterGuestData.email,
+                    username: newUsername,
+                    password: randomPassword,
+                    role: 'guest'
+                }
+            )
+            await newUser.save({session})
+
+            const resetToken = jwt.sign(
+                {id: newUser.id},
+                process.env.JWT_SECRET,
+                {expiresIn: '30m'}
+            )
+
+            const resetLink = `${process.env.CLIENT_BASE_URL}/reset-password?token=${resetToken}`
+
+            const emailBody = `
+                <h3>Benvenuto!</h3>
+                <p>Il tuo account è stato creato con successo</p>
+                <p>Per attivare il tuo account, ti chiediamo di <a href="${resetLink}">cliccare qui</a> per impostare la tua password</p>
+                <p>La password provvisoria è: <b>${newUser.password}</b></p>
+            `
+
+            await sendEmail(savedUser.email, 'Il tuo account è stato creato!', emailBody)
+        }
 
         const guestsIds = []
         for (const guestData of guestsData) {
             const guest = new GuestSchema(guestData)
-            await guest.save({ session })
+            await guest.save({session})
             guestsIds.push(guest._id)
         }
 
         const bookingPayment = new BookingPaymentSchema(paymentData)
-        await bookingPayment.save({ session })
+        await bookingPayment.save({session})
 
         const booking = new BookingSchema(
             {
@@ -102,10 +140,10 @@ const createBooking = async (
                 ancillariesPrice,
                 totalPrice: paymentData.amount,
                 stage: 'waitingForDeposit',
-                paymentsIds: [ bookingPayment._id ]
+                paymentsIds: [bookingPayment._id]
             }
         )
-        await booking.save({ session })
+        await booking.save({session})
 
         return booking
     }).finally(() => session.endSession())

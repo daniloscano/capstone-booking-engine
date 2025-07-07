@@ -4,7 +4,7 @@ const crypto = require('crypto')
 const UserSchema = require('@userModules/user.model')
 const UserNotFoundException = require('@userExceptions/userNotFoundException')
 const InvalidCredentialsException = require("@authExceptions/invalidCredentialsException")
-const sendEmail = require("@mailer/config");
+const sendEmail = require("@mailer/config")
 const InvalidOrMissingTokenException = require("@authExceptions/InvalidOrMissingTokenException");
 
 const register = async (userData) => {

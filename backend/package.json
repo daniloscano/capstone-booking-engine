@@ -15,6 +15,7 @@
     "dotenv": "^16.5.0",
     "express": "^5.1.0",
     "express-validator": "^7.2.1",
+    "jsonwebtoken": "^9.0.2",
     "luxon": "^3.6.1",
     "module-alias": "^2.2.3",
     "mongoose": "^8.16.0",
@@ -27,6 +28,7 @@
   },
   "_moduleAliases": {
     "@modules": "modules",
+    "@authModules": "modules/auth",
     "@checkAvailabilityModules": "modules/checkAvailability",
     "@roomAvailabilityModules": "modules/roomAvailability",
     "@createBookingModules": "modules/createBooking",
@@ -38,14 +40,16 @@
     "@userModules": "modules/user",
     "@shared": "shared",
     "@exceptions": "shared/exceptions",
-    "@mailer": "shared/mailer",
+    "@authExceptions": "shared/exceptions/auth",
     "@bookingExceptions": "shared/exceptions/booking",
     "@quoteRequestExceptions": "shared/exceptions/quoteRequest",
     "@guestExceptions": "shared/exceptions/guest",
     "@hotelExceptions": "shared/exceptions/hotel",
     "@roomExceptions": "shared/exceptions/room",
     "@userExceptions": "shared/exceptions/user",
+    "@mailer": "shared/config/mailer",
     "@middlewares": "shared/middlewares",
+    "@authMiddlewares": "shared/middlewares/auth",
     "@utils": "shared/utils"
   }
 }

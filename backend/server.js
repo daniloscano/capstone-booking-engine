@@ -6,6 +6,7 @@ const databaseConnection = require('./shared/config/database')
 const PORT = process.env.PORT || 9099
 
 
+const authRoute = require('@authModules/auth.route')
 const checkAvailabilityRoute = require('@checkAvailabilityModules/checkAvailability.route')
 const checkRoomAvailabilityRoute = require('@roomAvailabilityModules/roomAvailability.route')
 const createBookingRoute = require('@createBookingModules/createBooking.route')
@@ -31,6 +32,7 @@ const server = express()
 server.use(express.json())
 server.use(cors())
 
+server.use("/auth", authRoute)
 server.use("/check-availability", checkAvailabilityRoute)
 server.use("/room-availability", checkRoomAvailabilityRoute)
 server.use("/create-booking", createBookingRoute)

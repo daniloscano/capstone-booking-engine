@@ -12,14 +12,14 @@ const transporter = nodemailer.createTransport(
     }
 )
 
-const sendEmail = async (mailReceiver, mailSubject, mailText) => {
+const sendEmail = async (mailReceiver, mailSubject, mailBody) => {
     try {
         const mail = await transporter.sendMail(
             {
                 from: `"${process.env.NODEMAILER_SENDER_NAME}" <${process.env.NODEMAILER_SENDER_USER}>`,
                 to: mailReceiver,
                 subject: mailSubject,
-                text: mailText
+                html: mailBody
             }
         )
 

@@ -29,7 +29,7 @@ const login = async (req, res, next) => {
         const { token } = await authService.login(email, username, password)
 
         res
-            .headers('authorization', token)
+            .header('authorization', token)
             .status(200)
             .send(
                 {

@@ -7,6 +7,7 @@ const InvalidCredentialsException = require("@authExceptions/invalidCredentialsE
 
 const register = async (userData) => {
     userData.password = crypto.randomBytes(6).toString('hex')
+    process.env.NODE_ENV === 'dev' && console.log(userData.password)
 
     const newUser = new UserSchema(userData)
     return await newUser.save()
@@ -37,7 +38,7 @@ const login = async (email, username, password) => {
         { expiresIn: '6h' }
     )
 
-    return token
+    return { token }
 }
 
 module.exports = {

@@ -49,6 +49,7 @@
     "@userExceptions": "shared/exceptions/user",
     "@mailer": "shared/config/mailer",
     "@middlewares": "shared/middlewares",
+    "@authMiddlewares": "shared/middlewares/auth",
     "@utils": "shared/utils"
   }
 }

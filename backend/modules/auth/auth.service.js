@@ -93,9 +93,20 @@ const login = async (email, username, password) => {
     return {token}
 }
 
+const getUserProfile = async (userId) => {
+    const profile = await UserSchema.findById(userId)
+
+    if (!profile) {
+        throw new UserNotFoundException()
+    }
+
+    return profile
+}
+
 module.exports = {
     register,
     sendResetPasswordEmail,
     resetPassword,
-    login
+    login,
+    getUserProfile
 }

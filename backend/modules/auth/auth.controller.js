@@ -81,9 +81,31 @@ const login = async (req, res, next) => {
     }
 }
 
+const getUserProfile = async (req, res, next) => {
+    const userId = req.user.id
+
+    try {
+        const profile = await authService.getUserProfile(userId)
+
+        const { password, ...cleanUser } = profile.toObject()
+
+        res
+            .status(200)
+            .send(
+                {
+                    statusCode: 200,
+                    cleanUser
+                }
+            )
+    } catch (err) {
+        next(err)
+    }
+}
+
 module.exports = {
     register,
     sendResetPasswordEmail,
     resetPassword,
-    login
+    login,
+    getUserProfile
 }

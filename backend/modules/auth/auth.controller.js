@@ -22,6 +22,44 @@ const register = async (req, res, next) => {
     }
 }
 
+const sendResetPasswordEmail = async (req, res, next) => {
+    const { email } = req.body
+
+    try {
+        await authService.sendResetPasswordEmail(email)
+
+        res
+            .status(200)
+            .send(
+                {
+                    statusCode: 200,
+                    message: `Reset password email sent to ${email}`
+                }
+            )
+    } catch (err) {
+        next(err)
+    }
+}
+
+const resetPassword = async (req, res, next) => {
+    const { token, newPassword } = req.body
+
+    try {
+        await authService.resetPassword(token, newPassword)
+
+        res
+            .status(200)
+            .send(
+                {
+                    statusCode: 200,
+                    message: 'Password set successfully!'
+                }
+            )
+    } catch (err) {
+        next(err)
+    }
+}
+
 const login = async (req, res, next) => {
     const { email, username, password } = req.body
 
@@ -45,5 +83,7 @@ const login = async (req, res, next) => {
 
 module.exports = {
     register,
+    sendResetPasswordEmail,
+    resetPassword,
     login
 }

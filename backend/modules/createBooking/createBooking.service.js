@@ -104,12 +104,15 @@ const createBooking = async (
             await sendEmail(savedUser.email, 'Il tuo account è stato creato!', emailBody)
         }
 
-        const guestsIds = []
-        for (const guestData of guestsData) {
-            const guest = new GuestSchema(guestData)
-            await guest.save({session})
-            guestsIds.push(guest._id)
-        }
+        const guests = await Promise.all(
+            guestsData.map(async guestData => {
+                const guest = new GuestSchema(guestData)
+                await guest.save({ session })
+                return guest
+            })
+        )
+
+        const guestsIds = guests.map(guest => guest._id)
 
         const bookingPayment = new BookingPaymentSchema(paymentData)
         await bookingPayment.save({session})

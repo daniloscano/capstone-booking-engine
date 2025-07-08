@@ -13,7 +13,6 @@ user.get("/",
 )
 user.get("/:userId",
     authMiddleware,
-    authorizedRoles('admin', 'manager', 'operator', 'guest'),
     userController.findUserById
 )
 user.post("/create",
@@ -24,7 +23,6 @@ user.post("/create",
 )
 user.patch("/:userId/edit",
     authMiddleware,
-    authorizedRoles('admin', 'manager', 'operator', 'guest'),
     [ updateValidationRules, userValidator ],
     userController.updateUserById
 )

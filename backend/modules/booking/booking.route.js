@@ -1,6 +1,6 @@
 const express = require('express')
 const bookingController = require('./booking.controller')
-const { createValidationRules, updateValidationRules, bookingValidator } = require('./bookingValidation')
+const { createValidationRules, updateValidationRules, bookingValidator } = require('./booking.validation')
 const authMiddleware = require("@authMiddlewares/auth")
 const authorizedRoles = require('@authMiddlewares/role')
 

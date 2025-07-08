@@ -1,6 +1,6 @@
 const express = require('express')
 const roomTypeController = require('./roomType.controller')
-const { createValidationRules, updateValidationRules, roomTypeValidator } = require('./roomTypeValidation')
+const { createValidationRules, updateValidationRules, roomTypeValidator } = require('./roomType.validation')
 const { roomsUpload } = require('@middlewares/multer/index')
 const authMiddleware = require("@authMiddlewares/auth")
 const authorizedRoles = require('@authMiddlewares/role')

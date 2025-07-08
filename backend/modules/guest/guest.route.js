@@ -1,6 +1,6 @@
 const express = require('express')
 const guestController = require('./guest.controller')
-const { createValidationRules, updateValidationRules, guestValidator } = require('./guestValidation')
+const { createValidationRules, updateValidationRules, guestValidator } = require('./guest.validation')
 const authMiddleware = require("@authMiddlewares/auth")
 const authorizedRoles = require('@authMiddlewares/role')
 

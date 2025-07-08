@@ -1,6 +1,6 @@
 const express = require('express')
 const ancillaryController = require('./ancillary.controller')
-const { createValidationRules, updateValidationRules, ancillaryValidator } = require('./ancillaryValidation')
+const { createValidationRules, updateValidationRules, ancillaryValidator } = require('./ancillary.validation')
 const authMiddleware = require("@authMiddlewares/auth")
 const authorizedRoles = require('@authMiddlewares/role')
 

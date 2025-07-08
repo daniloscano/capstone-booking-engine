@@ -1,6 +1,6 @@
 const express = require('express')
 const quoteSolutionController = require('./quoteSolution.controller')
-const { createValidationRules, updateValidationRules, quoteSolutionValidator } = require('./quoteSolutionValidation')
+const { createValidationRules, updateValidationRules, quoteSolutionValidator } = require('./quoteSolution.validation')
 const authMiddleware = require("@authMiddlewares/auth")
 const authorizedRoles = require('@authMiddlewares/role')
 

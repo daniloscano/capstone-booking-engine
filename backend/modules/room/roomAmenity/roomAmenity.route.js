@@ -1,6 +1,6 @@
 const express = require('express')
 const roomAmenityController = require('./roomAmenity.controller')
-const { createValidationRules, updateValidationRules, roomAmenityValidator } = require('./roomAmenityValidation')
+const { createValidationRules, updateValidationRules, roomAmenityValidator } = require('./roomAmenity.validation')
 const { iconsUpload } = require('@middlewares/multer/index')
 const authMiddleware = require("@authMiddlewares/auth")
 const authorizedRoles = require('@authMiddlewares/role')

@@ -1,6 +1,6 @@
 const express = require('express')
 const roomBedController = require('./roomBed.controller')
-const { createValidationRules, updateValidationRules, roomBedValidator} = require('./roomBedValidation')
+const { createValidationRules, updateValidationRules, roomBedValidator} = require('./roomBed.validation')
 const authMiddleware = require("@authMiddlewares/auth")
 const authorizedRoles = require('@authMiddlewares/role')
 

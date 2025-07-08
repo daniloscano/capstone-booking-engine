@@ -11,6 +11,7 @@ const DocumentSchema = require('@guestModules/document/document.model')
 const UserSchema = require('@userModules/user.model')
 const BookingSchema = require('@bookingModules/booking.model')
 const BookingPaymentSchema = require('@bookingModules/bookingPayment/bookingPayment.model')
+const calculateAncillaryPrice = require("@utils/ancillary");
 
 const createBooking = async (
     {
@@ -25,17 +26,6 @@ const createBooking = async (
     }
 ) => {
     const session = await mongoose.startSession()
-
-    const calculateAncillaryPrice = (ancillary, nights, adults, children) => {
-        switch (ancillary.allocation) {
-            case 'perNight':
-                return ancillary.price * nights
-            case 'perOccupancy':
-                return ancillary.price * (adults + children)
-            default:
-                return ancillary.price
-        }
-    }
 
     await session.withTransaction(async () => {
         const quoteSolution = await QuoteSolutionSchema.findById(quoteSolutionId)

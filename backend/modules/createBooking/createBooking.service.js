@@ -1,4 +1,7 @@
 const mongoose = require('mongoose')
+const jwt = require('jsonwebtoken')
+const sendEmail = require("@mailer/config")
+const crypto = require('crypto')
 const QuoteRequestSchema = require('@quoteRequestModules/quoteRequest.model')
 const QuoteSolutionSchema = require('@quoteRequestModules/quoteSolution/quoteSolution.model')
 const AncillarySchema = require('@hotelModules/ancillary/ancillary.model')
@@ -8,8 +11,6 @@ const DocumentSchema = require('@guestModules/document/document.model')
 const UserSchema = require('@userModules/user.model')
 const BookingSchema = require('@bookingModules/booking.model')
 const BookingPaymentSchema = require('@bookingModules/bookingPayment/bookingPayment.model')
-const jwt = require('jsonwebtoken')
-const sendEmail = require("@mailer/config")
 
 const createBooking = async (
     {
@@ -25,6 +26,17 @@ const createBooking = async (
 ) => {
     const session = await mongoose.startSession()
 
+    const calculateAncillaryPrice = (ancillary, nights, adults, children) => {
+        switch (ancillary.allocation) {
+            case 'perNight':
+                return ancillary.price * nights
+            case 'perOccupancy':
+                return ancillary.price * (adults + children)
+            default:
+                return ancillary.price
+        }
+    }
+
     await session.withTransaction(async () => {
         const quoteSolution = await QuoteSolutionSchema.findById(quoteSolutionId)
             .session(session)
@@ -35,32 +47,21 @@ const createBooking = async (
         const adults = quoteRequest.adults
         const children = quoteRequest.children
 
-        const ancillaryPriceItems = []
-        for (const {ancillaryId} of ancillariesData) {
-            const ancillary = await AncillarySchema.findById(ancillaryId)
-                .session(session)
-
-            let price = 0
-            switch (ancillary.allocation) {
-                case 'perNight':
-                    price = ancillary.price * nights
-                    break
-                case 'perOccupancy':
-                    price = ancillary.price * (adults + children)
-                    break
-                default:
-                    price = ancillary.price
+        const ancillaries = await AncillarySchema.find(
+            {
+                _id: { $in: ancillariesData }
             }
+        ).session(session)
 
-            ancillaryPriceItems.push(
-                {
-                    ancillaryId: ancillary._id,
-                    price
-                }
-            )
-        }
+        const ancillaryPriceItems = ancillaries.map(ancillary => {
+            const price = calculateAncillaryPrice(ancillary, nights, adults, children)
+            return {
+                ancillaryId: ancillary._id,
+                price
+            }
+        })
 
-        const ancillariesPrice = ancillaryPriceItems.reduce((sum, item) => sum + item.price, 0)
+        const ancillariesTotalPrice = ancillaryPriceItems.reduce((sum, ancillary) => sum += ancillary.price, 0)
 
         const address = new AddressSchema(masterGuestAddress)
         await address.save()
@@ -136,8 +137,8 @@ const createBooking = async (
                 hasInfant: quoteRequest.hasInfant,
                 policyId: quoteSolution.bookingPolicyId,
                 price: quoteSolution.price,
-                ancillariesIds: ancillaryPriceItems,
-                ancillariesPrice,
+                ancillariesIds: ancillariesData,
+                ancillariesPrice: ancillariesTotalPrice,
                 totalPrice: paymentData.amount,
                 stage: 'waitingForDeposit',
                 paymentsIds: [bookingPayment._id]

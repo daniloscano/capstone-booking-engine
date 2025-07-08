@@ -7,8 +7,14 @@ const authorizedRoles = require('@authMiddlewares/role')
 
 const roomType = express.Router()
 
-roomType.get("/", roomTypeController.getAllRoomTypes)
-roomType.get("/:roomTypeId", roomTypeController.findRoomTypeById)
+roomType.get("/",
+    authMiddleware,
+    roomTypeController.getAllRoomTypes
+)
+roomType.get("/:roomTypeId",
+    authMiddleware,
+    roomTypeController.findRoomTypeById
+)
 roomType.post("/create",
     authMiddleware,
     authorizedRoles('admin', 'manager', 'operator'),

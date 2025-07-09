@@ -7,7 +7,7 @@ const Navigation = () => {
     return (
         <>
             <nav>
-                <div className="container-fluid d-flex justify-content-between align-items-center p-4 navigation">
+                <div className="container-fluid d-flex justify-content-between align-items-center py-4 px-5 navigation">
                     <div className="navigation-brand">
                         <Link
                             className="text-decoration-none fs-2 fw-bold brand-link"

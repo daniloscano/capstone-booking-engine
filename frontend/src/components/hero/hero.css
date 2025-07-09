@@ -1,0 +1,19 @@
+.main-hero {
+    position: relative;
+    background-image: url('../../../public/main-hero.png');
+    background-size: cover;
+    background-position: center;
+    height: 50dvh;
+}
+
+.main-hero-content {
+    background-color: rgba(177, 138, 85, 0.8);
+}
+
+.hero-title, .hero-subtitle {
+    color: var(--white-color);
+}
+
+.hero-subtitle {
+    font-size: 1.2em;
+}

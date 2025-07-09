@@ -1,7 +1,7 @@
 export const navlinks = [
     {
         section: 'HOME',
-        href: "/"
+        href: '/'
     },
     {
         section: 'CAMERE',

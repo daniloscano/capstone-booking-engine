@@ -5,7 +5,7 @@
     --primary: #754526;
     --primary-hover: #8E5A33;
     --secondary: #b18a55;
-    --secondar-hovery: #A77D4E;
+    --secondary-hover: #A77D4E;
     --text-primary: #2E2E2E;
     --text-secondary: #555555;
     --white-color: #F9F6F3;
@@ -17,4 +17,21 @@ body {
     font-family: "Poppins", sans-serif;
     line-height: 1.5;
     background-color: var(--bg-primary);
+}
+
+.book-now-btn {
+    background-color: var(--primary);
+    color: var(--white-color);
+    border: 1px solid var(--primary);
+    font-size: 1.24em;
+    transition: all 0.2s ease;
+}
+
+.book-now-btn:hover {
+    transform: scale(1.04);
+}
+
+.book-now-btn:active {
+    background-color: var(--primary-hover);
+    border: 1px solid var(--primary-hover);
 }

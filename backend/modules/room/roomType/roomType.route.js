@@ -8,7 +8,6 @@ const authorizedRoles = require('@authMiddlewares/role')
 const roomType = express.Router()
 
 roomType.get("/",
-    authMiddleware,
     roomTypeController.getAllRoomTypes
 )
 roomType.get("/:roomTypeId",

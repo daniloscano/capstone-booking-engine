@@ -2,6 +2,7 @@ import useRoomsStore from "../../stores/useRoomsStore.js";
 import {useRoomTypes} from "../../hooks/useRoomTypes.js";
 import {useEffect} from "react";
 import Loader from "../../loader/Loader.jsx";
+import RoomCard from "./partials/RoomCard.jsx";
 
 const RoomsContainer = () => {
     const { rooms, loading, error } = useRoomsStore()
@@ -13,17 +14,22 @@ const RoomsContainer = () => {
 
     return (
         <>
-            <div className="container">
+            <div className="container my-4">
                 <div className="row">
                     {
-                        loading && !error && <Loader />
+                        loading && rooms.length === 0 && !error && <Loader />
                     }
                     {
                         !loading && !error && rooms.map((room, index) => (
-                            <div key={`rooms-${index}`} className="col col-12 col-md-4 col-lg-3">
-                                <p>{room.category}</p>
+                            <div key={`rooms-${index}`} className="col col-12 col-md-6 col-lg-4">
+                                <RoomCard
+                                    room={room}
+                                />
                             </div>
                         ))
+                    }
+                    {
+                        !loading && rooms.length === 0 && error && <div>Error...</div>
                     }
                 </div>
             </div>

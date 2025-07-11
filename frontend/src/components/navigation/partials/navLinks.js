@@ -10,5 +10,9 @@ export const navlinks = [
     {
         section: 'SERVIZI',
         href: "/services"
+    },
+    {
+        section: 'CONTATTACI',
+        href: '/contact-us'
     }
 ]

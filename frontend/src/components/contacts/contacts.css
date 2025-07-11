@@ -1,18 +1,18 @@
-.main-hero {
-    background-image: url('/main-hero.png');
+.contacts-section {
+    background-image: url('/contacts-section.png');
     background-size: cover;
     background-position: center;
-    height: 60dvh;
+    height: 40dvh;
 }
 
-.main-hero-content {
+.contacts-content {
     background-color: rgba(177, 138, 85, 0.8);
 }
 
-.hero-title, .hero-subtitle {
+.contacts-title, .contacts-subtitle {
     color: var(--white-color);
 }
 
-.hero-subtitle {
+.contacts-subtitle {
     font-size: 1.2em;
 }

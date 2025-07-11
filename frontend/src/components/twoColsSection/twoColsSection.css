@@ -23,10 +23,12 @@
 
 .section-info-title {
     font-size: 2.1em;
+    color: var(--primary);
 }
 
 .section-info-subtitle {
     font-size: 1.2em;
+    color: var(--text-secondary);
 }
 
 .section-btn {

@@ -8,7 +8,6 @@ export const useRoomTypes = () => {
             setLoading(true)
             setError(null)
             const response = await fetch(`${import.meta.env.VITE_SERVER_BASE_URL}/room-types`)
-            console.log(response)
             const data = await response.json()
             setRooms(data.data)
         } catch (err) {

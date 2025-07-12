@@ -15,7 +15,8 @@ const RoomsContainer = () => {
     return (
         <>
             <div className="container my-4">
-                <div className="row">
+                <h2 className="fw-bold py-3 my-4">Le Camere</h2>
+                <div className="row gy-4">
                     {
                         loading && rooms.length === 0 && !error && <Loader />
                     }

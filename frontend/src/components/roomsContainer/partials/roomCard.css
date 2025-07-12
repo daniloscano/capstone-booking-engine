@@ -1,0 +1,28 @@
+.room-card {
+    overflow: hidden;
+    -webkit-box-shadow: 0px 0px 23px 4px rgba(66, 68, 90, 0.32);
+    -moz-box-shadow: 0px 0px 23px 4px rgba(66, 68, 90, 0.32);
+    box-shadow: 0px 0px 23px 4px rgba(66, 68, 90, 0.32);
+    transition: all 0.3s ease-in-out;
+}
+
+.room-card:hover {
+    transform: scale(1.05);
+}
+
+.room-card-title {
+    color: var(--text-primary);
+}
+
+.room-card-subtitle {
+    color: var(--text-secondary);
+}
+
+.room-card-description {
+    color: var(--text-primary);
+}
+
+.room-card-amenity-image {
+    width: 32px;
+    height: 32px;
+}

@@ -16,7 +16,7 @@ const getAllRoomTypes = async (req, res, next) => {
             .send(
                 {
                     statusCode: 200,
-                    roomTypes
+                    ...roomTypes
                 }
             )
     } catch (err) {

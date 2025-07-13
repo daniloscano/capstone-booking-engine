@@ -47,7 +47,7 @@ const RoomDetails = () => {
                                 bedsId.king > 0 && (
                                     <div className="d-flex align-items-center gap-2">
                                         <img
-                                            className="room-details-icon"
+                                            className="room-beds-icon"
                                             src="/icons/king-bed.png"
                                             alt="king-bed"
                                         />
@@ -59,7 +59,7 @@ const RoomDetails = () => {
                                 bedsId.single > 0 && (
                                     <div className="d-flex align-items-center gap-2">
                                         <img
-                                            className="room-details-icon"
+                                            className="room-beds-icon"
                                             src="/icons/single-bed.png"
                                             alt="single-bed"
                                         />
@@ -71,7 +71,7 @@ const RoomDetails = () => {
                                 bedsId.crib > 0 && (
                                     <div className="d-flex align-items-center gap-2">
                                         <img
-                                            className="room-details-icon"
+                                            className="room-beds-icon"
                                             src="/icons/crib-bed.png"
                                             alt="crib-bed"
                                         />

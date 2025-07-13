@@ -4,6 +4,7 @@ import useRoomDetailsStore from "../../stores/useRoomDetailsStore.js";
 import {useRoomTypes} from "../../hooks/useRoomTypes.js";
 import Loader from "../../loader/Loader.jsx";
 import './roomDetails.css'
+import ImagesCarousel from "../imagesCarousel/ImagesCarousel.jsx";
 
 const RoomDetails = () => {
     const {roomId} = useParams()
@@ -33,10 +34,17 @@ const RoomDetails = () => {
             <div className="container-fluid px-5 my-5">
                 <div className="row">
                     <div className="col col-12 col-lg-5">
-                        <img
+                        {
+                            /*
+                            <img
                             className="img-fluid"
                             src={images[0]}
                             alt={name.toLowerCase().split(' ').join('-')}
+                        />
+                             */
+                        }
+                        <ImagesCarousel
+                            images={images}
                         />
                     </div>
                     <div className="col col-12-col-lg-7">

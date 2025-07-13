@@ -24,7 +24,7 @@ const getRoomTypeById = async (roomTypeId) => {
             [
                 {
                     path: 'bedsId',
-                    select: 'layout'
+                    select: 'king single crib layout'
                 },
                 {
                     path: 'amenitiesIds',

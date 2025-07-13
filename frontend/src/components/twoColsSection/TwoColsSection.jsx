@@ -20,16 +20,20 @@ const TwoColsSection = ({imagePosition, section}) => {
                         >
                             <h3 className="section-info-title">{section.title}</h3>
                             <p className="px-5 section-info-subtitle">{section.description}</p>
-                            <button
-                                className="rounded rounded-2 py-2 px-4 section-btn"
-                            >
-                                <a
-                                    className="text-decoration-none"
-                                    href={section.href}
-                                >
-                                    {section.title}
-                                </a>
-                            </button>
+                            {
+                                section.href && (
+                                    <button
+                                        className="rounded rounded-2 py-2 px-4 section-btn"
+                                    >
+                                        <a
+                                            className="text-decoration-none"
+                                            href={section.href}
+                                        >
+                                            {section.title}
+                                        </a>
+                                    </button>
+                                )
+                            }
                         </div>
                     </div>
                 </div>

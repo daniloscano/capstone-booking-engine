@@ -1,0 +1,30 @@
+.service-content {
+    margin: 0;
+    padding: 0;
+    background-color: var(--secondary);
+}
+
+.service-image {
+    width: 100%;
+    height: 60dvh;
+    object-fit: cover;
+}
+
+.service-info {
+    background-color: var(--border);
+}
+
+.service-info-title {
+    font-size: 2.1em;
+    color: var(--primary);
+}
+
+.service-info-subtitle {
+    font-size: 1.4em;
+    color: var(--text-primary);
+}
+
+.service-info-description {
+    font-size: 1.2em;
+    color: var(--text-secondary);
+}

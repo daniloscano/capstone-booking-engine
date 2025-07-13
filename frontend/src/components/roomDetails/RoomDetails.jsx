@@ -34,15 +34,6 @@ const RoomDetails = () => {
             <div className="container-fluid px-5 my-5">
                 <div className="row">
                     <div className="col col-12 col-lg-5">
-                        {
-                            /*
-                            <img
-                            className="img-fluid"
-                            src={images[0]}
-                            alt={name.toLowerCase().split(' ').join('-')}
-                        />
-                             */
-                        }
                         <ImagesCarousel
                             images={images}
                         />

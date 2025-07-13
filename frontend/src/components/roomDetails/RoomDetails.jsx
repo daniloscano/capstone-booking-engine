@@ -3,8 +3,8 @@ import {useEffect} from "react";
 import useRoomDetailsStore from "../../stores/useRoomDetailsStore.js";
 import {useRoomTypes} from "../../hooks/useRoomTypes.js";
 import Loader from "../../loader/Loader.jsx";
+import ImagesSwiper from "../imagesSwiper/ImagesSwiper.jsx";
 import './roomDetails.css'
-import ImagesCarousel from "../imagesCarousel/ImagesCarousel.jsx";
 
 const RoomDetails = () => {
     const {roomId} = useParams()
@@ -34,7 +34,7 @@ const RoomDetails = () => {
             <div className="container-fluid px-5 my-5">
                 <div className="row">
                     <div className="col col-12 col-lg-5">
-                        <ImagesCarousel
+                        <ImagesSwiper
                             images={images}
                         />
                     </div>
@@ -102,7 +102,6 @@ const RoomDetails = () => {
                         </div>
                     </div>
                 </div>
-
             </div>
         </>
     );

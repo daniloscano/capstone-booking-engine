@@ -1,0 +1,23 @@
+.room-details-title {
+    color: var(--text-primary);
+}
+
+.room-details-subtitle {
+    color: var(--text-secondary);
+}
+
+.room-details-description {
+    color: var(--text-primary);
+    font-size: 1.2em;
+    line-height: 1.8em;
+}
+
+.room-beds-icon {
+    width: 32px;
+    height: 32px;
+}
+
+.room-details-icon {
+    width: 40px;
+    height: 40px;
+}

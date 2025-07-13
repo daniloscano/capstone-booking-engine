@@ -5,7 +5,7 @@ import Loader from "../../loader/Loader.jsx";
 import RoomCard from "./partials/RoomCard.jsx";
 
 const RoomsContainer = () => {
-    const { rooms, loading, error } = useRoomsStore()
+    const { rooms, roomsLoading, roomsError } = useRoomsStore()
     const { getRoomTypes } = useRoomTypes()
 
     useEffect(() => {
@@ -18,10 +18,10 @@ const RoomsContainer = () => {
                 <h2 className="fw-bold py-3 my-4">Le Camere</h2>
                 <div className="row gy-4">
                     {
-                        loading && rooms.length === 0 && !error && <Loader />
+                        roomsLoading && rooms.length === 0 && !roomsError && <Loader />
                     }
                     {
-                        !loading && !error && rooms.map((room, index) => (
+                        !roomsLoading && !roomsError && rooms.map((room, index) => (
                             <div key={`rooms-${index}`} className="col col-12 col-md-6 col-lg-4">
                                 <RoomCard
                                     room={room}
@@ -30,7 +30,7 @@ const RoomsContainer = () => {
                         ))
                     }
                     {
-                        !loading && rooms.length === 0 && error && <div>Error...</div>
+                        !roomsLoading && rooms.length === 0 && roomsError && <div>Error...</div>
                     }
                 </div>
             </div>

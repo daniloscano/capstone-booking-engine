@@ -1,6 +1,7 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import WebsiteHomepage from "./pages/website/WebsiteHomepage.jsx";
 import RoomsPage from "./pages/website/RoomsPage.jsx";
+import RoomDetailPage from "./pages/website/RoomDetailPage.jsx";
 
 const App = () => {
 
@@ -10,6 +11,7 @@ const App = () => {
                 <Routes>
                     <Route index path="/" element={<WebsiteHomepage />} />
                     <Route path="/rooms" element={<RoomsPage />} />
+                    <Route path="/rooms/:roomId" element={<RoomDetailPage />} />
                 </Routes>
             </Router>
         </>

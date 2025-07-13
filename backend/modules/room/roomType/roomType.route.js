@@ -11,7 +11,6 @@ roomType.get("/",
     roomTypeController.getAllRoomTypes
 )
 roomType.get("/:roomTypeId",
-    authMiddleware,
     roomTypeController.findRoomTypeById
 )
 roomType.post("/create",

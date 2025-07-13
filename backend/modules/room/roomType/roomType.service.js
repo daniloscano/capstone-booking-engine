@@ -7,7 +7,7 @@ const getAllRoomTypes = async (page, pageSize, filter, sort, populateFields) => 
     const fieldToPopulate = [
         {
             path: 'bedsId',
-            select: 'layout'
+            select: 'king single crib layout'
         },
         {
             path: 'amenitiesIds',

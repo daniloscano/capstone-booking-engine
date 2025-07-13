@@ -16,7 +16,7 @@ const RoomDetails = () => {
     }, []);
 
     if (roomDetailsLoading) {
-        return <Loader />;
+        return <Loader/>;
     }
 
     if (roomDetailsError) {
@@ -80,19 +80,22 @@ const RoomDetails = () => {
                             }
                         </div>
                         <p className="mb-4 room-details-description">{description}</p>
-                        <div className="d-flex align-items-center gap-5">
+                        <div className="row gy-4">
                             {
                                 amenitiesIds.map((amenity, index) => (
                                     <div
                                         key={`room-amenity-${index}`}
-                                        className="d-flex align-items-center gap-3 my-4"
+                                        className="col col-12 col-md-4"
                                     >
-                                        <img
-                                            className="img-fluid room-details-icon"
-                                            src={amenity.icon}
-                                            alt={amenity.code}
-                                        />
-                                        <p className="m-0 p-0">{amenity.name}</p>
+                                        <div className="d-flex align-items-center gap-2">
+
+                                            <img
+                                                className="img-fluid room-details-icon"
+                                                src={amenity.icon}
+                                                alt={amenity.code}
+                                            />
+                                            <p className="m-0 p-0">{amenity.name}</p>
+                                        </div>
                                     </div>
                                 ))
                             }

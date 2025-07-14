@@ -1,19 +1,19 @@
 import WebsitePagesLayout from "../../layouts/website/WebsitePagesLayout.jsx";
-import RoomsContainer from "../../components/roomsContainer/RoomsContainer.jsx";
-import { roomsPage } from "../../components/pageHeader/partials/pages.js"
 import PageHeader from "../../components/pageHeader/PageHeader.jsx";
+import { contactsPage } from "../../components/pageHeader/partials/pages.js"
+import ContactsInfo from "../../components/contactsInfo/ContactsInfo.jsx";
 
-const RoomsPage = () => {
+const ContactPage = () => {
     return (
         <>
             <WebsitePagesLayout>
                 <PageHeader
-                    page={roomsPage}
+                    page={contactsPage}
                 />
-                <RoomsContainer />
+                <ContactsInfo />
             </WebsitePagesLayout>
         </>
     );
 };
 
-export default RoomsPage;
+export default ContactPage;

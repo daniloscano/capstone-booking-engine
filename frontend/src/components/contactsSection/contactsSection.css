@@ -1,0 +1,39 @@
+.contacts-section {
+    background-image: url('/contacts-section.png');
+    background-size: cover;
+    background-position: center;
+    height: 40dvh;
+}
+
+.contacts-content {
+    background-color: rgba(177, 138, 85, 0.8);
+}
+
+.contacts-title, .contacts-subtitle {
+    color: var(--white-color);
+}
+
+.contacts-subtitle {
+    font-size: 1.2em;
+}
+
+
+.contact-us-btn {
+    background-color: var(--primary);
+    border: 1px solid var(--primary);
+    font-size: 1.24em;
+    transition: all 0.2s ease;
+}
+
+.contact-us-btn a {
+    color: var(--white-color);
+}
+
+.contact-us-btn:hover {
+    transform: scale(1.04);
+}
+
+.contact-us-btn:active {
+    background-color: var(--primary-hover);
+    border: 1px solid var(--primary-hover);
+}

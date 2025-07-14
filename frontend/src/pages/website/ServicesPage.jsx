@@ -1,11 +1,16 @@
-import WebsiteBaseLayout from "../../layouts/website/WebsiteBaseLayout.jsx";
-import ServiceSection from "../../components/serviceSection/ServiceSection.jsx";
+import WebsitePagesLayout from "../../layouts/website/WebsitePagesLayout.jsx";
+import PageHeader from "../../components/pageHeader/PageHeader.jsx";
+import {servicesPage} from "../../components/pageHeader/partials/pages.js";
 import {restaurant, readingHall, spa} from "../../components/serviceSection/partials/services.js";
+import ServiceSection from "../../components/serviceSection/ServiceSection.jsx";
 
 const ServicesPage = () => {
     return (
         <>
-            <WebsiteBaseLayout>
+            <WebsitePagesLayout>
+                <PageHeader
+                    page={servicesPage}
+                />
                 <ServiceSection
                     imagePosition="right"
                     service={spa}
@@ -18,7 +23,7 @@ const ServicesPage = () => {
                     imagePosition="right"
                     service={readingHall}
                 />
-            </WebsiteBaseLayout>
+            </WebsitePagesLayout>
         </>
     );
 };

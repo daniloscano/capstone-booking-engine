@@ -1,0 +1,33 @@
+.booking-engine-form {
+    background-color: var(--secondary);
+}
+
+.booking-engine-number-input {
+
+}
+
+.input-container label {
+    color: var(--primary);
+    font-size: 1.05em;
+    font-weight: bold;
+}
+
+.booking-engine-form-input {
+    background-color: var(--secondary);
+}
+
+
+.check-availability-btn {
+    background-color: var(--primary);
+    border: 1px solid var(--primary);
+    color: var(--white-color);
+}
+
+.check-availability-btn:hover {
+    transform: scale(1.04);
+}
+
+.check-availability-btn:active {
+    background-color: var(--primary-hover);
+    border: 1px solid var(--primary-hover);
+}

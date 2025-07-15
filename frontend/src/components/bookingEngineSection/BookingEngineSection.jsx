@@ -1,9 +1,13 @@
+import BookingEngineForm from "./partials/BookingEngineForm.jsx";
+
 const BookingEngineSection = () => {
     return (
         <>
-            <div className="container my-4">
-                <h1>Booking Engine</h1>
-            </div>
+            <section>
+                <div className="container my-4 booking-engine-section">
+                    <BookingEngineForm/>
+                </div>
+            </section>
         </>
     );
 };

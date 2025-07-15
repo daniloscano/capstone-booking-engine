@@ -1,10 +1,13 @@
 import WebsiteBaseLayout from "../../layouts/website/WebsiteBaseLayout.jsx";
+import BookingEngineSection from "../../components/bookingEngineSection/BookingEngineSection.jsx";
+import BookingEngineHeader from "../../components/bookingEngineSection/partials/BookingEngineHeader.jsx";
 
 const BookingEnginePage = () => {
     return (
         <>
             <WebsiteBaseLayout>
-                <h1>Booking Engine</h1>
+                <BookingEngineHeader />
+                <BookingEngineSection />
             </WebsiteBaseLayout>
         </>
     );

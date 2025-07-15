@@ -1,0 +1,23 @@
+.booking-engine-header {
+    position: relative;
+    height: 60dvh;
+    background: url("/booking-engine-header.png") center center;
+    background-size: cover;
+}
+
+.booking-engine-header-overlay {
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.4);
+    inset: 0;
+    z-index: 1;
+}
+
+.booking-engine-header-content {
+    background: rgba(177, 138, 85, 0.8);
+    color: var(--white-color);
+    z-index: 2;
+}
+
+.booking-engine-title, .booking-engine-subtitle {
+    padding: 0 2em;
+}

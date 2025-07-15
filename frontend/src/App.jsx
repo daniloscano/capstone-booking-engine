@@ -4,6 +4,7 @@ import RoomsPage from "./pages/website/RoomsPage.jsx";
 import RoomDetailPage from "./pages/website/RoomDetailPage.jsx";
 import ServicesPage from "./pages/website/ServicesPage.jsx";
 import ContactPage from "./pages/website/ContactPage.jsx";
+import BookingEnginePage from "./pages/website/BookingEnginePage.jsx";
 
 const App = () => {
 
@@ -16,6 +17,7 @@ const App = () => {
                     <Route path="/rooms/:roomId" element={<RoomDetailPage />} />
                     <Route path="/services" element={<ServicesPage />} />
                     <Route path="/contact-us" element={<ContactPage />} />
+                    <Route path="/booking-engine" element={<BookingEnginePage />} />
                 </Routes>
             </Router>
         </>

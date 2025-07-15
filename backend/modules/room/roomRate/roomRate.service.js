@@ -6,7 +6,7 @@ const pagination = new Pagination(RoomRateSchema)
 const getAllRoomRates = async (page, pageSize, filter, sort) => {
     const fieldToPopulate = {
         path: 'roomTypeId',
-        select: 'type'
+        select: 'type category'
     }
     return await pagination.getPaginatedData(page, pageSize, filter, sort, fieldToPopulate)
 }
@@ -16,7 +16,7 @@ const getRoomRateById = async (roomRateId) => {
         .populate(
             {
                 path: 'roomTypeId',
-                select: 'type'
+                select: 'type category'
             }
         )
 }

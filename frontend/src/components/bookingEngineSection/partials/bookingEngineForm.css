@@ -72,11 +72,6 @@
     color: var(--white-color);
 }
 
-.p-datepicker-calendar td:focus {
-    background-color: var(--primary);
-}
-
-
 .check-availability-btn {
     width: 100%;
     background-color: var(--primary);

@@ -1,17 +1,38 @@
 import {Calendar} from "primereact/calendar";
 import './bookingEngineForm.css'
-import {useState} from "react";
+import useBookingEngineForm from "../../../stores/useBookingEngineForm.js";
+import {format} from "date-fns";
 
 const BookingEngineForm = () => {
+    const { dates, setDates, adults, setAdults, children, setChildren, infant, setInfant } = useBookingEngineForm()
 
     const stayInputChange = (e) => {
+        setDates(e.value)
     }
 
     const adultsChange = (e) => {
+        setAdults(e.target.value)
+    }
+
+    const childrenChange = (e) => {
+        setChildren(e.target.value)
+    }
+
+    const infantChange = (e) => {
+        setInfant(e.target.value)
     }
 
     const onSubmit = (e) => {
         e.preventDefault()
+        const payload = {
+            checkIn: format(dates[0], 'yyyy-MM-dd'),
+            checkOut: format(dates[1], 'yyyy-MM-dd'),
+            adults: adults,
+            children: children,
+            hasInfant: infant
+        }
+
+        console.log(payload)
     }
 
     return (
@@ -25,6 +46,7 @@ const BookingEngineForm = () => {
                             name="stay-input"
                             id="stay-input"
                             onChange={stayInputChange}
+                            value={dates}
                             selectionMode="range"
                             placeholder="Periodo Soggiorno"
                             dateFormat="dd/mm/yy"
@@ -38,6 +60,7 @@ const BookingEngineForm = () => {
                         <select
                             className="py-1 px-2 booking-engine-form-input"
                             onChange={adultsChange}
+                            value={adults}
                             name="adults"
                             id="adults"
                         >
@@ -54,6 +77,8 @@ const BookingEngineForm = () => {
                     <div className="d-flex flex-column gap-1 input-container">
                         <select
                             className="py-1 px-2 booking-engine-form-input"
+                            onChange={childrenChange}
+                            value={children}
                             name="children"
                             id="children"
                         >
@@ -70,6 +95,8 @@ const BookingEngineForm = () => {
                     <div className="d-flex flex-column gap-1 input-container">
                         <select
                             className="py-1 px-2 booking-engine-form-input"
+                            onChange={infantChange}
+                            value={infant}
                             name="infant"
                             id="infant"
                         >
@@ -82,7 +109,8 @@ const BookingEngineForm = () => {
                 <div className="col col-12 col-lg-3">
                     <button
                         type="submit"
-                        className="py-2 px-4 rounded rounded-2 check-availability-btn">
+                        className="py-2 px-4 rounded rounded-2 check-availability-btn"
+                    >
                         CONTROLLA DISPONIBILITA'
                     </button>
                 </div>

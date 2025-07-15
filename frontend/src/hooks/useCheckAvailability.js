@@ -7,16 +7,16 @@ export const useCheckAvailability = () => {
         try {
             setQuoteRequestLoading(true)
             setQuoteRequestError(null)
-            const response = await fetch(`${import.meta.env.VITE_SERVER_BASE_URL}`, {
+            const response = await fetch(`${import.meta.env.VITE_SERVER_BASE_URL}/check-availability`, {
                 method: "POST",
                 headers: {
                     "Content-Type": 'application/json'
                 },
                 body: JSON.stringify(payload)
             })
-            const quoteRequest = await response.json()
-            console.log(quoteRequest)
-            setQuoteRequest(quoteRequest)
+            const result = await response.json()
+            console.log(result.quoteRequest)
+            setQuoteRequest(result.quoteRequest)
         } catch (err) {
             console.log(err)
             setQuoteRequestError(err)

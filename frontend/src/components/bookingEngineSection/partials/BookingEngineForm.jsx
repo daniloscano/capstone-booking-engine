@@ -13,11 +13,11 @@ const BookingEngineForm = () => {
     }
 
     const adultsChange = (e) => {
-        setAdults(e.target.value)
+        setAdults(Number(e.target.value))
     }
 
     const childrenChange = (e) => {
-        setChildren(e.target.value)
+        setChildren(Number(e.target.value))
     }
 
     const infantChange = (e) => {

@@ -9,6 +9,31 @@ const BookingPolicySchema = require('@hotelModules/bookingPolicy/bookingPolicy.m
 
 const { formattedDate } = require('@utils/dates')
 
+const quoteSolutionsPopulate = {
+    path: 'quoteSolutionsIds',
+    select: 'price isConfirmed',
+    populate: [
+        {
+            path: 'roomTypeId',
+            select: 'name type category description dimensions images maxOccupancy hasCrib',
+            populate: [
+                {
+                    path: 'bedsId',
+                    select: 'king single crib layout'
+                },
+                {
+                    path: 'amenitiesIds',
+                    select: 'name icon'
+                },
+            ]
+        },
+        {
+            path: 'bookingPolicyId',
+            select: 'name deposit balance cancellation'
+        }
+    ]
+}
+
 const checkAvailability = async (quoteRequestData) => {
     const {checkIn, checkOut, adults, children, hasInfant} = quoteRequestData
     const requestCheckIn = formattedDate(checkIn)
@@ -89,9 +114,11 @@ const checkAvailability = async (quoteRequestData) => {
                 newQuoteRequest.quoteSolutionsIds.push(standardSolution._id, notRefundableSolution._id)
             }
 
-            return newQuoteRequest.save({session})
+            await newQuoteRequest.save({session})
         }
     )
+
+    return newQuoteRequest.populate(quoteSolutionsPopulate)
 }
 
 module.exports = checkAvailability

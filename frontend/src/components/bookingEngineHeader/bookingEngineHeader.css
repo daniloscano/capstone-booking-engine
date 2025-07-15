@@ -21,3 +21,7 @@
 .booking-engine-title, .booking-engine-subtitle {
     padding: 0 2em;
 }
+
+.booking-engine-subtitle {
+    font-size: 1.2em;
+}

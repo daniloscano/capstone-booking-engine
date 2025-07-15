@@ -13,6 +13,12 @@
     --border: #D6C7B8;
 }
 
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 body {
     font-family: "Poppins", sans-serif;
     line-height: 1.5;

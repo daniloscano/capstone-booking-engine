@@ -1,6 +1,6 @@
 import {create} from "zustand";
 
-const useBookingEngineForm = create((set) => (
+const useBookingEngineFormStore = create((set) => (
     {
         dates: [],
         adults: 0,
@@ -13,4 +13,4 @@ const useBookingEngineForm = create((set) => (
     }
 ))
 
-export default useBookingEngineForm;
+export default useBookingEngineFormStore;

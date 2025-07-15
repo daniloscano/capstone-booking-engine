@@ -1,10 +1,12 @@
 import {Calendar} from "primereact/calendar";
 import './bookingEngineForm.css'
-import useBookingEngineForm from "../../../stores/useBookingEngineForm.js";
+import useBookingEngineFormStore from "../../../stores/useBookingEngineFormStore.js";
 import {format} from "date-fns";
+import {useCheckAvailability} from "../../../hooks/useCheckAvailability.js";
 
 const BookingEngineForm = () => {
-    const { dates, setDates, adults, setAdults, children, setChildren, infant, setInfant } = useBookingEngineForm()
+    const { dates, setDates, adults, setAdults, children, setChildren, infant, setInfant } = useBookingEngineFormStore()
+    const { checkAvailability } = useCheckAvailability()
 
     const stayInputChange = (e) => {
         setDates(e.value)
@@ -32,7 +34,7 @@ const BookingEngineForm = () => {
             hasInfant: infant
         }
 
-        console.log(payload)
+        checkAvailability(payload)
     }
 
     return (

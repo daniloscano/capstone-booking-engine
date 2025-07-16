@@ -23,7 +23,7 @@ const fieldsToPopulate = {
         },
         {
             path: 'bookingPolicyId',
-            select: 'name'
+            select: 'code name deposit balance cancellation'
         }
     ]
 }

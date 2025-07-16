@@ -29,7 +29,7 @@ const quoteSolutionsPopulate = {
         },
         {
             path: 'bookingPolicyId',
-            select: 'name deposit balance cancellation'
+            select: 'code name deposit balance cancellation'
         }
     ]
 }

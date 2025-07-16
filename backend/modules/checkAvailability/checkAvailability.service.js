@@ -11,7 +11,7 @@ const { formattedDate } = require('@utils/dates')
 
 const quoteSolutionsPopulate = {
     path: 'quoteSolutionsIds',
-    select: 'price isConfirmed',
+    select: 'policies isConfirmed',
     populate: [
         {
             path: 'roomTypeId',
@@ -28,7 +28,7 @@ const quoteSolutionsPopulate = {
             ]
         },
         {
-            path: 'bookingPolicyId',
+            path: 'policies.bookingPolicyId',
             select: 'code name deposit balance cancellation'
         }
     ]
@@ -91,27 +91,26 @@ const checkAvailability = async (quoteRequestData) => {
 
                 const totalPrice = rates.reduce((sum, rate) => sum + rate.price, 0)
 
-                const standardSolution = new QuoteSolutionSchema(
+                const quoteSolution = new QuoteSolutionSchema(
                     {
                         quoteRequestId: newQuoteRequest._id,
                         roomTypeId,
-                        bookingPolicyId: standardPolicy._id,
-                        price: totalPrice
+                        policies: [
+                            {
+                                bookingPolicyId: standardPolicy._id,
+                                price: totalPrice
+                            },
+                            {
+                                bookingPolicyId: notRefundablePolicy._id,
+                                price: totalPrice * 0.9
+                            }
+                        ]
                     }
                 )
-                await standardSolution.save({session})
 
-                const notRefundableSolution = new QuoteSolutionSchema(
-                    {
-                        quoteRequestId: newQuoteRequest._id,
-                        roomTypeId,
-                        bookingPolicyId: notRefundablePolicy._id,
-                        price: totalPrice * 0.9
-                    }
-                )
-                await notRefundableSolution.save({session})
+                await quoteSolution.save({ session })
 
-                newQuoteRequest.quoteSolutionsIds.push(standardSolution._id, notRefundableSolution._id)
+                newQuoteRequest.quoteSolutionsIds.push(quoteSolution._id)
             }
 
             await newQuoteRequest.save({session})

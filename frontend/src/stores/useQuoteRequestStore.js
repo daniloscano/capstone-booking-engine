@@ -4,7 +4,7 @@ const useQuoteRequestStore = create((set) => (
     {
         quoteRequest: null,
         filteredSolutions: [],
-        quoteRequestLoading: true,
+        quoteRequestLoading: false,
         quoteRequestError: null,
         setQuoteRequest: (quoteRequest) => set({quoteRequest}),
         setQuoteRequestLoading: (quoteRequestLoading) => set({quoteRequestLoading}),

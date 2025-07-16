@@ -1,9 +1,11 @@
 import './hero.css'
+import {Link} from "react-router-dom";
 
 const Hero = () => {
     return (
         <>
-            <div className="container-fluid d-flex flex-column justify-content-center align-items-center gap-3 main-hero">
+            <div
+                className="container-fluid d-flex flex-column justify-content-center align-items-center gap-3 main-hero">
                 <div
                     className="container d-flex flex-column justify-content-center align-items-center gap-4 py-5 main-hero-content"
                 >
@@ -12,7 +14,12 @@ const Hero = () => {
                     <button
                         className="rounded rounded-1 py-2 px-4 book-now-btn"
                     >
-                        PRENOTA ORA
+                        <Link
+                            className="text-decoration-none"
+                            to="/booking-engine"
+                        >
+                            PRENOTA ORA
+                        </Link>
                     </button>
                 </div>
             </div>

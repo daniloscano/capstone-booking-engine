@@ -30,7 +30,12 @@ const Navigation = () => {
                         <button
                             className="rounded rounded-1 py-2 px-4 book-now-btn"
                         >
-                            PRENOTA ORA
+                            <Link
+                                className="text-decoration-none"
+                                to="/booking-engine"
+                            >
+                                PRENOTA ORA
+                            </Link>
                         </button>
                     </div>
                 </div>

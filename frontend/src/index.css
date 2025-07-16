@@ -13,6 +13,12 @@
     --border: #D6C7B8;
 }
 
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 body {
     font-family: "Poppins", sans-serif;
     line-height: 1.5;
@@ -22,10 +28,14 @@ body {
 
 .book-now-btn {
     background-color: var(--primary);
-    color: var(--white-color);
     border: 1px solid var(--primary);
+    color: var(--white-color);
     font-size: 1.24em;
     transition: all 0.2s ease;
+}
+
+.book-now-btn a {
+    color: var(--white-color);
 }
 
 .book-now-btn:hover {
@@ -42,4 +52,6 @@ body {
     -webkit-line-clamp: 4;
     -webkit-box-orient: vertical;
     overflow: hidden;
+    line-height: 1.6em;
+    max-height: 6.4em;
 }

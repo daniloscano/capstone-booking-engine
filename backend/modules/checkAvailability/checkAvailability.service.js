@@ -9,6 +9,31 @@ const BookingPolicySchema = require('@hotelModules/bookingPolicy/bookingPolicy.m
 
 const { formattedDate } = require('@utils/dates')
 
+const quoteSolutionsPopulate = {
+    path: 'quoteSolutionsIds',
+    select: 'policies isConfirmed',
+    populate: [
+        {
+            path: 'roomTypeId',
+            select: 'name type category description dimensions images maxOccupancy hasCrib',
+            populate: [
+                {
+                    path: 'bedsId',
+                    select: 'king single crib layout'
+                },
+                {
+                    path: 'amenitiesIds',
+                    select: 'name icon'
+                },
+            ]
+        },
+        {
+            path: 'policies.bookingPolicyId',
+            select: 'code name deposit balance cancellation'
+        }
+    ]
+}
+
 const checkAvailability = async (quoteRequestData) => {
     const {checkIn, checkOut, adults, children, hasInfant} = quoteRequestData
     const requestCheckIn = formattedDate(checkIn)
@@ -66,32 +91,33 @@ const checkAvailability = async (quoteRequestData) => {
 
                 const totalPrice = rates.reduce((sum, rate) => sum + rate.price, 0)
 
-                const standardSolution = new QuoteSolutionSchema(
+                const quoteSolution = new QuoteSolutionSchema(
                     {
                         quoteRequestId: newQuoteRequest._id,
                         roomTypeId,
-                        bookingPolicyId: standardPolicy._id,
-                        price: totalPrice
+                        policies: [
+                            {
+                                bookingPolicyId: standardPolicy._id,
+                                price: totalPrice
+                            },
+                            {
+                                bookingPolicyId: notRefundablePolicy._id,
+                                price: totalPrice * 0.9
+                            }
+                        ]
                     }
                 )
-                await standardSolution.save({session})
 
-                const notRefundableSolution = new QuoteSolutionSchema(
-                    {
-                        quoteRequestId: newQuoteRequest._id,
-                        roomTypeId,
-                        bookingPolicyId: notRefundablePolicy._id,
-                        price: totalPrice * 0.9
-                    }
-                )
-                await notRefundableSolution.save({session})
+                await quoteSolution.save({ session })
 
-                newQuoteRequest.quoteSolutionsIds.push(standardSolution._id, notRefundableSolution._id)
+                newQuoteRequest.quoteSolutionsIds.push(quoteSolution._id)
             }
 
-            return newQuoteRequest.save({session})
+            await newQuoteRequest.save({session})
         }
     )
+
+    return newQuoteRequest.populate(quoteSolutionsPopulate)
 }
 
 module.exports = checkAvailability

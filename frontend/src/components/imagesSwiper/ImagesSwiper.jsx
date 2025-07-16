@@ -4,7 +4,7 @@ import 'swiper/css'
 import 'swiper/css/navigation'
 import './imagewiper.css'
 
-const ImagesSwiper = ({images}) => {
+const ImagesSwiper = ({images, autoplay}) => {
     return (
         <>
             <div className="images-swiper-wrapper">
@@ -12,7 +12,9 @@ const ImagesSwiper = ({images}) => {
                     modules={[Navigation, Autoplay]}
                     slidesPerView={1}
                     navigation
-                    autoplay={{delay: 5500, disableOnInteraction: false}}
+                    autoplay={
+                        autoplay ? {delay: 5500, disableOnInteraction: false} : false
+                    }
                     loop={true}
                 >
                     {

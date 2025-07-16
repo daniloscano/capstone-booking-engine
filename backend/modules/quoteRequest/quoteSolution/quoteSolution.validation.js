@@ -7,10 +7,13 @@ const createValidationRules = [
     body('roomTypeId')
         .isMongoId()
         .withMessage('roomTypeId must be a valid ObjectId'),
-    body('bookingPolicyId')
+    body('policies')
+        .isArray({ min: 1 })
+        .withMessage('policies must be a not empty array'),
+    body('policies.*.bookingPolicyId')
         .isMongoId()
         .withMessage('bookingPolicyId must be a valid ObjectId'),
-    body('price')
+    body('policies.*.price')
         .notEmpty()
         .isFloat({ min: 0 })
         .withMessage('price must be a positive number'),
@@ -29,11 +32,15 @@ const updateValidationRules = [
         .optional()
         .isMongoId()
         .withMessage('roomTypeId must be a valid ObjectId'),
-    body('bookingPolicyId')
+    body('policies')
+        .optional()
+        .isArray({ min: 1 })
+        .withMessage('policies must be a not empty array'),
+    body('policies.*.bookingPolicyId')
         .optional()
         .isMongoId()
         .withMessage('bookingPolicyId must be a valid ObjectId'),
-    body('price')
+    body('policies.*.price')
         .optional()
         .notEmpty()
         .isFloat({ min: 0 })

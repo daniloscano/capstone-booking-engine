@@ -4,16 +4,11 @@ import SolutionCard from "./partials/SolutionCard.jsx";
 import Loader from "../../loader/Loader.jsx";
 
 const QuoteSolutionsContainer = () => {
-    const {quoteRequest, quoteRequestLoading, quoteRequestError, reset} = useQuoteRequestStore()
-    console.log(quoteRequest)
-    const {filteredSolutions, setFilteredSolutions} = useQuoteRequestStore()
+    const {quoteRequest, quoteRequestSolutions, quoteRequestLoading, quoteRequestError, setQuoteRequestSolutions, reset} = useQuoteRequestStore()
 
     useEffect(() => {
-        const solutions = quoteRequest?.quoteSolutionsIds || []
-
-        if (quoteRequest && solutions.length > 0) {
-            const filteredQuoteSolutions = solutions.filter(solution => solution.bookingPolicyId.code === 'nref')
-            setFilteredSolutions(filteredQuoteSolutions)
+        if (quoteRequest && quoteRequest.quoteSolutionsIds) {
+            setQuoteRequestSolutions(quoteRequest.quoteSolutionsIds)
         }
     }, [quoteRequest]);
 
@@ -23,13 +18,13 @@ const QuoteSolutionsContainer = () => {
 
     return (
         <>
-            <section className="container my-4 px-0 quote-solutions-container">
+            <section className="container mt-4 mb-5 px-0 quote-solutions-container">
                 {
-                    quoteRequestLoading && <Loader />
+                    quoteRequestLoading && <Loader/>
                 }
                 {
-                    !quoteRequestLoading && filteredSolutions.map((solution, index) => (
-                        <SolutionCard key={`solution-card-${index}`} solution={solution} />
+                    !quoteRequestLoading && quoteRequestSolutions.length > 0 && quoteRequestSolutions.map((solution, index) => (
+                        <SolutionCard key={`solution-card-${index}`} solution={solution}/>
                     ))
                 }
             </section>

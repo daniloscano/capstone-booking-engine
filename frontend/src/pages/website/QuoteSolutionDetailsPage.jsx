@@ -5,9 +5,11 @@ const QuoteSolutionDetailsPage = () => {
     return (
         <>
             <WebsiteBaseLayout>
-                <main>
-                    <SolutionDetails />
-                </main>
+                <div className="d-flex flex-column page-wrapper">
+                    <main>
+                        <SolutionDetails/>
+                    </main>
+                </div>
             </WebsiteBaseLayout>
         </>
     );

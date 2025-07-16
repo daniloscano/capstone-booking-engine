@@ -4,7 +4,7 @@
     --bg-primary: #F2E8DF;
     --primary: #754526;
     --primary-hover: #8E5A33;
-    --secondary: rgba(177, 138, 85, 0.75);
+    --secondary: #B18A55FF;
     --secondary-hover: #A77D4E;
     --text-primary: #2E2E2E;
     --text-secondary: #555555;
@@ -20,11 +20,19 @@
 }
 
 body {
+    height: 100%;
     font-family: "Poppins", sans-serif;
     line-height: 1.5;
     background-color: var(--bg-primary);
     overflow-x: hidden;
-    min-height: 100dvh;
+}
+
+.page-wrapper {
+    min-height: 75dvh;
+}
+
+main {
+    flex: 1;
 }
 
 .book-now-btn {

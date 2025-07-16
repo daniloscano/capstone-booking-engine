@@ -1,0 +1,18 @@
+.solution-details-subtitle {
+    font-size: 1em;
+}
+
+.solution-details-description {
+    font-size: 1.14em;
+}
+
+.solution-details-policy {
+    border: 1px solid var(--border);
+    -webkit-box-shadow: 0 0 20px 4px rgba(66, 68, 90, 0.32);
+    -moz-box-shadow: 0 0 20px 4px rgba(66, 68, 90, 0.32);
+    box-shadow: 0 0 20px 4px rgba(66, 68, 90, 0.32);
+}
+
+.solution-details-price {
+    font-size: 1.4em;
+}

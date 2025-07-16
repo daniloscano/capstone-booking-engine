@@ -11,11 +11,11 @@ const QuoteSolutionsContainer = () => {
             setQuoteRequestSolutions(quoteRequest.quoteSolutionsIds)
         }
     }, [quoteRequest]);
-
+    /*
     useEffect(() => {
         return () => reset();
     }, [reset]);
-
+    */
     return (
         <>
             <section className="container mt-4 mb-5 px-0 quote-solutions-container">

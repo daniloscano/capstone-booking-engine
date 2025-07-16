@@ -7,13 +7,9 @@ const authorizedRoles = require('@authMiddlewares/role')
 const quoteSolution = express.Router()
 
 quoteSolution.get("/",
-    authMiddleware,
-    authorizedRoles('admin', 'manager', 'operator'),
     quoteSolutionController.getAllQuoteSolutions
 )
 quoteSolution.get("/:quoteSolutionId",
-    authMiddleware,
-    authorizedRoles('admin', 'manager', 'operator'),
     quoteSolutionController.getQuoteSolutionById
 )
 quoteSolution.post("/create",

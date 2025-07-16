@@ -4,6 +4,7 @@ import {useEffect} from "react";
 import useSolutionStore from "../../stores/useSolutionStore.js";
 import Loader from "../../loader/Loader.jsx";
 import ImagesSwiper from "../imagesSwiper/ImagesSwiper.jsx";
+import './solutionDetails.css'
 
 const SolutionDetails = () => {
     const {solutionId} = useParams()
@@ -40,9 +41,9 @@ const SolutionDetails = () => {
                                     />
                                 </div>
                                 <div className="col col-12 col-md-7">
-                                    <h2>{name}</h2>
-                                    <small>{dimensions}</small>
-                                    <div className="d-flex align-items-center gap-3 solution-details-beds">
+                                    <h2 className="solution-details-title">{name}</h2>
+                                    <p className="pb-2 solution-details-subtitle">{dimensions}</p>
+                                    <div className="d-flex align-items-center gap-4 pb-3 solution-details-beds">
                                         {
                                             beds.king > 0 && (
                                                 <div className="d-flex align-items-center gap-2">
@@ -80,48 +81,50 @@ const SolutionDetails = () => {
                                             )
                                         }
                                     </div>
-                                    <p>{description}</p>
-                                    <div className="row gy-4">
-                                        {
-                                            amenities.map((amenity, index) => (
-                                                <div
-                                                    key={`room-amenity-${index}`}
-                                                    className="col col-12 col-md-4"
-                                                >
-                                                    <div className="d-flex align-items-center gap-2">
+                                    <p className="solution-details-description">{description}</p>
+                                </div>
+                                <h4>Dotazioni</h4>
+                                <div className="row gy-2 mb-4">
+                                    {
+                                        amenities.map((amenity, index) => (
+                                            <div
+                                                key={`room-amenity-${index}`}
+                                                className="col col-12 col-md-4"
+                                            >
+                                                <div className="d-flex align-items-center gap-2">
 
-                                                        <img
-                                                            className="img-fluid room-details-icon"
-                                                            src={amenity.icon}
-                                                            alt={amenity.code}
-                                                        />
-                                                        <p className="m-0 p-0">{amenity.name}</p>
-                                                    </div>
+                                                    <img
+                                                        className="img-fluid room-details-icon"
+                                                        src={amenity.icon}
+                                                        alt={amenity.code}
+                                                    />
+                                                    <p className="m-0 p-0">{amenity.name}</p>
                                                 </div>
-                                            ))
-                                        }
-                                    </div>
+                                            </div>
+                                        ))
+                                    }
                                 </div>
                             </div>
                             {
                                 policies.map((policy, index) => (
-                                        <div
-                                            key={`solution-policy-${index}`}
-                                            className="row align-items-center py-3 mt-2 solution-details-policy"
-                                        >
-                                            <div className="col col-12 col-md-3">
-                                                <h4>{policy.bookingPolicyId.name}</h4>
-                                            </div>
-                                            <div className="col col-12 col-md-7">
-                                                <p className="p-0 my-1">{policy.bookingPolicyId.deposit}</p>
-                                                <p className="p-0 m-0">{policy.bookingPolicyId.balance}</p>
-                                                <small>{policy.bookingPolicyId.cancellation}</small>
-                                            </div>
-                                            <div className="col col-12 col-md-2 text-center">
-                                                <p className="my-1"><b>{`€ ${Number(policy.price).toFixed(2)}`}</b></p>
-                                                <button className="py-2 px-4 rounded rounded-2 book-now-btn">PRENOTA</button>
-                                            </div>
+                                    <div
+                                        key={`solution-policy-${index}`}
+                                        className="row align-items-center py-3 my-4 rounded rounded-2 solution-details-policy"
+                                    >
+                                        <div className="col col-12 col-md-3 ps-4">
+                                            <h5>{policy.bookingPolicyId.name}</h5>
                                         </div>
+                                        <div className="col col-12 col-md-7">
+                                            <p className="p-0 my-1">{policy.bookingPolicyId.deposit}</p>
+                                            <p className="p-0 my-1">{policy.bookingPolicyId.balance}</p>
+                                            <small>{policy.bookingPolicyId.cancellation}</small>
+                                        </div>
+                                        <div className="col col-12 col-md-2 text-center">
+                                            <p className="my-2 solution-details-price">
+                                                <b>{`€ ${Number(policy.price).toFixed(2)}`}</b></p>
+                                            <button className="py-2 px-4 rounded rounded-2 book-now-btn">PRENOTA</button>
+                                        </div>
+                                    </div>
                                 ))
                             }
                         </>

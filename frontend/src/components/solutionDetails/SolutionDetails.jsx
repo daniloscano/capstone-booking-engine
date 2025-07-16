@@ -26,7 +26,7 @@ const SolutionDetails = () => {
 
     return (
         <>
-            <section className="container my-4 solution-details">
+            <section className="container mt-4 mb-5 solution-details">
                 {
                     !solution && solutionLoading && !solutionError && <Loader/>
                 }

@@ -6,6 +6,7 @@ import ServicesPage from "./pages/website/ServicesPage.jsx";
 import ContactPage from "./pages/website/ContactPage.jsx";
 import BookingEnginePage from "./pages/website/BookingEnginePage.jsx";
 import QuoteSolutionDetailsPage from "./pages/website/QuoteSolutionDetailsPage.jsx";
+import BookingFormPage from "./pages/website/BookingFormPage.jsx";
 
 const App = () => {
 
@@ -20,6 +21,7 @@ const App = () => {
                     <Route path="/contact-us" element={<ContactPage />} />
                     <Route path="/booking-engine" element={<BookingEnginePage />} />
                     <Route path="/booking-engine/:solutionId" element={<QuoteSolutionDetailsPage />} />
+                    <Route path="/booking-engine/:solutionId/:policyCode" element={<BookingFormPage />} />
                 </Routes>
             </Router>
         </>

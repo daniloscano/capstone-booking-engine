@@ -2,12 +2,15 @@ import {create} from "zustand";
 
 const useQuoteRequestStore = create((set) => (
     {
-        quoteRequest: {},
+        quoteRequest: null,
+        filteredSolutions: [],
         quoteRequestLoading: true,
         quoteRequestError: null,
-        setQuoteRequest: (quoteRequest) => set({ quoteRequest }),
-        setQuoteRequestLoading: (quoteRequestLoading) => set({ quoteRequestLoading }),
-        setQuoteRequestError: (quoteRequestError) => set({ quoteRequestError })
+        setQuoteRequest: (quoteRequest) => set({quoteRequest}),
+        setQuoteRequestLoading: (quoteRequestLoading) => set({quoteRequestLoading}),
+        setQuoteRequestError: (quoteRequestError) => set({quoteRequestError}),
+        setFilteredSolutions: (filteredSolutions) => set({filteredSolutions}),
+        reset: () => set({quoteRequest: null})
     }
 ))
 

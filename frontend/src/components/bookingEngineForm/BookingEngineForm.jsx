@@ -1,8 +1,8 @@
 import {Calendar} from "primereact/calendar";
 import './bookingEngineForm.css'
-import useBookingEngineFormStore from "../../../stores/useBookingEngineFormStore.js";
+import useBookingEngineFormStore from "../../stores/useBookingEngineFormStore.js";
 import {format} from "date-fns";
-import {useCheckAvailability} from "../../../hooks/useCheckAvailability.js";
+import {useCheckAvailability} from "../../hooks/useCheckAvailability.js";
 
 const BookingEngineForm = () => {
     const { dates, setDates, adults, setAdults, children, setChildren, infant, setInfant } = useBookingEngineFormStore()

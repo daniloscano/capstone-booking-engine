@@ -36,6 +36,7 @@ const RoomDetails = () => {
                     <div className="col col-12 col-lg-5">
                         <ImagesSwiper
                             images={images}
+                            autoplay={true}
                         />
                     </div>
                     <div className="col col-12-col-lg-7">

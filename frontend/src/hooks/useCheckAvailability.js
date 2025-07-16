@@ -15,10 +15,8 @@ export const useCheckAvailability = () => {
                 body: JSON.stringify(payload)
             })
             const result = await response.json()
-            console.log(result.quoteRequest)
             setQuoteRequest(result.quoteRequest)
         } catch (err) {
-            console.log(err)
             setQuoteRequestError(err)
         } finally {
             setQuoteRequestLoading(false)

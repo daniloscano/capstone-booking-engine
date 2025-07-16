@@ -6,6 +6,9 @@ const RoomUnitSchema = require('@roomModules/roomUnit/roomUnit.model')
 
 const checkRoomAvailability = async (quoteSolutionId) => {
     const session = await mongoose.startSession()
+
+    let availability = null
+
     await session.withTransaction(async () => {
         const quoteSolution = await QuoteSolutionSchema.findById(quoteSolutionId)
             .session(session)
@@ -31,14 +34,16 @@ const checkRoomAvailability = async (quoteSolutionId) => {
         ).session(session)
 
         if (!availableRoomUnit) {
-            return {available: false}
-        }
-
-        return {
-            available: true,
-            roomUnitId: availableRoomUnit._id
+            availability = {available: false}
+        } else {
+            availability = {
+                available: true,
+                roomUnitId: availableRoomUnit._id
+            }
         }
     }).finally(() => session.endSession())
+
+    return availability
 }
 
 module.exports = checkRoomAvailability

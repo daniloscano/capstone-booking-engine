@@ -7,3 +7,11 @@
 .booking-form-input::placeholder {
     color: var(--text-primary);
 }
+
+.review-text, .review-price {
+    font-size: 1.2em;
+}
+
+.review-booking-description {
+    font-size: 1.2em;
+}

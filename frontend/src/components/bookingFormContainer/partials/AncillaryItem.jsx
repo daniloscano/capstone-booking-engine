@@ -6,12 +6,7 @@ import './ancillaryItem.css'
 const AncillaryItem = ({ancillary}) => {
     const {quoteRequest} = useQuoteRequestStore()
     const {adults, children, daysStay: nights} = quoteRequest
-    const { ancillariesIds, setAncillariesIds, ancillariesPrice, setAncillariesPrice } = useBookingFormStore()
-
-    useEffect(() => {
-        console.log(ancillariesIds)
-        console.log(ancillariesPrice)
-    }, [ancillariesIds, ancillariesPrice]);
+    const { setAncillariesIds, setAncillariesPrice } = useBookingFormStore()
 
     const addToSelectedAncillary = (e) => {
         setAncillariesIds(ancillary._id)
@@ -31,6 +26,7 @@ const AncillaryItem = ({ancillary}) => {
 
         setAncillariesPrice(ancillaryPrice)
 
+        e.target.innerText = 'AGGIUNTO'
     }
 
     return (

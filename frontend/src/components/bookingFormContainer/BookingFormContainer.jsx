@@ -15,6 +15,7 @@ import GuestsFormItem from "./partials/GuestsFormItem.jsx";
 import Loader from "../../loader/Loader.jsx";
 import './bookingFormContainer.css'
 import useBookingFormStore from "../../stores/useBookingFormStore.js";
+import {format} from 'date-fns'
 
 const BookingFormContainer = () => {
     const {solutionId, policyCode} = useParams()
@@ -44,6 +45,7 @@ const BookingFormContainer = () => {
     const occupancy = hasInfant ? adults + children + 1 : adults + children
     const policy = solution.policies.find(policy => policy.bookingPolicyId.code === policyCode)
 
+    console.log(policy)
     return (
         <>
             <div className="container my-4 booking-form-container">
@@ -82,18 +84,30 @@ const BookingFormContainer = () => {
                         }
                     </div>
                     <div className="review-container-py-3">
-                        <h4>Riepilogo</h4>
-                        <div className="d-flex justify-content-end align-items-center gap-2">
-                            <p>{solution.roomTypeId.name}</p>
-                            <p>€ {Number(policy.price).toFixed(2)}</p>
-                        </div>
-                        <div className="d-flex justify-content-end align-items-center gap-2">
-                            <p>Servizi Extra</p>
-                            <p>€ {ancillariesPrice.toFixed(2)}</p>
-                        </div>
-                        <div className="d-flex justify-content-end align-items-center gap-2">
-                            <p>Totale Soggiorno</p>
-                            <p><b>€ {(policy.price + ancillariesPrice).toFixed(2)}</b></p>
+                        <h3>Riepilogo</h3>
+                        <div className="row py-2">
+                            <div className="col col-12 col-md-8">
+                                <p className="review-booking-description">
+                                    Stai confermando una prenotazione
+                                    dal {format(checkIn, 'dd/MM/yyyy')} al {format(checkOut, 'dd/MM/yyyy')} per {adults + children} ospiti {hasInfant ? 'e un neonato' : ''}.<br/>
+                                    La camera scelta è una {solution.roomTypeId.name} in {policy.bookingPolicyId.name}
+                                </p>
+                            </div>
+                            <div className="col col-12 col-md-4">
+                                <div className="d-flex justify-content-end align-items-center gap-4">
+                                    <p className="review-text">{solution.roomTypeId.name}</p>
+                                    <p className="review-price">€ {Number(policy.price).toFixed(2)}</p>
+                                </div>
+                                <div className="d-flex justify-content-end align-items-center gap-4">
+                                    <p className="review-text">Servizi Extra</p>
+                                    <p className="review-price">€ {ancillariesPrice.toFixed(2)}</p>
+                                </div>
+                                <div className="d-flex justify-content-end align-items-center gap-4">
+                                    <p className="review-text">Totale Soggiorno</p>
+                                    <p className="review-price"><b>€ {(policy.price + ancillariesPrice).toFixed(2)}</b>
+                                    </p>
+                                </div>
+                            </div>
                         </div>
                     </div>
                     <div className="d-flex justify-content-end align-items-center gap-3">

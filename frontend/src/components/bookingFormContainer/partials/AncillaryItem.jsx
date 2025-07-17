@@ -1,12 +1,12 @@
 import useQuoteRequestStore from "../../../stores/useQuoteRequestStore.js";
-import useBookingFormStore from "../../../stores/useBookingFormStore.js";
+import useAncillariesFormStore from "../../../stores/useAncillariesFormStore.js";
 import {useEffect} from "react";
 import './ancillaryItem.css'
 
 const AncillaryItem = ({ancillary}) => {
     const {quoteRequest} = useQuoteRequestStore()
     const {adults, children, daysStay: nights} = quoteRequest
-    const { setAncillariesIds, setAncillariesPrice } = useBookingFormStore()
+    const { setAncillariesIds, setAncillariesPrice } = useAncillariesFormStore()
 
     const addToSelectedAncillary = (e) => {
         setAncillariesIds(ancillary._id)

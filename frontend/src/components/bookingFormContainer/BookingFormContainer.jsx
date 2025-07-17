@@ -1,31 +1,31 @@
-import {useParams} from "react-router-dom";
-import {useRoomUnit} from "../../hooks/useRoomUnit.js";
 import {useEffect} from "react";
+import {useParams} from "react-router-dom";
+import {format} from 'date-fns'
 import useRoomUnitStore from "../../stores/useRoomUnitStore.js";
 import useAncillariesStore from "../../stores/useAncillariesStore.js";
-import {useAncillaries} from "../../hooks/useAncillaries.js";
 import useQuoteRequestStore from "../../stores/useQuoteRequestStore.js";
 import useSolutionStore from "../../stores/useSolutionStore.js";
-import {useSolution} from "../../hooks/useSolution.js";
+import useAncillariesFormStore from "../../stores/useAncillariesFormStore.js";
+import {useRoomUnit} from "../../hooks/useRoomUnit.js";
+import {useAncillaries} from "../../hooks/useAncillaries.js";
 import AncillaryItem from "./partials/AncillaryItem.jsx";
 import MasterGuestForm from "./partials/MasterGuestForm.jsx";
 import AddressForm from "./partials/AddressForm.jsx";
 import DocumentForm from "./partials/DocumentForm.jsx";
 import GuestsFormItem from "./partials/GuestsFormItem.jsx";
-import Loader from "../../loader/Loader.jsx";
 import './bookingFormContainer.css'
-import useBookingFormStore from "../../stores/useBookingFormStore.js";
-import {format} from 'date-fns'
+import useMasterGuestFormStore from "../../stores/useMasterGuestFormStore.js";
 
 const BookingFormContainer = () => {
     const {solutionId, policyCode} = useParams()
-    const {solution, solutionLoading, solutionError} = useSolutionStore()
+    const {solution} = useSolutionStore()
     const {quoteRequest} = useQuoteRequestStore()
     const {roomUnit, roomUnitLoading, roomUnitError, roomUnitReset} = useRoomUnitStore()
     const {ancillaries, ancillariesLoading, ancillariesError} = useAncillariesStore()
     const {checkRoomAvailability} = useRoomUnit()
     const {getAncillaries} = useAncillaries()
-    const {ancillariesIds, ancillariesPrice} = useBookingFormStore()
+    const {ancillariesIds, ancillariesPrice} = useAncillariesFormStore()
+    const { firstName, lastName, gender, dateOfBirth, email, phone } = useMasterGuestFormStore()
 
     useEffect(() => {
         checkRoomAvailability(solutionId, policyCode)
@@ -45,7 +45,28 @@ const BookingFormContainer = () => {
     const occupancy = hasInfant ? adults + children + 1 : adults + children
     const policy = solution.policies.find(policy => policy.bookingPolicyId.code === policyCode)
 
-    console.log(policy)
+    const onBookingFormSubmit = (e) => {
+        e.preventDefault()
+
+        const masterGuest = {
+            firstName,
+            lastName,
+            gender,
+            dateOfBirth,
+            email,
+            phone
+        }
+
+        const payload = {
+            quoteSolutionId: solutionId,
+            roomUnitId: roomUnit.roomUnitId,
+            ancillariesData: ancillariesIds,
+            masterGuestData: masterGuest
+        }
+
+        console.log('booking payload: ', payload)
+    }
+
     return (
         <>
             <div className="container my-4 booking-form-container">
@@ -111,7 +132,12 @@ const BookingFormContainer = () => {
                         </div>
                     </div>
                     <div className="d-flex justify-content-end align-items-center gap-3">
-                        <button className="py-2 px-4 rounded rounded-2 book-now-btn">INVIA</button>
+                        <button
+                            onClick={onBookingFormSubmit}
+                            className="py-2 px-4 rounded rounded-2 book-now-btn"
+                        >
+                            INVIA
+                        </button>
                         <button className="btn py-2 px-4 rounded rounded-2 btn-light">Pulisci</button>
                     </div>
                 </form>

@@ -1,6 +1,6 @@
 import { create } from "zustand";
 
-const useBookingFormStore = create((set) => ({
+const useAncillariesFormStore = create((set) => ({
     ancillariesIds: [],
     ancillariesPrice: 0,
 
@@ -15,4 +15,4 @@ const useBookingFormStore = create((set) => ({
         }))
 }));
 
-export default useBookingFormStore;
+export default useAncillariesFormStore;

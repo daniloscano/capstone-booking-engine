@@ -1,6 +1,40 @@
 import React from 'react';
+import useMasterGuestFormStore from "../../../stores/useMasterGuestFormStore.js";
 
 const MasterGuestForm = () => {
+    const {
+        firstName, setFirstName,
+        lastName, setLastName,
+        gender, setGender,
+        dateOfBirth, setDateOfBirth,
+        email, setEmail,
+        phone, setPhone
+    } = useMasterGuestFormStore()
+
+    const firstNameChange = (e) => {
+        setFirstName(e.target.value)
+    }
+
+    const lastNameChange = (e) => {
+        setLastName(e.target.value)
+    }
+
+    const genderChange = (e) => {
+        setGender(e.target.value)
+    }
+
+    const dateOfBirthChange = (e) => {
+        setDateOfBirth(e.target.value)
+    }
+
+    const emailChange = (e) => {
+        setEmail(e.target.value)
+    }
+
+    const phoneChange = (e) => {
+        setPhone(e.target.value)
+    }
+
     return (
         <>
             <div className="row align-items-center py-2">
@@ -13,6 +47,8 @@ const MasterGuestForm = () => {
                             name="master-first-name"
                             id="master-first-name"
                             placeholder="Il tuo Nome"
+                            onChange={firstNameChange}
+                            value={firstName}
                         />
                     </div>
                 </div>
@@ -25,6 +61,8 @@ const MasterGuestForm = () => {
                             name="master-last-name"
                             id="master-last-name"
                             placeholder="Il tuo Cognome"
+                            value={lastName}
+                            onChange={lastNameChange}
                         />
                     </div>
                 </div>
@@ -35,6 +73,8 @@ const MasterGuestForm = () => {
                             className="py-1 px-2 booking-form-input"
                             name="master-gender"
                             id="master-gender"
+                            value={gender}
+                            onChange={genderChange}
                         >
                             <option value="">Sesso</option>
                             <option value="male">Uomo</option>
@@ -50,6 +90,8 @@ const MasterGuestForm = () => {
                             type="date"
                             name="master-date-of-birth"
                             id="master-date-of-birth"
+                            value={dateOfBirth}
+                            onChange={dateOfBirthChange}
                         />
                     </div>
                 </div>
@@ -64,6 +106,8 @@ const MasterGuestForm = () => {
                             name="master-email"
                             id="master-email"
                             placeholder="La tua Email"
+                            value={email}
+                            onChange={emailChange}
                         />
                     </div>
                 </div>
@@ -76,6 +120,8 @@ const MasterGuestForm = () => {
                             name="master-phone"
                             id="master-phone"
                             placeholder="Il tuo Telefono"
+                            value={phone}
+                            onChange={phoneChange}
                         />
                     </div>
                 </div>

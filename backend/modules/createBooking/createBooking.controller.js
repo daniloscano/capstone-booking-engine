@@ -1,8 +1,8 @@
 const createBookingService = require('./createBooking.service')
 
 const createBooking = async (req, res, next) => {
-    const { quoteSolutionId } = req.params
     const {
+        quoteSolutionId,
         roomUnitId,
         ancillariesData,
         masterGuestData,

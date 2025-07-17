@@ -3,6 +3,6 @@ const createBookingController = require('./createBooking.controller')
 
 const createBooking = express.Router()
 
-createBooking.post("/:quoteSolutionId", createBookingController)
+createBooking.post("/", createBookingController)
 
 module.exports = createBooking

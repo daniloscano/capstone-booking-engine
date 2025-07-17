@@ -1,4 +1,24 @@
+import useDocumentFormStore from "../../../stores/useDocumentFormStore.js";
+
 const DocumentForm = () => {
+    const {
+        type, setType,
+        number, setNumber,
+        expireDate, setExpireDate
+    } = useDocumentFormStore()
+
+    const typeChange = (e) => {
+        setType(e.target.value)
+    }
+
+    const numberChange = (e) => {
+        setNumber(e.target.value)
+    }
+
+    const expireDateChange = (e) => {
+        setExpireDate(e.target.value)
+    }
+
     return (
         <>
             <div className="row align-items-center py-2">
@@ -9,6 +29,8 @@ const DocumentForm = () => {
                             className="py-1 px-2 booking-form-input"
                             name="document-type"
                             id="document-type"
+                            value={type}
+                            onChange={typeChange}
                         >
                             <option value="">Documento</option>
                             <option value="idCard">Carta di Identità</option>
@@ -26,6 +48,8 @@ const DocumentForm = () => {
                             name="document-number"
                             id="document-number"
                             placeholder="Il Numero del Documento"
+                            value={number}
+                            onChange={numberChange}
                         />
                     </div>
                 </div>
@@ -37,6 +61,8 @@ const DocumentForm = () => {
                             type="date"
                             name="document-expire-date"
                             id="document-expire-date"
+                            value={expireDate}
+                            onChange={expireDateChange}
                         />
                     </div>
                 </div>

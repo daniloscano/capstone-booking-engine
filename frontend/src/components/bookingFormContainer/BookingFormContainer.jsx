@@ -14,6 +14,7 @@ import DocumentForm from "./partials/DocumentForm.jsx";
 import GuestsFormItem from "./partials/GuestsFormItem.jsx";
 import Loader from "../../loader/Loader.jsx";
 import './bookingFormContainer.css'
+import useBookingFormStore from "../../stores/useBookingFormStore.js";
 
 const BookingFormContainer = () => {
     const {solutionId, policyCode} = useParams()
@@ -23,7 +24,7 @@ const BookingFormContainer = () => {
     const {ancillaries, ancillariesLoading, ancillariesError} = useAncillariesStore()
     const {checkRoomAvailability} = useRoomUnit()
     const {getAncillaries} = useAncillaries()
-    const {getSolutionById} = useSolution()
+    const {ancillariesIds, ancillariesPrice} = useBookingFormStore()
 
     useEffect(() => {
         checkRoomAvailability(solutionId, policyCode)
@@ -46,7 +47,7 @@ const BookingFormContainer = () => {
     return (
         <>
             <div className="container my-4 booking-form-container">
-                <form>
+                <form onSubmit={(e) => e.preventDefault()}>
                     <div className="ancillaries-container">
                         <h3>Personalizza la tua vacanza</h3>
                         {
@@ -59,25 +60,40 @@ const BookingFormContainer = () => {
                         }
                     </div>
                     <div className="master-guest-container py-3">
-                        <h4>Intestatario</h4>
+                        <h3>Intestatario</h3>
                         <MasterGuestForm/>
                     </div>
                     <div className="address-container py-3">
-                        <h4>Indirizzo</h4>
+                        <h3>Indirizzo</h3>
                         <AddressForm/>
                     </div>
                     <div className="document-container py-3">
-                        <h4>Documento</h4>
+                        <h3>Documento</h3>
                         <DocumentForm/>
-                        <div className="guests-container py-4">
-                            <h4>Ospiti</h4>
-                            {
-                                Array.from({length: occupancy}).map((guest, index) => (
-                                    <GuestsFormItem
-                                        key={`guest-form-item-${index}`}
-                                    />
-                                ))
-                            }
+                    </div>
+                    <div className="guests-container py-3">
+                        <h3>Ospiti</h3>
+                        {
+                            Array.from({length: occupancy}).map((guest, index) => (
+                                <GuestsFormItem
+                                    key={`guest-form-item-${index}`}
+                                />
+                            ))
+                        }
+                    </div>
+                    <div className="review-container-py-3">
+                        <h4>Riepilogo</h4>
+                        <div className="d-flex justify-content-end align-items-center gap-2">
+                            <p>{solution.roomTypeId.name}</p>
+                            <p>€ {Number(policy.price).toFixed(2)}</p>
+                        </div>
+                        <div className="d-flex justify-content-end align-items-center gap-2">
+                            <p>Servizi Extra</p>
+                            <p>€ {ancillariesPrice.toFixed(2)}</p>
+                        </div>
+                        <div className="d-flex justify-content-end align-items-center gap-2">
+                            <p>Totale Soggiorno</p>
+                            <p><b>€ {(policy.price + ancillariesPrice).toFixed(2)}</b></p>
                         </div>
                     </div>
                     <div className="d-flex justify-content-end align-items-center gap-3">

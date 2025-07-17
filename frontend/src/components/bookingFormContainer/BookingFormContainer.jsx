@@ -44,6 +44,8 @@ const BookingFormContainer = () => {
     const occupancy = hasInfant ? adults + children + 1 : adults + children
     const policy = solution.policies.find(policy => policy.bookingPolicyId.code === policyCode)
 
+    console.log(policy)
+
     useEffect(() => {
         checkRoomAvailability(solutionId, policyCode)
         getAncillaries()
@@ -62,7 +64,7 @@ const BookingFormContainer = () => {
     const createPayment = (e) => {
         const type = policy.bookingPolicyId.code === 'std' ? 'deposit' : 'balance'
         setPaymentType(type)
-        setAmount(Number(policy.price + ancillariesPrice).toFixed(2))
+        setAmount((policy.price + ancillariesPrice).toFixed(2))
         setIsCompleted(true)
         setCompletedDate(new Date())
 
@@ -105,10 +107,11 @@ const onBookingFormSubmit = (e) => {
     const payload = {
         quoteSolutionId: solutionId,
         roomUnitId: roomUnit.roomUnitId,
+        policy,
         ancillariesData: ancillariesIds,
         masterGuestData: masterGuest,
-        addressData: address,
-        documentData: document,
+        masterGuestAddress: address,
+        masterGuestDocument: document,
         guestsData: guests,
         paymentData: payment
     }

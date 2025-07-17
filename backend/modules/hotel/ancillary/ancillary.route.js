@@ -7,11 +7,9 @@ const authorizedRoles = require('@authMiddlewares/role')
 const ancillary = express.Router()
 
 ancillary.get("/",
-    authMiddleware,
     ancillaryController.getAllAncillaries
 )
 ancillary.get("/:ancillaryId",
-    authMiddleware,
     ancillaryController.getAncillaryById
 )
 ancillary.post("/create",

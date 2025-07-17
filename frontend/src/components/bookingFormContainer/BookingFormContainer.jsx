@@ -17,6 +17,7 @@ import './bookingFormContainer.css'
 import useMasterGuestFormStore from "../../stores/useMasterGuestFormStore.js";
 import useAddressFormStore from "../../stores/useAddressFormStore.js";
 import useDocumentFormStore from "../../stores/useDocumentFormStore.js";
+import useGuestsFormStore from "../../stores/useGuestsFormStore.js";
 
 const BookingFormContainer = () => {
     const {solutionId, policyCode} = useParams()
@@ -30,10 +31,16 @@ const BookingFormContainer = () => {
     const { firstName, lastName, gender, dateOfBirth, email, phone } = useMasterGuestFormStore()
     const { street, zipCode, city, region, nation } = useAddressFormStore()
     const { type, number, expireDate } = useDocumentFormStore()
+    const { guests, initializeGuests } = useGuestsFormStore()
+
+    const {checkIn, checkOut, adults, children, hasInfant} = quoteRequest
+    const occupancy = hasInfant ? adults + children + 1 : adults + children
+    const policy = solution.policies.find(policy => policy.bookingPolicyId.code === policyCode)
 
     useEffect(() => {
         checkRoomAvailability(solutionId, policyCode)
         getAncillaries()
+        initializeGuests(occupancy)
     }, []);
 
     useEffect(() => {
@@ -44,10 +51,6 @@ const BookingFormContainer = () => {
     if (!roomUnit) return
     if (!ancillaries) return
     if (!quoteRequest) return
-
-    const {checkIn, checkOut, daysStay, adults, children, hasInfant} = quoteRequest
-    const occupancy = hasInfant ? adults + children + 1 : adults + children
-    const policy = solution.policies.find(policy => policy.bookingPolicyId.code === policyCode)
 
     const onBookingFormSubmit = (e) => {
         e.preventDefault()
@@ -81,7 +84,8 @@ const BookingFormContainer = () => {
             ancillariesData: ancillariesIds,
             masterGuestData: masterGuest,
             addressData: address,
-            documentData: document
+            documentData: document,
+            guestsData: guests
         }
 
         console.log('booking payload: ', payload)
@@ -120,6 +124,7 @@ const BookingFormContainer = () => {
                             Array.from({length: occupancy}).map((guest, index) => (
                                 <GuestsFormItem
                                     key={`guest-form-item-${index}`}
+                                    index={index}
                                 />
                             ))
                         }

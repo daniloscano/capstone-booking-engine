@@ -13,10 +13,6 @@ const SolutionDetails = () => {
 
     useEffect(() => {
         getSolutionById(solutionId)
-
-        return () => {
-            reset()
-        }
     }, [])
 
     if (!solution) return

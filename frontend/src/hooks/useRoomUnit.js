@@ -1,8 +1,7 @@
-import useBookingStore from "../stores/useBookingStore.js";
+import useRoomUnitStore from "../stores/useRoomUnitStore.js";
 
-export const useBooking = () => {
-    const { setBooking, setBookingLoading, setBookingError } = useBookingStore()
-    const { setRoomUnit, setRoomUnitLoading, setRoomUnitError } = useBookingStore()
+export const useRoomUnit = () => {
+    const { setRoomUnit, setRoomUnitLoading, setRoomUnitError } = useRoomUnitStore()
 
     const checkRoomAvailability = async (solutionId) => {
         try {

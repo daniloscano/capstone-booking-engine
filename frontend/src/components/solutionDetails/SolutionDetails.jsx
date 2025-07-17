@@ -121,7 +121,8 @@ const SolutionDetails = () => {
                                         </div>
                                         <div className="col col-12 col-md-2 text-center">
                                             <p className="my-2 solution-details-price">
-                                                <b>{`€ ${Number(policy.price).toFixed(2)}`}</b></p>
+                                                <b>{`€ ${Number(policy.price).toFixed(2)}`}</b>
+                                            </p>
                                             <button
                                                 className="py-2 px-4 rounded rounded-2 book-now-btn"
                                             >

@@ -1,7 +1,24 @@
+.master-guest-container,
+.address-container,
+.document-container,
+.guests-container,
+.payment-container {
+    background: rgba(177, 138, 85, 0.5);
+}
+
+.review-container {
+    border: 1px solid var(--primary);
+}
+
+.input-container label {
+    font-size: 1.28em;
+}
+
 .booking-form-input {
     background-color: var(--white-color);
     outline: none;
     border: 2px solid var(--primary);
+    font-size: 1.16em;
 }
 
 .booking-form-input::placeholder {
@@ -9,9 +26,17 @@
 }
 
 .review-text, .review-price {
-    font-size: 1.2em;
+    font-size: 1.28em;
 }
 
 .review-booking-description {
-    font-size: 1.2em;
+    font-size: 1.28em;
+}
+
+.review-table {
+    width: 80%;
+}
+
+.payment-review {
+    font-size: 1.28em;
 }

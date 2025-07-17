@@ -36,7 +36,7 @@ const AncillaryItem = ({ancillary}) => {
             >
                 <div className="col col-12 col-md-10">
                     <h4 className="p-0 my-1">{ancillary.name}</h4>
-                    <p className="p-0 my-1">{ancillary.description}</p>
+                    <p className="p-0 my-1 ancillary-item-description">{ancillary.description}</p>
                     <p className="m-0 p-0 ancillary-item-price">
                         {
                             (() => {

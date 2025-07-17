@@ -1,4 +1,34 @@
+import useAddressFormStore from "../../../stores/useAddressFormStore.js";
+
 const AddressForm = () => {
+    const {
+        street, setStreet,
+        zipCode, setZipCode,
+        city, setCity,
+        region, setRegion,
+        nation, setNation
+    } = useAddressFormStore()
+
+    const streetChange = (e) => {
+        setStreet(e.target.value)
+    }
+
+    const zipCodeChange = (e) => {
+        setZipCode(e.target.value)
+    }
+
+    const cityChange = (e) => {
+        setCity(e.target.value)
+    }
+
+    const regionChange = (e) => {
+        setRegion(e.target.value)
+    }
+
+    const nationChange = (e) => {
+        setNation(e.target.value)
+    }
+
     return (
         <>
             <div className="row align-items-center py-2">
@@ -11,6 +41,8 @@ const AddressForm = () => {
                             name="address-street"
                             id="address-street"
                             placeholder="Il tuo Indirizzo"
+                            value={street}
+                            onChange={streetChange}
                         />
                     </div>
                 </div>
@@ -23,6 +55,8 @@ const AddressForm = () => {
                             name="address-zipcode"
                             id="address-zipcode"
                             placeholder="Il tuo CAP"
+                            value={zipCode}
+                            onChange={zipCodeChange}
                         />
                     </div>
                 </div>
@@ -35,6 +69,8 @@ const AddressForm = () => {
                             name="address-city"
                             id="address-city"
                             placeholder="La tua Città"
+                            value={city}
+                            onChange={cityChange}
                         />
                     </div>
                 </div>
@@ -49,6 +85,8 @@ const AddressForm = () => {
                             name="address-region"
                             id="address-region"
                             placeholder="La tua Provincia"
+                            value={region}
+                            onChange={regionChange}
                         />
                     </div>
                 </div>
@@ -61,6 +99,8 @@ const AddressForm = () => {
                             name="address-nation"
                             id="address-nation"
                             placeholder="La tua Nazione"
+                            value={nation}
+                            onChange={nationChange}
                         />
                     </div>
                 </div>

@@ -15,6 +15,7 @@ import DocumentForm from "./partials/DocumentForm.jsx";
 import GuestsFormItem from "./partials/GuestsFormItem.jsx";
 import './bookingFormContainer.css'
 import useMasterGuestFormStore from "../../stores/useMasterGuestFormStore.js";
+import useAddressFormStore from "../../stores/useAddressFormStore.js";
 
 const BookingFormContainer = () => {
     const {solutionId, policyCode} = useParams()
@@ -26,6 +27,7 @@ const BookingFormContainer = () => {
     const {getAncillaries} = useAncillaries()
     const {ancillariesIds, ancillariesPrice} = useAncillariesFormStore()
     const { firstName, lastName, gender, dateOfBirth, email, phone } = useMasterGuestFormStore()
+    const { street, zipCode, city, region, nation } = useAddressFormStore()
 
     useEffect(() => {
         checkRoomAvailability(solutionId, policyCode)
@@ -57,11 +59,20 @@ const BookingFormContainer = () => {
             phone
         }
 
+        const address = {
+            street,
+            zipCode,
+            city,
+            region,
+            nation
+        }
+
         const payload = {
             quoteSolutionId: solutionId,
             roomUnitId: roomUnit.roomUnitId,
             ancillariesData: ancillariesIds,
-            masterGuestData: masterGuest
+            masterGuestData: masterGuest,
+            addressData: address
         }
 
         console.log('booking payload: ', payload)

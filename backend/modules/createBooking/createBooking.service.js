@@ -17,6 +17,7 @@ const createBooking = async (
     {
         quoteSolutionId,
         roomUnitId,
+        policy,
         ancillariesData,
         masterGuestData,
         masterGuestAddress,
@@ -27,19 +28,23 @@ const createBooking = async (
 ) => {
     const session = await mongoose.startSession()
 
+    let booking = null
+
     await session.withTransaction(async () => {
         const quoteSolution = await QuoteSolutionSchema.findById(quoteSolutionId)
             .session(session)
         const quoteRequest = await QuoteRequestSchema.findById(quoteSolution.quoteRequestId)
             .session(session)
 
+        const checkIn = quoteRequest.checkIn
+        const checkOut = quoteRequest.checkOut
         const nights = quoteRequest.daysStay
         const adults = quoteRequest.adults
         const children = quoteRequest.children
 
         const ancillaries = await AncillarySchema.find(
             {
-                _id: { $in: ancillariesData }
+                _id: {$in: ancillariesData}
             }
         ).session(session)
 
@@ -53,6 +58,8 @@ const createBooking = async (
 
         const ancillariesTotalPrice = ancillaryPriceItems.reduce((sum, ancillary) => sum += ancillary.price, 0)
 
+        console.log(ancillariesTotalPrice)
+
         const address = new AddressSchema(masterGuestAddress)
         await address.save()
 
@@ -62,14 +69,21 @@ const createBooking = async (
         const masterGuest = new GuestSchema(
             {
                 ...masterGuestData,
+                isMaster: true,
                 addressId: address._id,
                 documentId: document._id
             }
         )
         await masterGuest.save({session})
 
-        const existingUser = await UserSchema.findOne({email: masterGuestData.email})
-            .session(session)
+        const newUsername = `${masterGuestData.firstName.toLowerCase()}${masterGuestData.lastName.toLowerCase()}`
+
+        const existingUser = await UserSchema.findOne({
+            $or: [
+                {email: masterGuestData.email},
+                {username: newUsername}
+            ]
+        }).session(session)
 
         if (!existingUser) {
             const randomPassword = crypto.randomBytes(6).toString('hex')
@@ -107,7 +121,7 @@ const createBooking = async (
         const guests = await Promise.all(
             guestsData.map(async guestData => {
                 const guest = new GuestSchema(guestData)
-                await guest.save({ session })
+                await guest.save({session})
                 return guest
             })
         )
@@ -117,30 +131,31 @@ const createBooking = async (
         const bookingPayment = new BookingPaymentSchema(paymentData)
         await bookingPayment.save({session})
 
-        const booking = new BookingSchema(
+        booking = new BookingSchema(
             {
                 quoteRequestId: quoteRequest._id,
                 masterGuestId: masterGuest._id,
                 guestsIds,
                 roomId: roomUnitId,
-                checkIn: quoteRequest.checkIn,
-                checkOut: quoteRequest.checkOut,
+                checkIn: checkIn,
+                checkOut: checkOut,
                 adults: adults,
                 children: children,
                 hasInfant: quoteRequest.hasInfant,
-                policyId: quoteSolution.bookingPolicyId,
-                price: quoteSolution.price,
+                policyId: policy.bookingPolicyId._id,
+                price: policy.price,
                 ancillariesIds: ancillariesData,
                 ancillariesPrice: ancillariesTotalPrice,
                 totalPrice: paymentData.amount,
-                stage: 'waitingForDeposit',
+                stage: 'confirmed',
                 paymentsIds: [bookingPayment._id]
             }
         )
         await booking.save({session})
 
-        return booking
     }).finally(() => session.endSession())
+
+    return booking
 }
 
 module.exports = createBooking

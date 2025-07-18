@@ -13,7 +13,7 @@ const useQuoteRequestStore = create(
                 setQuoteRequestSolutions: (quoteRequestSolutions) => set({quoteRequestSolutions}),
                 setQuoteRequestLoading: (quoteRequestLoading) => set({quoteRequestLoading}),
                 setQuoteRequestError: (quoteRequestError) => set({quoteRequestError}),
-                reset: () => set({quoteRequest: null, quoteRequestSolutions: []})
+                resetQuoteRequest: () => set({quoteRequest: null, quoteRequestSolutions: []})
             }
         ),
         {

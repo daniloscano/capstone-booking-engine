@@ -28,8 +28,8 @@ const BookingFormContainer = () => {
     const {solutionId, policyCode} = useParams()
     const {solution} = useSolutionStore()
     const {quoteRequest} = useQuoteRequestStore()
-    const {roomUnit, roomUnitLoading, roomUnitError, roomUnitReset} = useRoomUnitStore()
-    const {ancillaries, ancillariesLoading, ancillariesError} = useAncillariesStore()
+    const {roomUnit, roomUnitLoading, roomUnitReset} = useRoomUnitStore()
+    const {ancillaries} = useAncillariesStore()
     const {checkRoomAvailability} = useRoomUnit()
     const {getAncillaries} = useAncillaries()
     const {ancillariesIds, ancillariesPrice} = useAncillariesFormStore()
@@ -44,7 +44,6 @@ const BookingFormContainer = () => {
         completedDate, setCompletedDate
     } = usePaymentFormStore()
     const {createBooking} = useBooking()
-    const {bookingIdError} = useBookingStore()
 
     const {checkIn, checkOut, adults, children, hasInfant} = quoteRequest
     const occupancy = hasInfant ? adults + children + 1 : adults + children

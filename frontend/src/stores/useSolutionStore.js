@@ -11,7 +11,7 @@ const useSolutionStore = create(
                 setSolution: (solution) => set({solution}),
                 setSolutionLoading: (solutionLoading) => set({solutionLoading}),
                 setSolutionError: (solutionError) => set({solutionError}),
-                reset: () => set({solution: null})
+                resetSolution: () => set({solution: null})
             }
         ),
         {

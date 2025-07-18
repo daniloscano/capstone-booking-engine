@@ -5,7 +5,6 @@ const BookingFormPage = () => {
     return (
         <>
             <WebsiteBaseLayout>
-                <h1>Modulo di Prenotazione</h1>
                 <BookingFormContainer />
             </WebsiteBaseLayout>
         </>

@@ -1,5 +1,5 @@
 import {useEffect} from "react";
-import {useParams} from "react-router-dom";
+import {useNavigate, useParams} from "react-router-dom";
 import {format} from 'date-fns'
 import useRoomUnitStore from "../../stores/useRoomUnitStore.js";
 import useAncillariesStore from "../../stores/useAncillariesStore.js";
@@ -8,6 +8,7 @@ import useSolutionStore from "../../stores/useSolutionStore.js";
 import useAncillariesFormStore from "../../stores/useAncillariesFormStore.js";
 import {useRoomUnit} from "../../hooks/useRoomUnit.js";
 import {useAncillaries} from "../../hooks/useAncillaries.js";
+import {useBooking} from "../../hooks/useBooking.js";
 import AncillaryItem from "./partials/AncillaryItem.jsx";
 import MasterGuestForm from "./partials/MasterGuestForm.jsx";
 import AddressForm from "./partials/AddressForm.jsx";
@@ -19,8 +20,11 @@ import useAddressFormStore from "../../stores/useAddressFormStore.js";
 import useDocumentFormStore from "../../stores/useDocumentFormStore.js";
 import useGuestsFormStore from "../../stores/useGuestsFormStore.js";
 import usePaymentFormStore from "../../stores/usePaymentFormStore.js";
+import useBookingStore from "../../stores/useBookingStore.js";
 
 const BookingFormContainer = () => {
+    const navigate = useNavigate()
+
     const {solutionId, policyCode} = useParams()
     const {solution} = useSolutionStore()
     const {quoteRequest} = useQuoteRequestStore()
@@ -39,12 +43,12 @@ const BookingFormContainer = () => {
         isCompleted, setIsCompleted,
         completedDate, setCompletedDate
     } = usePaymentFormStore()
+    const {createBooking} = useBooking()
+    const {bookingIdError} = useBookingStore()
 
     const {checkIn, checkOut, adults, children, hasInfant} = quoteRequest
     const occupancy = hasInfant ? adults + children + 1 : adults + children
     const policy = solution.policies.find(policy => policy.bookingPolicyId.code === policyCode)
-
-    console.log(policy)
 
     useEffect(() => {
         checkRoomAvailability(solutionId, policyCode)
@@ -71,7 +75,7 @@ const BookingFormContainer = () => {
         e.target.textContent = 'PAGAMENTO COMPLETATO'
 }
 
-const onBookingFormSubmit = (e) => {
+const onBookingFormSubmit = async (e) => {
     e.preventDefault()
 
     const masterGuest = {
@@ -116,7 +120,9 @@ const onBookingFormSubmit = (e) => {
         paymentData: payment
     }
 
-    console.log('booking payload: ', payload)
+    const bookingId = await createBooking(payload)
+
+    navigate(`/booking/${bookingId}`)
 }
 
 return (

@@ -12,7 +12,6 @@ booking.get("/",
     bookingController.getAllBookings
 )
 booking.get("/:bookingId",
-    authMiddleware,
     bookingController.getBookingById
 )
 booking.get("/guest/:masterGuestId",

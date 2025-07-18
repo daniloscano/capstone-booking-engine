@@ -3,7 +3,7 @@ const calculateAncillaryPrice = (ancillary, nights, adults, children) => {
         case 'perNight':
             return ancillary.price * nights
         case 'perOccupancy':
-            return ancillary.price * (adults + children)
+            return ancillary.price * (adults + children) * nights
         default:
             return ancillary.price
     }

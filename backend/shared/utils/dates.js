@@ -1,7 +1,9 @@
 const { DateTime } = require('luxon')
 
 const formattedDate = (date) => {
-    return DateTime.fromISO(date, { zone: 'utc' }).startOf('day')
+    if (date instanceof Date) return date;
+    const dt = DateTime.fromISO(date, { zone: 'utc' });
+    return dt.isValid ? dt.startOf('day').toJSDate() : null;
 }
 
 const getExpireDate = (date) => {

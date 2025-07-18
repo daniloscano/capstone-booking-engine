@@ -28,10 +28,12 @@ const createValidationRules = [
         .isMongoId()
         .withMessage('bookingsIds value must be a valid ObjectId'),
     body('email')
+        .optional()
         .notEmpty()
         .isEmail()
         .withMessage('email must be a valid one'),
     body('phone')
+        .optional()
         .isMobilePhone()
         .withMessage('phone must be a valid one'),
     body('addressId')

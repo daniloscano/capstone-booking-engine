@@ -2,7 +2,7 @@
 
 :root {
     --bg-primary: #F2E8DF;
-    --primary: #754526;
+    --primary: rgba(68, 50, 45, 0.9);
     --primary-hover: #8E5A33;
     --secondary: #B18A55FF;
     --secondary-hover: #A77D4E;

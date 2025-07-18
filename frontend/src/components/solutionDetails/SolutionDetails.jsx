@@ -1,4 +1,4 @@
-import {useParams} from "react-router-dom";
+import {Link, useParams} from "react-router-dom";
 import {useSolution} from "../../hooks/useSolution.js";
 import {useEffect} from "react";
 import useSolutionStore from "../../stores/useSolutionStore.js";
@@ -13,15 +13,11 @@ const SolutionDetails = () => {
 
     useEffect(() => {
         getSolutionById(solutionId)
-
-        return () => {
-            reset()
-        }
     }, [])
 
     if (!solution) return
 
-    const {_id: id, roomTypeId: room, policies} = solution
+    const {roomTypeId: room, policies} = solution
     const {name, description, dimensions, amenitiesIds: amenities, bedsId: beds, images} = room
 
     return (
@@ -121,8 +117,18 @@ const SolutionDetails = () => {
                                         </div>
                                         <div className="col col-12 col-md-2 text-center">
                                             <p className="my-2 solution-details-price">
-                                                <b>{`€ ${Number(policy.price).toFixed(2)}`}</b></p>
-                                            <button className="py-2 px-4 rounded rounded-2 book-now-btn">PRENOTA</button>
+                                                <b>{`€ ${Number(policy.price).toFixed(2)}`}</b>
+                                            </p>
+                                            <button
+                                                className="py-2 px-4 rounded rounded-2 book-now-btn"
+                                            >
+                                                <Link
+                                                    className="text-decoration-none"
+                                                    to={`/booking-engine/${solutionId}/${policy.bookingPolicyId.code}`}
+                                                >
+                                                    PRENOTA
+                                                </Link>
+                                            </button>
                                         </div>
                                     </div>
                                 ))

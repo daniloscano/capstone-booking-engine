@@ -1,0 +1,14 @@
+.ancillary-item {
+    border: 1px solid var(--border);
+    -webkit-box-shadow: 0px 0px 23px 4px rgba(66, 68, 90, 0.32);
+    -moz-box-shadow: 0px 0px 23px 4px rgba(66, 68, 90, 0.32);
+    box-shadow: 0px 0px 23px 4px rgba(66, 68, 90, 0.32);
+}
+
+.ancillary-item-description {
+    font-size: 1.2em;
+}
+
+.ancillary-item-price {
+    font-size: 1.3em;
+}

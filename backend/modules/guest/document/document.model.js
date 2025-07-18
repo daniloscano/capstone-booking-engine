@@ -10,7 +10,7 @@ const DocumentSchema = new mongoose.Schema(
         type: {
             type: String,
             required: true,
-            enum: [ 'id card', 'driving license', 'passport' ]
+            enum: [ 'idCard', 'drivingLicense', 'passport' ]
         },
         number: {
             type: String,

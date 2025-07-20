@@ -1,12 +1,13 @@
 import useLoginFormStore from "../../stores/useLoginFormStore.js";
 import {useBackofficeLogin} from "../../hooks/useBackofficeLogin.jsx";
+import './loginForm.css'
 
 const LoginForm = () => {
-    const { loginFormData, setLoginFormData, reset } = useLoginFormStore()
-    const { loginOperator } = useBackofficeLogin()
+    const {loginFormData, setLoginFormData, reset} = useLoginFormStore()
+    const {loginOperator} = useBackofficeLogin()
 
     const onChangeInput = (e) => {
-        const { name, value } = e.target
+        const {name, value} = e.target
 
         setLoginFormData({
             ...loginFormData,
@@ -24,48 +25,46 @@ const LoginForm = () => {
 
     return (
         <>
-            <section className="login-section">
-                <div className="container my-4 p-4 w-50 mx-auto login-container">
-                    <form
-                        className="w-75 mx-auto"
-                        onSubmit={onSubmit}
-                    >
-                        <h2>Accedi al Backoffice</h2>
-                        <div className="d-flex flex-column gap-2 my-3 input-container">
-                            <label htmlFor="username-input">Nome Utente</label>
-                            <input
-                                className="login-input"
-                                type="text"
-                                name="username"
-                                id="username-input"
-                                placeholder="Nome utente"
-                                value={loginFormData.username}
-                                onChange={onChangeInput}
-                            />
-                        </div>
-                        <div className="d-flex flex-column gap-2 my-3 input-container">
-                            <label htmlFor="password-input">Password</label>
-                            <input
-                                className="login-input"
-                                type="password"
-                                name="password"
-                                id="password-input"
-                                placeholder="Password"
-                                value={loginFormData.password}
-                                onChange={onChangeInput}
-                            />
-                        </div>
-                        <div className="d-flex justify-content-end my-3">
-                            <button
-                                type="submit"
-                                className="btn btn-success"
-                            >
-                                ACCEDI
-                            </button>
-                        </div>
-                    </form>
-                </div>
-            </section>
+            <div className="container d-flex flex-column justify-content-center align-items-center p-5 login-container">
+                <form
+                    className="p-4 rounded rounded-2 login-form"
+                    onSubmit={onSubmit}
+                >
+                    <h2 className="mb-4 login-title">Accedi al Backoffice</h2>
+                    <div className="d-flex flex-column gap-2 my-3 login-input-container">
+                        <label htmlFor="username-input">Nome Utente</label>
+                        <input
+                            className="py-1 px-2 login-form-input"
+                            type="text"
+                            name="username"
+                            id="username-input"
+                            placeholder="Nome utente"
+                            value={loginFormData.username}
+                            onChange={onChangeInput}
+                        />
+                    </div>
+                    <div className="d-flex flex-column gap-2 my-3 input-container">
+                        <label htmlFor="password-input">Password</label>
+                        <input
+                            className="py-1 px-2 login-form-input"
+                            type="password"
+                            name="password"
+                            id="password-input"
+                            placeholder="Password"
+                            value={loginFormData.password}
+                            onChange={onChangeInput}
+                        />
+                    </div>
+                    <div className="d-flex justify-content-end my-3">
+                        <button
+                            type="submit"
+                            className="py-2 px-4 rounded rounded-2 book-now-btn"
+                        >
+                            ACCEDI
+                        </button>
+                    </div>
+                </form>
+            </div>
         </>
     );
 };

@@ -8,29 +8,8 @@ const sendEmail = require("@mailer/config")
 const InvalidOrMissingTokenException = require("@authExceptions/InvalidOrMissingTokenException");
 
 const register = async (userData) => {
-    userData.password = crypto.randomBytes(6).toString('hex')
-
     const newUser = new UserSchema(userData)
-    const savedUser = await newUser.save()
-
-    const resetToken = jwt.sign(
-        {id: savedUser.id},
-        process.env.JWT_SECRET,
-        {expiresIn: '30m'}
-    )
-
-    const resetLink = `${process.env.CLIENT_BASE_URL}/reset-password?token=${resetToken}`
-
-    const emailBody = `
-        <h3>Benvenuto!</h3>
-        <p>Il tuo account è stato creato con successo</p>
-        <p>Per attivare il tuo account, ti chiediamo di <a href="${resetLink}">cliccare qui</a> per impostare la tua password</p>
-        <p>La password provvisoria è: <b>${userData.password}</b></p>
-    `
-
-    await sendEmail(savedUser.email, 'Il tuo account è stato creato!', emailBody)
-
-    return savedUser
+    return newUser.save()
 }
 
 const sendResetPasswordEmail = async (email) => {

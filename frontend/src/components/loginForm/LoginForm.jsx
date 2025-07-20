@@ -3,22 +3,26 @@ import {useBackofficeLogin} from "../../hooks/useBackofficeLogin.jsx";
 import './loginForm.css'
 
 const LoginForm = () => {
-    const {loginFormData, setLoginFormData, reset} = useLoginFormStore()
+    const {username, setUsername, password, setPassword, reset} = useLoginFormStore()
     const {loginOperator} = useBackofficeLogin()
 
-    const onChangeInput = (e) => {
-        const {name, value} = e.target
+    const onChangeUsername = (e) => {
+        setUsername(e.target.value)
+    }
 
-        setLoginFormData({
-            ...loginFormData,
-            [name]: value
-        })
+    const onChangePassword = (e) => {
+        setPassword(e.target.value)
     }
 
     const onSubmit = async (e) => {
         e.preventDefault()
 
-        loginOperator(loginFormData)
+        const payload = {
+            username,
+            password
+        }
+
+        loginOperator(payload)
 
         reset()
     }
@@ -39,8 +43,8 @@ const LoginForm = () => {
                             name="username"
                             id="username-input"
                             placeholder="Nome utente"
-                            value={loginFormData.username}
-                            onChange={onChangeInput}
+                            value={username}
+                            onChange={onChangeUsername}
                         />
                     </div>
                     <div className="d-flex flex-column gap-2 my-3 input-container">
@@ -51,8 +55,8 @@ const LoginForm = () => {
                             name="password"
                             id="password-input"
                             placeholder="Password"
-                            value={loginFormData.password}
-                            onChange={onChangeInput}
+                            value={password}
+                            onChange={onChangePassword}
                         />
                     </div>
                     <div className="d-flex justify-content-end my-3">

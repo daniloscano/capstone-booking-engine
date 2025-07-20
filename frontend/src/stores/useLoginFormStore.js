@@ -2,9 +2,11 @@ import {create} from "zustand";
 
 const useLoginFormStore = create((set => (
     {
-        loginFormData: {},
-        setLoginFormData: (loginFormData) => set({loginFormData}),
-        reset: () => set({loginFormData: {}})
+        username: '',
+        password: '',
+        setUsername: (username) => set({username}),
+        setPassword: (password) => set({password}),
+        reset: () => set({username: '', password: ''})
     }
 )))
 

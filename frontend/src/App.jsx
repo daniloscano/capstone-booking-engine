@@ -8,6 +8,9 @@ import BookingEnginePage from "./pages/website/BookingEnginePage.jsx";
 import QuoteSolutionDetailsPage from "./pages/website/QuoteSolutionDetailsPage.jsx";
 import BookingFormPage from "./pages/website/BookingFormPage.jsx";
 import BookingPage from "./pages/website/BookingPage.jsx";
+import BackofficeLoginPage from "./pages/backoffice/BackofficeLoginPage.jsx";
+import ProtectedRoutes from "./middlewares/ProtectedRoutes.jsx";
+import BackofficeDashboard from "./pages/backoffice/BackofficeDashboard.jsx";
 
 const App = () => {
 
@@ -24,6 +27,12 @@ const App = () => {
                     <Route path="/booking-engine/:solutionId" element={<QuoteSolutionDetailsPage />} />
                     <Route path="/booking-engine/:solutionId/:policyCode" element={<BookingFormPage />} />
                     <Route path="/booking/:bookingId" element={<BookingPage />} />
+
+                    <Route path="/backoffice/login" element={<BackofficeLoginPage />} />
+
+                    <Route element={<ProtectedRoutes />}>
+                        <Route path="backoffice/dashboard" element={<BackofficeDashboard />} />
+                    </Route>
                 </Routes>
             </Router>
         </>

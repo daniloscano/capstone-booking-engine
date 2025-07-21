@@ -9,7 +9,7 @@ class Pagination {
         const data = await this.model.find(filter, '-password')
             .sort(sort)
             .limit(pageSize)
-            .skip( (page - 1) * pageSize )
+            .skip( page * pageSize )
             .populate(populateFields)
 
         return {

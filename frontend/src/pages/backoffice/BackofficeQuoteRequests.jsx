@@ -1,10 +1,11 @@
 import BackofficeBaseLayout from "../../layouts/backoffice/BackofficeBaseLayout.jsx";
+import QuoteRequestContainer from "../../components/backoffice/quoteRequestContainer/QuoteRequestContainer.jsx";
 
 const BackofficeBookings = () => {
     return (
         <>
             <BackofficeBaseLayout>
-                <h1>Preventivi</h1>
+                <QuoteRequestContainer />
             </BackofficeBaseLayout>
         </>
     );

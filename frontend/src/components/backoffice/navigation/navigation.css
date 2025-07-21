@@ -1,0 +1,32 @@
+.backoffice-navigation {
+    position: sticky;
+    top: 0;
+    width: 100dvw;
+    background-color: var(--secondary);
+    border-bottom: 1px solid var(--border);
+}
+
+.backoffice-brand-link {
+    color: var(--white-color);
+}
+
+.logout-btn {
+    background-color: var(--border);
+    border: 1px solid var(--border);
+    color: var(--text-primary);
+    font-size: 1.24em;
+    transition: all 0.2s ease;
+}
+
+.book-now-btn a {
+    color: var(--white-color);
+}
+
+.book-now-btn:hover {
+    transform: scale(1.04);
+}
+
+.book-now-btn:active {
+    background-color: var(--white-color);
+    border: 1px solid var(--white-color);
+}

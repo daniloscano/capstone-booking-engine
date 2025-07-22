@@ -1,7 +1,7 @@
 import WebsitePagesLayout from "../../layouts/website/WebsitePagesLayout.jsx";
-import RoomsContainer from "../../components/roomsContainer/RoomsContainer.jsx";
-import { roomsPage } from "../../components/pageHeader/partials/pages.js"
-import PageHeader from "../../components/pageHeader/PageHeader.jsx";
+import RoomsContainer from "../../components/website/roomsContainer/RoomsContainer.jsx";
+import { roomsPage } from "../../components/website/pageHeader/partials/pages.js"
+import PageHeader from "../../components/website/pageHeader/PageHeader.jsx";
 
 const RoomsPage = () => {
     return (

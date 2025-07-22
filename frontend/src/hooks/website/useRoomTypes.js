@@ -1,5 +1,5 @@
-import useRoomsStore from "../stores/useRoomsStore.js";
-import useRoomDetailsStore from "../stores/useRoomDetailsStore.js";
+import useRoomsStore from "../../stores/website/useRoomsStore.js";
+import useRoomDetailsStore from "../../stores/website/useRoomDetailsStore.js";
 
 export const useRoomTypes = () => {
     const { setRooms, setRoomsLoading, setRoomsError } = useRoomsStore()

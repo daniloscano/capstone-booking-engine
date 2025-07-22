@@ -1,8 +1,8 @@
 import {useParams} from "react-router-dom";
 import {useEffect} from "react";
-import useRoomDetailsStore from "../../stores/useRoomDetailsStore.js";
-import {useRoomTypes} from "../../hooks/useRoomTypes.js";
-import Loader from "../../loader/Loader.jsx";
+import useRoomDetailsStore from "../../../stores/website/useRoomDetailsStore.js";
+import {useRoomTypes} from "../../../hooks/website/useRoomTypes.js";
+import Loader from "../../../loader/Loader.jsx";
 import ImagesSwiper from "../imagesSwiper/ImagesSwiper.jsx";
 import './roomDetails.css'
 

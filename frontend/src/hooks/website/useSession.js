@@ -1,4 +1,4 @@
-import {useAuth} from "../middlewares/ProtectedRoutes.jsx";
+import {useAuth} from "../../middlewares/ProtectedRoutes.jsx";
 import {jwtDecode} from "jwt-decode";
 import {useNavigate} from "react-router-dom";
 import {useEffect} from "react";

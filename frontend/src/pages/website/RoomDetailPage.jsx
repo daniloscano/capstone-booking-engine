@@ -1,5 +1,5 @@
 import WebsiteBaseLayout from "../../layouts/website/WebsiteBaseLayout.jsx";
-import RoomDetails from "../../components/roomDetails/RoomDetails.jsx";
+import RoomDetails from "../../components/website/roomDetails/RoomDetails.jsx";
 
 const RoomDetailPage = () => {
     return (

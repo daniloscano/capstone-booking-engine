@@ -1,4 +1,4 @@
-import useBookingStore from "../stores/useBookingStore.js";
+import useBookingStore from "../../stores/website/useBookingStore.js";
 
 export const useBooking = () => {
     const { setBookingIdError } = useBookingStore()

@@ -1,4 +1,4 @@
-import useGuestsFormStore from "../../../stores/useGuestsFormStore.js";
+import useGuestsFormStore from "../../../../stores/website/useGuestsFormStore.js";
 
 const GuestsFormItem = ({ index }) => {
     const { guests, updateGuestField } = useGuestsFormStore()

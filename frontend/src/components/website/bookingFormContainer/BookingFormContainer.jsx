@@ -1,26 +1,26 @@
 import {useEffect} from "react";
 import {useNavigate, useParams} from "react-router-dom";
 import {format} from 'date-fns'
-import useRoomUnitStore from "../../stores/useRoomUnitStore.js";
-import useAncillariesStore from "../../stores/useAncillariesStore.js";
-import useQuoteRequestStore from "../../stores/useQuoteRequestStore.js";
-import useSolutionStore from "../../stores/useSolutionStore.js";
-import useAncillariesFormStore from "../../stores/useAncillariesFormStore.js";
-import {useRoomUnit} from "../../hooks/useRoomUnit.js";
-import {useAncillaries} from "../../hooks/useAncillaries.js";
-import {useBooking} from "../../hooks/useBooking.js";
+import useRoomUnitStore from "../../../stores/website/useRoomUnitStore.js";
+import useAncillariesStore from "../../../stores/website/useAncillariesStore.js";
+import useQuoteRequestStore from "../../../stores/website/useQuoteRequestStore.js";
+import useSolutionStore from "../../../stores/website/useSolutionStore.js";
+import useAncillariesFormStore from "../../../stores/website/useAncillariesFormStore.js";
+import {useRoomUnit} from "../../../hooks/website/useRoomUnit.js";
+import {useAncillaries} from "../../../hooks/website/useAncillaries.js";
+import {useBooking} from "../../../hooks/website/useBooking.js";
 import AncillaryItem from "./partials/AncillaryItem.jsx";
 import MasterGuestForm from "./partials/MasterGuestForm.jsx";
 import AddressForm from "./partials/AddressForm.jsx";
 import DocumentForm from "./partials/DocumentForm.jsx";
 import GuestsFormItem from "./partials/GuestsFormItem.jsx";
 import './bookingFormContainer.css'
-import useMasterGuestFormStore from "../../stores/useMasterGuestFormStore.js";
-import useAddressFormStore from "../../stores/useAddressFormStore.js";
-import useDocumentFormStore from "../../stores/useDocumentFormStore.js";
-import useGuestsFormStore from "../../stores/useGuestsFormStore.js";
-import usePaymentFormStore from "../../stores/usePaymentFormStore.js";
-import useBookingStore from "../../stores/useBookingStore.js";
+import useMasterGuestFormStore from "../../../stores/website/useMasterGuestFormStore.js";
+import useAddressFormStore from "../../../stores/website/useAddressFormStore.js";
+import useDocumentFormStore from "../../../stores/website/useDocumentFormStore.js";
+import useGuestsFormStore from "../../../stores/website/useGuestsFormStore.js";
+import usePaymentFormStore from "../../../stores/website/usePaymentFormStore.js";
+import useBookingStore from "../../../stores/website/useBookingStore.js";
 
 const BookingFormContainer = () => {
     const navigate = useNavigate()

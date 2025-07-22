@@ -1,5 +1,5 @@
-import useLoginFormStore from "../../stores/useLoginFormStore.js";
-import {useBackofficeLogin} from "../../hooks/useBackofficeLogin.js";
+import useLoginFormStore from "../../../stores/website/useLoginFormStore.js";
+import {useBackofficeLogin} from "../../../hooks/website/useBackofficeLogin.js";
 import './loginForm.css'
 
 const LoginForm = () => {

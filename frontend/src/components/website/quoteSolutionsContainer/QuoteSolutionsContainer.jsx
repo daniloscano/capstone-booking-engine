@@ -1,7 +1,7 @@
-import useQuoteRequestStore from "../../stores/useQuoteRequestStore.js";
+import useQuoteRequestStore from "../../../stores/website/useQuoteRequestStore.js";
 import {useEffect} from "react";
 import SolutionCard from "./partials/SolutionCard.jsx";
-import Loader from "../../loader/Loader.jsx";
+import Loader from "../../../loader/Loader.jsx";
 
 const QuoteSolutionsContainer = () => {
     const {quoteRequest, quoteRequestSolutions, quoteRequestLoading, quoteRequestError, setQuoteRequestSolutions, reset} = useQuoteRequestStore()

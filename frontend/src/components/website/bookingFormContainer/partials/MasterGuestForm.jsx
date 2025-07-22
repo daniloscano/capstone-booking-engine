@@ -1,5 +1,5 @@
 import React from 'react';
-import useMasterGuestFormStore from "../../../stores/useMasterGuestFormStore.js";
+import useMasterGuestFormStore from "../../../../stores/website/useMasterGuestFormStore.js";
 
 const MasterGuestForm = () => {
     const {

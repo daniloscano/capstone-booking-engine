@@ -1,5 +1,5 @@
 import WebsiteBaseLayout from "../../layouts/website/WebsiteBaseLayout.jsx";
-import BookingFormContainer from "../../components/bookingFormContainer/BookingFormContainer.jsx";
+import BookingFormContainer from "../../components/website/bookingFormContainer/BookingFormContainer.jsx";
 
 const BookingFormPage = () => {
     return (

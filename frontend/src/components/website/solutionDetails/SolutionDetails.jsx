@@ -1,8 +1,8 @@
 import {Link, useParams} from "react-router-dom";
-import {useSolution} from "../../hooks/useSolution.js";
+import {useSolution} from "../../../hooks/website/useSolution.js";
 import {useEffect} from "react";
-import useSolutionStore from "../../stores/useSolutionStore.js";
-import Loader from "../../loader/Loader.jsx";
+import useSolutionStore from "../../../stores/website/useSolutionStore.js";
+import Loader from "../../../loader/Loader.jsx";
 import ImagesSwiper from "../imagesSwiper/ImagesSwiper.jsx";
 import './solutionDetails.css'
 

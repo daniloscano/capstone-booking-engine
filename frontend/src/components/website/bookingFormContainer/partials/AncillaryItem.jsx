@@ -1,5 +1,5 @@
-import useQuoteRequestStore from "../../../stores/useQuoteRequestStore.js";
-import useAncillariesFormStore from "../../../stores/useAncillariesFormStore.js";
+import useQuoteRequestStore from "../../../../stores/website/useQuoteRequestStore.js";
+import useAncillariesFormStore from "../../../../stores/website/useAncillariesFormStore.js";
 import {useEffect} from "react";
 import './ancillaryItem.css'
 

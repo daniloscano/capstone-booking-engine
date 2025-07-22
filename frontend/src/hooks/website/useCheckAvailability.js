@@ -1,4 +1,4 @@
-import useQuoteRequestStore from "../stores/useQuoteRequestStore.js";
+import useQuoteRequestStore from "../../stores/website/useQuoteRequestStore.js";
 
 export const useCheckAvailability = () => {
     const { setQuoteRequest, setQuoteRequestLoading, setQuoteRequestError } = useQuoteRequestStore()

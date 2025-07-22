@@ -1,4 +1,4 @@
-import Footer from "../../components/footer/Footer.jsx";
+import Footer from "../../components/website/footer/Footer.jsx";
 
 const WebsitePagesLayout = ({ children }) => {
     return (

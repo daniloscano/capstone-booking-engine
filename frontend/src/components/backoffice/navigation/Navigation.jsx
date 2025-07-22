@@ -1,6 +1,6 @@
 import {Link, useNavigate} from "react-router-dom";
 import './navigation.css'
-import useSession from "../../../hooks/useSession.js";
+import useSession from "../../../hooks/website/useSession.js";
 
 const Navigation = () => {
     const session = useSession()

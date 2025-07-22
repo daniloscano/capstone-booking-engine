@@ -1,4 +1,4 @@
-import useSolutionStore from "../stores/useSolutionStore.js";
+import useSolutionStore from "../../stores/website/useSolutionStore.js";
 
 export const useSolution = () => {
     const { setSolution, setSolutionLoading, setSolutionError } = useSolutionStore()

@@ -1,10 +1,10 @@
 import {useParams} from "react-router-dom";
-import useBookingStore from "../../stores/useBookingStore.js";
-import {useBooking} from "../../hooks/useBooking.js";
-import useQuoteRequestStore from "../../stores/useQuoteRequestStore.js";
-import useSolutionStore from "../../stores/useSolutionStore.js";
+import useBookingStore from "../../../stores/website/useBookingStore.js";
+import {useBooking} from "../../../hooks/website/useBooking.js";
+import useQuoteRequestStore from "../../../stores/website/useQuoteRequestStore.js";
+import useSolutionStore from "../../../stores/website/useSolutionStore.js";
 import {useEffect} from "react";
-import Loader from "../../loader/Loader.jsx";
+import Loader from "../../../loader/Loader.jsx";
 import {format} from "date-fns";
 import './bookingContainer.css'
 

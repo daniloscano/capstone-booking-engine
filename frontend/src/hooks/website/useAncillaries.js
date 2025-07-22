@@ -1,4 +1,4 @@
-import useAncillariesStore from "../stores/useAncillariesStore.js";
+import useAncillariesStore from "../../stores/website/useAncillariesStore.js";
 
 export const useAncillaries = () => {
     const { setAncillaries, setAncillariesLoading, setAncillariesError } = useAncillariesStore()

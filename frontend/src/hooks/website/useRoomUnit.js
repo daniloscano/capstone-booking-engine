@@ -1,4 +1,4 @@
-import useRoomUnitStore from "../stores/useRoomUnitStore.js";
+import useRoomUnitStore from "../../stores/website/useRoomUnitStore.js";
 
 export const useRoomUnit = () => {
     const { setRoomUnit, setRoomUnitLoading, setRoomUnitError } = useRoomUnitStore()

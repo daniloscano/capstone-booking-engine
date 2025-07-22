@@ -1,5 +1,5 @@
 import WebsiteBaseLayout from "../../layouts/website/WebsiteBaseLayout.jsx";
-import SolutionDetails from "../../components/solutionDetails/SolutionDetails.jsx";
+import SolutionDetails from "../../components/website/solutionDetails/SolutionDetails.jsx";
 
 const QuoteSolutionDetailsPage = () => {
     return (

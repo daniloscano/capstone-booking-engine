@@ -1,7 +1,7 @@
-import useRoomsStore from "../../stores/useRoomsStore.js";
-import {useRoomTypes} from "../../hooks/useRoomTypes.js";
+import useRoomsStore from "../../../stores/website/useRoomsStore.js";
+import {useRoomTypes} from "../../../hooks/website/useRoomTypes.js";
 import {useEffect} from "react";
-import Loader from "../../loader/Loader.jsx";
+import Loader from "../../../loader/Loader.jsx";
 import RoomCard from "./partials/RoomCard.jsx";
 
 const RoomsContainer = () => {

@@ -15,10 +15,13 @@ const QuoteRequestContainer = () => {
     } = useQuoteRequestsStore()
     const { getAllQuoteRequests } = useQuoteRequests()
 
+    const onPaginationChange = (e) => {
+        if (e.rows !== pageSize) setPageSize(e.rows)
+        if (e.page !== page) setPage(e.page)
+    }
+
     useEffect(() => {
         getAllQuoteRequests(page, pageSize)
-        console.log(page)
-        console.log(pageSize)
     }, [page, pageSize]);
 
     return (
@@ -33,10 +36,7 @@ const QuoteRequestContainer = () => {
                         rows={pageSize}
                         totalRecords={totalResults}
                         first={page * pageSize}
-                        onPage={(e) => {
-                            if (e.rows !== pageSize) setPageSize(e.rows)
-                            if (e.page !== page) setPage(e.page)
-                        }}
+                        onPage={onPaginationChange}
                         rowsPerPageOptions={[10, 15, 20]}
                         loading={quoteRequestsLoading}
                     >

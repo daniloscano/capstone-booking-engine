@@ -5,7 +5,7 @@ const useQuoteRequestsStore = create((set => (
         quoteRequests: null,
         quoteRequestsLoading: false,
         quoteRequestsError: null,
-        page: 1,
+        page: 0,
         pageSize: 10,
         totalResults: 0,
         setQuoteRequests: (quoteRequests) => set({quoteRequests}),

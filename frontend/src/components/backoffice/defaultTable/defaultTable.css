@@ -1,5 +1,43 @@
+.edit-btn {
+    background-color: var(--primary);
+    border: 1px solid var(--primary);
+    color: var(--white-color);
+    font-size: 1em;
+    transition: all 0.2s ease;
+}
+
+.edit-btn:hover {
+    transform: scale(1.04);
+}
+
+.edit-btn:active {
+    background-color: var(--primary-hover);
+    border: 1px solid var(--primary-hover);
+}
+
+.delete-btn {
+    background-color: #8B0000FF;
+    border: 1px solid #8B0000FF;
+    color: var(--white-color);
+    font-size: 1em;
+    transition: all 0.2s ease;
+}
+
+.delete-btn:hover {
+    transform: scale(1.04);
+}
+
+.delete-btn:active {
+    background-color: var(--primary-hover);
+    border: 1px solid var(--primary-hover);
+}
+
 .p-column-header-content:first-of-type {
     justify-content: center;
+}
+
+.p-datatable-thead {
+    background-color: var(--border);
 }
 
 .p-datatable-tbody tr {
@@ -23,7 +61,7 @@
 .p-column-title {
     color: var(--primary);
     font-size: 1.24em;
-    padding-bottom: 0.4em;
+    padding: 0.2em 0;
 }
 
 .p-paginator {

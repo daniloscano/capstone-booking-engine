@@ -11,6 +11,12 @@ import BookingPage from "./pages/website/BookingPage.jsx";
 import BackofficeLoginPage from "./pages/backoffice/BackofficeLoginPage.jsx";
 import ProtectedRoutes from "./middlewares/ProtectedRoutes.jsx";
 import BackofficeDashboard from "./pages/backoffice/BackofficeDashboard.jsx";
+import BackofficeBookings from "./pages/backoffice/BackofficeBookings.jsx";
+import BackofficeQuoteRequests from "./pages/backoffice/BackofficeQuoteRequests.jsx";
+import BackofficeRates from "./pages/backoffice/BackofficeRates.jsx";
+import BackofficeRooms from "./pages/backoffice/BackofficeRooms.jsx";
+import BackofficeServices from "./pages/backoffice/BackofficeServices.jsx";
+import BackofficeUsers from "./pages/backoffice/BackofficeUsers.jsx";
 
 const App = () => {
 
@@ -32,6 +38,12 @@ const App = () => {
 
                     <Route element={<ProtectedRoutes />}>
                         <Route path="backoffice/dashboard" element={<BackofficeDashboard />} />
+                        <Route path="backoffice/bookings" element={<BackofficeBookings />} />
+                        <Route path="backoffice/quote-requests" element={<BackofficeQuoteRequests />} />
+                        <Route path="backoffice/rates" element={<BackofficeRates />} />
+                        <Route path="backoffice/rooms" element={<BackofficeRooms />} />
+                        <Route path="backoffice/ancillaries" element={<BackofficeServices />} />
+                        <Route path="backoffice/users" element={<BackofficeUsers />} />
                     </Route>
                 </Routes>
             </Router>

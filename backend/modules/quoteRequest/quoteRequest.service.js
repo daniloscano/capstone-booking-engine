@@ -5,7 +5,7 @@ const pagination = new Pagination(QuoteRequestSchema)
 
 const fieldsToPopulate = {
     path: 'quoteSolutionsIds',
-    select: 'policies isConfirmed',
+    select: 'policies price',
     populate: [
         {
             path: 'roomTypeId',
@@ -13,7 +13,7 @@ const fieldsToPopulate = {
             populate: [
                 {
                     path: 'bedsId',
-                    select: 'king single crib'
+                    select: 'king single crib layout'
                 },
                 {
                     path: 'amenitiesIds',

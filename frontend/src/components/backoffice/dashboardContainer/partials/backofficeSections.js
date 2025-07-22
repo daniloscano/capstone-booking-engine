@@ -12,7 +12,7 @@ export const backofficeSections = [
         href: '/backoffice/quote-requests'
     },
     {
-        title: 'Tariffe',
+        title: 'Listini',
         icon: '/icons/rates-icon.png',
         iconAlt: 'rates icon',
         href: '/backoffice/rates'

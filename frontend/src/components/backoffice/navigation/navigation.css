@@ -4,6 +4,7 @@
     width: 100dvw;
     background-color: var(--secondary);
     border-bottom: 1px solid var(--border);
+    z-index: 10;
 }
 
 .backoffice-brand-link {

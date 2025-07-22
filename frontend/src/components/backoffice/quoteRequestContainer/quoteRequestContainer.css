@@ -1,0 +1,84 @@
+.p-column-header-content:first-of-type {
+    justify-content: center;
+}
+
+.p-datatable-tbody tr {
+    font-size: 1.08em;
+}
+
+.p-datatable-tbody tr > td {
+    padding: 0.4em;
+    text-align: center;
+}
+
+.p-datatable-tbody tr {
+    padding: 2em;
+}
+
+.p-datatable-tbody > tr:nth-child(even) {
+    background-color: var(--border);
+
+}
+
+.p-column-title {
+    color: var(--primary);
+    font-size: 1.24em;
+    padding-bottom: 0.4em;
+}
+
+.p-paginator {
+    margin: 2em 0;
+    font-size: 1.24em;
+    align-items: center;
+}
+
+.p-paginator-pages {
+    padding: 0 0.6em;
+}
+
+.p-paginator-page {
+    padding: 0 0.2em;
+}
+
+.p-paginator-prev,
+.p-paginator-next {
+    background-color: var(--secondary);
+    padding: 0.4em;
+    margin: 0 0.2em;
+}
+
+.p-paginator-first,
+.p-paginator-last {
+    margin: 0 0.4em;
+}
+
+.p-paginator-element.p-highlight {
+    font-weight: bold;
+    background-color: var(--secondary);
+    padding: 0.1em 0.4em;
+    margin: 0 0.2em;
+}
+
+.p-dropdown-label,
+.p-dropdown-trigger {
+    background-color: var(--secondary);
+}
+
+.p-dropdown-label {
+    padding: 0 0.6em;
+}
+
+.p-dropdown-trigger {
+    padding-right: 0.4em;
+}
+
+.p-dropdown-item {
+    font-size: 1.1em;
+    padding: 0.2em;
+    background-color: var(--border);
+}
+
+.p-dropdown-item.p-highlight {
+    font-weight: bold;
+    background-color: var(--secondary);
+}

@@ -29,7 +29,7 @@
 .p-paginator {
     margin: 2em 0;
     font-size: 1.24em;
-    align-items: center;
+    background-color: var(--border);
 }
 
 .p-paginator-pages {
@@ -42,21 +42,36 @@
 
 .p-paginator-prev,
 .p-paginator-next {
-    background-color: var(--secondary);
     padding: 0.4em;
     margin: 0 0.2em;
+}
+
+.p-paginator-prev:hover,
+.p-paginator-next:hover {
+    background-color: var(--secondary);
+    color: var(--white-color);
+    font-weight: bold;
 }
 
 .p-paginator-first,
 .p-paginator-last {
     margin: 0 0.4em;
+    padding: 0.4em;
+}
+
+.p-paginator-first:hover,
+.p-paginator-last:hover {
+    background-color: var(--secondary);
+    color: var(--white-color);
+    font-weight: bold;
 }
 
 .p-paginator-element.p-highlight {
     font-weight: bold;
     background-color: var(--secondary);
-    padding: 0.1em 0.4em;
+    padding: 0.1em 0.6em;
     margin: 0 0.2em;
+    transform: scale(1.1);
 }
 
 .p-dropdown-label,

@@ -5,6 +5,11 @@ import DashboardCard from "./partials/DashboardCard.jsx";
 const DashboardContainer = () => {
     const session = useSession()
 
+    const activeSections = backofficeSections.filter(section => {
+        if (session.role === 'admin') return true;
+        return section.key !== 'users'
+    })
+
     return (
         <>
             <section className="my-4 dashboard-container">
@@ -13,7 +18,7 @@ const DashboardContainer = () => {
                     <p>Stai lavorando come <b>{session.role === 'admin' ? 'Amministratore' : 'Operatore' }</b></p>
                     <div className="row">
                         {
-                            backofficeSections.map((section, index) => (
+                            activeSections.map((section, index) => (
                                 <div
                                     key={`backoffice-section-${index}`}
                                     className="col col-12 col-md-4 p-5"

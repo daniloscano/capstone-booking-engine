@@ -13,7 +13,7 @@ const QuoteRequestContainer = () => {
     const { getAllQuoteRequests } = useQuoteRequests()
 
     const columns = [
-        { field: "_id", header: "ID" },
+        { field: "_id", header: "Codice" },
         { field: "checkIn", header: "Arrivo", body: row => format(row.checkIn, 'dd/MM/yyyy') },
         { field: "checkOut", header: "Partenza", body: row => format(row.checkOut, 'dd/MM/yyyy') },
         { field: "daysStay", header: "Notti", bodyClassName: "text-center" },

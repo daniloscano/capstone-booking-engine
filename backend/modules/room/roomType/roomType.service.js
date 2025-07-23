@@ -3,35 +3,24 @@ const RoomTypeSchema = require('./roomType.model')
 const Pagination = require('@utils/pagination')
 const pagination = new Pagination(RoomTypeSchema)
 
-const getAllRoomTypes = async (page, pageSize, filter, sort, populateFields) => {
-    const fieldToPopulate = [
-        {
-            path: 'bedsId',
-            select: 'king single crib layout'
-        },
-        {
-            path: 'amenitiesIds',
-            select: 'code name icon'
-        }
-    ]
+const fieldToPopulate = [
+    {
+        path: 'bedsId',
+        select: 'king single crib layout'
+    },
+    {
+        path: 'amenitiesIds',
+        select: 'code name icon'
+    }
+]
 
+const getAllRoomTypes = async (page, pageSize, filter, sort = { _id: 1 }) => {
     return await pagination.getPaginatedData(page, pageSize, filter, sort, fieldToPopulate)
 }
 
 const getRoomTypeById = async (roomTypeId) => {
     return RoomTypeSchema.findById(roomTypeId)
-        .populate(
-            [
-                {
-                    path: 'bedsId',
-                    select: 'king single crib layout'
-                },
-                {
-                    path: 'amenitiesIds',
-                    select: 'code name icon'
-                }
-            ]
-        )
+        .populate(fieldToPopulate)
 }
 
 const createRoomType = async (roomTypeData) => {

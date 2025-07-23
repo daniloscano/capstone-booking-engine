@@ -29,7 +29,7 @@ const DefaultTable = ({
                 lazy
                 rows={pageSize}
                 totalRecords={totalValues}
-                first={page * pageSize}
+                first={( page * pageSize )}
                 onPage={onPaginationChange}
                 rowsPerPageOptions={[10, 20, 30]}
             >

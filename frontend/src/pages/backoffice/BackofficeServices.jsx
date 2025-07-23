@@ -1,10 +1,11 @@
 import BackofficeBaseLayout from "../../layouts/backoffice/BackofficeBaseLayout.jsx";
+import ServicesContainer from "../../components/backoffice/servicesContainer/ServicesContainer.jsx";
 
 const BackofficeBookings = () => {
     return (
         <>
             <BackofficeBaseLayout>
-                <h1>Servizi</h1>
+                <ServicesContainer />
             </BackofficeBaseLayout>
         </>
     );

@@ -1,6 +1,5 @@
 import useRoomsStore from "../../../stores/backoffice/useRoomsStore.js";
 import {useRooms} from "../../../hooks/backoffice/useRooms.js";
-import {format} from "date-fns";
 import DefaultTable from "../defaultTable/DefaultTable.jsx";
 
 const RoomsContainer = () => {

@@ -5,7 +5,7 @@ const TwoColsSection = ({imagePosition, section}) => {
         <>
             <section className="container-fluid p-0 mt-4 two-cols-section">
                 <div className="row align-items-center section-content">
-                    <div className={`col col-8 p-0 ${imagePosition === 'left' ? 'order-first' : 'order-last'}`}>
+                    <div className={`col col-12 col-md-6 col-lg-8 p-0 ${imagePosition === 'left' ? 'order-lg-first' : 'order-lg-last'}`}>
                         <img
                             className="img-fluid section-image"
                             src={section.image}
@@ -13,10 +13,10 @@ const TwoColsSection = ({imagePosition, section}) => {
                         />
                     </div>
                     <div
-                        className={`col col-4 ${imagePosition === 'left' ? 'order-last' : 'order-first'} content-col`}
+                        className={`col col-12 col-md-6 col-lg-4 ${imagePosition === 'left' ? 'order-lg-last' : 'order-lg-first'} content-col`}
                     >
                         <div
-                            className="d-flex flex-column justify-content-center align-items-center gap-4 py-3 px-5 section-info"
+                            className="d-flex flex-column justify-content-center align-items-center gap-4 py-4 py-lg-3 px-0 px-lg-5 section-info"
                         >
                             <h3 className="section-info-title">{section.title}</h3>
                             <p className="px-5 section-info-subtitle">{section.description}</p>

@@ -15,9 +15,11 @@ const RoomsContainer = () => {
         { field: "name", header: "Nome" },
         { field: "type", header: "Tipologia" },
         { field: "category", header: "Categoria" },
+        { field: "dimensions", header: "Superficie" },
         { field: "baseOccupancy", header: "Min Pax" },
         { field: "maxOccupancy", header: "Max Pax" },
-        { field: "hasCrib", header: "Culla", body: row => row.hasCrib ? "Si" : "No" }
+        { field: "hasCrib", header: "Culla", body: row => row.hasCrib ? "Si" : "No" },
+        { field: "bedsId.layout", header: "Allestimento" },
     ]
 
     return (

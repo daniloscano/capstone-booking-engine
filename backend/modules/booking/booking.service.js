@@ -22,7 +22,7 @@ const fieldsToPopulate = [
     },
     {
         path: 'policyId',
-        select: 'name'
+        select: 'code name'
     },
     {
         path: 'ancillariesIds',

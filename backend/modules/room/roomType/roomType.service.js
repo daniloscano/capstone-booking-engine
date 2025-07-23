@@ -14,7 +14,7 @@ const fieldToPopulate = [
     }
 ]
 
-const getAllRoomTypes = async (page, pageSize, filter, sort) => {
+const getAllRoomTypes = async (page, pageSize, filter, sort = { _id: 1 }) => {
     return await pagination.getPaginatedData(page, pageSize, filter, sort, fieldToPopulate)
 }
 

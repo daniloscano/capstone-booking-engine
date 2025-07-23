@@ -1,4 +1,4 @@
-import useRoomsStore from "../../../../../Documents/capstone-project/frontend/src/stores/backoffice/useRoomsStore.js";
+import useRoomsStore from "../../stores/backoffice/useRoomsStore.js";
 
 export const useRooms = () => {
     const { setRooms, setRoomsLoading, setRoomsError, setTotalResults } = useRoomsStore()

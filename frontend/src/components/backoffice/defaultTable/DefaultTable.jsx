@@ -48,13 +48,13 @@ const DefaultTable = ({
                                         onClick={(rowData) => onEdit(rowData._id)}
                                         className="py-1 px-2 rounded rounded-2 edit-btn"
                                     >
-                                        <Pencil />
+                                        <Pencil size={18} />
                                     </button>
                                     <button
                                         onClick={(rowData) => onDelete(rowData._id)}
                                         className="py-1 px-2 rounded rounded-2 delete-btn"
                                     >
-                                        <Trash />
+                                        <Trash size={18} />
                                     </button>
                                 </div>
                             )}

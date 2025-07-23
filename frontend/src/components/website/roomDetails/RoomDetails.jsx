@@ -39,7 +39,7 @@ const RoomDetails = () => {
                             autoplay={true}
                         />
                     </div>
-                    <div className="col col-12-col-lg-7">
+                    <div className="col col-12 col-lg-7 mt-4 mt-lg-0">
                         <h2 className="mb-4 room-details-title">{name}</h2>
                         <p className="fs-5 mb-4 room-details-subtitle"><b>Dimensioni:</b> {dimensions}</p>
                         <div className="d-flex align-items-between gap-5 mb-4">

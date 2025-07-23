@@ -3,22 +3,18 @@ const RoomRateSchema = require('./roomRate.model')
 const Pagination = require('@utils/pagination')
 const pagination = new Pagination(RoomRateSchema)
 
+const fieldToPopulate = {
+    path: 'roomTypeId',
+    select: 'type category name'
+}
+
 const getAllRoomRates = async (page, pageSize, filter, sort) => {
-    const fieldToPopulate = {
-        path: 'roomTypeId',
-        select: 'type category'
-    }
     return await pagination.getPaginatedData(page, pageSize, filter, sort, fieldToPopulate)
 }
 
 const getRoomRateById = async (roomRateId) => {
     return RoomRateSchema.findById(roomRateId)
-        .populate(
-            {
-                path: 'roomTypeId',
-                select: 'type category'
-            }
-        )
+        .populate(fieldToPopulate)
 }
 
 const createRoomRate = async (roomRateData) => {

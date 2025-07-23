@@ -7,7 +7,7 @@ export const useQuoteRequests = () => {
     const getAllQuoteRequests = async (page, pageSize) => {
         try {
             setQuoteRequestsLoading(true)
-            const response = await fetch(`${import.meta.env.VITE_SERVER_BASE_URL}/quote-requests?page=${page}&pageSize=${pageSize}`, {
+            const response = await fetch(`${import.meta.env.VITE_SERVER_BASE_URL}/quote-requests?page=${page + 1}&pageSize=${pageSize}`, {
                 headers: {
                     "Content-Type": 'application/json',
                     "Authorization": JSON.parse(token)

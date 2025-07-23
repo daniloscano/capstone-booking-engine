@@ -7,7 +7,7 @@ export const useServices = () => {
     const getAllServices = async (page, pageSize) => {
         try {
             setServicesLoading(true)
-            const response = await fetch(`${import.meta.env.VITE_SERVER_BASE_URL}/ancillaries?page=${page + 1}&pageSize=${pageSie}`, {
+            const response = await fetch(`${import.meta.env.VITE_SERVER_BASE_URL}/ancillaries?page=${page + 1}&pageSize=${pageSize}`, {
                 headers: {
                     "Content-Type": 'application/json',
                     "Authorization": JSON.parse(token)

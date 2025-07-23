@@ -26,7 +26,7 @@ const QuoteRequestContainer = () => {
     return (
         <>
             <section className="quote-requests-section">
-                <div className="container p-2 my-4 quote-request-container">
+                <div className="container-fluid p-4 my-4 quote-request-container">
                     <h2 className="mb-4">Richieste di Preventivo</h2>
                     <DefaultTable
                         value={quoteRequests}

@@ -11,18 +11,19 @@ const RoomsContainer = () => {
     const { getAllRooms } = useRooms()
 
     const columns = [
-        { field: "_id", header: "ID" },
+        { field: "_id", header: "Codice" },
         { field: "name", header: "Nome" },
         { field: "type", header: "Tipologia" },
         { field: "category", header: "Categoria" },
-        { field: "maxOccupancy", header: "Occupazione" },
+        { field: "baseOccupancy", header: "Min Pax" },
+        { field: "maxOccupancy", header: "Max Pax" },
         { field: "hasCrib", header: "Culla", body: row => row.hasCrib ? "Si" : "No" }
     ]
 
     return (
         <>
             <section className="rooms-section">
-                <div className="container p-2 my-4 rooms-container">
+                <div className="container-fluid p-4 my-4 rooms-container">
                     <h2 className="mb-4">Camere</h2>
                     <DefaultTable
                         value={rooms}

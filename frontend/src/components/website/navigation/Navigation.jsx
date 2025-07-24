@@ -2,8 +2,17 @@ import {navlinks} from "./partials/navLinks.js"
 import NavigationLink from "./partials/NavigationLink.jsx"
 import {Link} from "react-router-dom";
 import './navigation.css'
+import MobileMenu from "./partials/MobileMenu.jsx";
+import useMobileMenuStore from "../../../stores/website/useMobileMenuStore.js";
+import {Menu} from "lucide-react";
 
 const Navigation = () => {
+    const { setIsMobileMenuVisible } = useMobileMenuStore()
+
+    const showMobileMenu = () => {
+        setIsMobileMenuVisible(true)
+    }
+
     return (
         <>
             <nav>
@@ -16,7 +25,7 @@ const Navigation = () => {
                             Hotel Eden
                         </Link>
                     </div>
-                    <div className="d-flex justify-content-around align-items-center gap-5 navigation-menu">
+                    <div className="d-none d-lg-flex justify-content-around align-items-center gap-5 navigation-menu">
                         {
                             navlinks.map((link, index) => (
                                 <NavigationLink
@@ -26,7 +35,7 @@ const Navigation = () => {
                             ))
                         }
                     </div>
-                    <div className="navigation-actions">
+                    <div className="d-none d-lg-block navigation-actions">
                         <button
                             className="rounded rounded-1 py-2 px-4 book-now-btn"
                         >
@@ -38,6 +47,15 @@ const Navigation = () => {
                             </Link>
                         </button>
                     </div>
+                    <div className="d-flex d-lg-none">
+                        <button
+                            className="rounded rounded-1 py-2 px-4 book-now-btn"
+                            onClick={showMobileMenu}
+                        >
+                            <Menu size={36} />
+                        </button>
+                    </div>
+                    <MobileMenu />
                 </div>
             </nav>
         </>

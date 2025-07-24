@@ -37,8 +37,8 @@ const MasterGuestForm = () => {
 
     return (
         <>
-            <div className="row align-items-center py-2">
-                <div className="col col-12 col-md-3">
+            <div className="row align-items-center py-2 gy-3">
+                <div className="col col-12 col-md-6 col-lg-3">
                     <div className="d-flex flex-column gap-1 input-container">
                         <label htmlFor="master-first-name">Nome</label>
                         <input
@@ -52,7 +52,7 @@ const MasterGuestForm = () => {
                         />
                     </div>
                 </div>
-                <div className="col col-12 col-md-4">
+                <div className="col col-12 col-md-6 col-lg-4">
                     <div className="d-flex flex-column gap-1 input-container">
                         <label htmlFor="master-last-name">Cognome</label>
                         <input
@@ -66,7 +66,7 @@ const MasterGuestForm = () => {
                         />
                     </div>
                 </div>
-                <div className="col col-12 col-md-2">
+                <div className="col col-12 col-md-6 col-lg-2">
                     <div className="d-flex flex-column gap-1 input-container">
                         <label htmlFor="master-gender">Sesso</label>
                         <select
@@ -82,7 +82,7 @@ const MasterGuestForm = () => {
                         </select>
                     </div>
                 </div>
-                <div className="col col-12 col-md-3">
+                <div className="col col-12 col-md-6 col-lg-3">
                     <div className="d-flex flex-column gap-1 input-container">
                         <label htmlFor="master-date-of-birth">Data di nascita</label>
                         <input
@@ -96,7 +96,7 @@ const MasterGuestForm = () => {
                     </div>
                 </div>
             </div>
-            <div className="row align-items-center py-2">
+            <div className="row align-items-center py-2 gy-3">
                 <div className="col col-12 col-md-6">
                     <div className="d-flex flex-column gap-1 input-container">
                         <label htmlFor="master-email">Email</label>

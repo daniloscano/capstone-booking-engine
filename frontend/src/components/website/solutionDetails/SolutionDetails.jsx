@@ -29,7 +29,7 @@ const SolutionDetails = () => {
                 {
                     !solutionLoading && solution && !solutionError && (
                         <>
-                            <div className="row">
+                            <div className="row gy-3">
                                 <div className="col col-12 col-md-5">
                                     <ImagesSwiper
                                         images={images}
@@ -85,7 +85,7 @@ const SolutionDetails = () => {
                                         amenities.map((amenity, index) => (
                                             <div
                                                 key={`room-amenity-${index}`}
-                                                className="col col-12 col-md-4"
+                                                className="col col-12 col-md-4 my-2 my-md-1"
                                             >
                                                 <div className="d-flex align-items-center gap-2">
 
@@ -107,15 +107,15 @@ const SolutionDetails = () => {
                                         key={`solution-policy-${index}`}
                                         className="row align-items-center py-3 my-4 rounded rounded-2 solution-details-policy"
                                     >
-                                        <div className="col col-12 col-md-3 ps-4">
+                                        <div className="col col-12 col-lg-3 ps-2 ps-lg-4">
                                             <h5>{policy.bookingPolicyId.name}</h5>
                                         </div>
-                                        <div className="col col-12 col-md-7">
+                                        <div className="col col-12 col-lg-7">
                                             <p className="p-0 my-1">{policy.bookingPolicyId.deposit}</p>
                                             <p className="p-0 my-1">{policy.bookingPolicyId.balance}</p>
                                             <small>{policy.bookingPolicyId.cancellation}</small>
                                         </div>
-                                        <div className="col col-12 col-md-2 text-center">
+                                        <div className="col col-12 col-lg-2 text-center">
                                             <p className="my-2 solution-details-price">
                                                 <b>{`€ ${Number(policy.price).toFixed(2)}`}</b>
                                             </p>

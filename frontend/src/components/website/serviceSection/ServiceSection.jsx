@@ -5,7 +5,7 @@ const ServiceSection = ({ imagePosition, service }) => {
         <>
             <section className="container-fluid p-0 my-4 services-section">
                 <div className="row align-items-center service-content">
-                    <div className={`col col-8 p-0 ${imagePosition === 'left' ? 'order-first' : 'order-last'}`}>
+                    <div className={`col col-12 col-md-6 col-xl-8 p-0 order-last ${imagePosition === 'left' ? 'order-md-first' : 'order-md-last'}`}>
                         <img
                             className="img-fluid service-image"
                             src={service.image}
@@ -13,7 +13,7 @@ const ServiceSection = ({ imagePosition, service }) => {
                         />
                     </div>
                     <div
-                        className={`col col-4 ${imagePosition === 'left' ? 'order-last' : 'order-first'}`}
+                        className={`col col-12 col-md-6 col-xl-4 order-first ${imagePosition === 'left' ? 'order-md-last' : 'order-md-first'}`}
                     >
                         <div
                             className="d-flex flex-column justify-content-center gap-2 py-3 px-5 service-info"

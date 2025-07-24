@@ -12,13 +12,13 @@ const SolutionCard = ({solution}) => {
         <>
             <div className="rounded rounded-2 p-4 my-4 solution-card">
                 <div className="row gy-4 align-items-center">
-                    <div className="col col-12 col-md-5">
+                    <div className="col col-12 col-lg-6 col-xl-5">
                         <ImagesSwiper
                             images={images}
                             autoplay={false}
                         />
                     </div>
-                    <div className="col col-12 col-md-7">
+                    <div className="col col-12 col-lg-6 col-xl-7">
                         <h2>{name}</h2>
                         <h6 className="pb-3">{dimensions}</h6>
                         <p className="pb-4 solution-card-description text-truncate-4">{description}</p>

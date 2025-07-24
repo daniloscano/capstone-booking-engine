@@ -4,7 +4,7 @@ import QuoteSolutionsContainer from "../quoteSolutionsContainer/QuoteSolutionsCo
 const BookingEngineContainer = () => {
     return (
         <>
-            <section className="container my-4 booking-engine-container">
+            <section className="container my-4 pt-4 booking-engine-container">
                 <BookingEngineForm />
                 <QuoteSolutionsContainer />
             </section>

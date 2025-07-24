@@ -8,8 +8,8 @@ const Footer = () => {
         <>
             <footer>
                 <div className="container-fluid py-4 px-5 footer">
-                    <div className="row row-cols-lg-3">
-                        <div className="col d-flex flex-column justify-content-center align-items-start">
+                    <div className="row gy-4">
+                        <div className="col col-12 col-lg-4 d-flex flex-column justify-content-center align-items-center align-items-lg-start">
                             <Link
                                 className="text-decoration-none fs-3 fw-bold brand-link"
                                 to="/"
@@ -17,7 +17,7 @@ const Footer = () => {
                                 Hotel Eden
                             </Link>
                         </div>
-                        <div className="col d-flex flex-column justify-content-around align-items-center gap-2">
+                        <div className="col clo-12 col-lg-4 d-flex flex-column justify-content-around align-items-center gap-2">
                             {
                                 navlinks.map((link, index) => (
                                     <NavigationLink
@@ -27,7 +27,7 @@ const Footer = () => {
                                 ))
                             }
                         </div>
-                        <div className="col d-flex justify-content-end align-items-center gap-4">
+                        <div className="col col-12 col-lg-4 d-flex justify-content-center justify-content-lg-end align-items-center gap-4">
                             <button
                                 className="rounded rounded-2 py-2 px-4 footer-btn"
                             >

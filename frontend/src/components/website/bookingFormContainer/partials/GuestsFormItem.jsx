@@ -22,8 +22,8 @@ const GuestsFormItem = ({ index }) => {
 
     return (
         <>
-            <div className="row align-items-center guest-item py-2">
-                <div className="col col-12 col-md-3">
+            <div className="row align-items-center guest-item py-3 gy-3">
+                <div className="col col-12 col-md-6 col-lg-3">
                     <div className="d-flex flex-column gap-1 input-container">
                         <label htmlFor={`guest-first-name-${index}`}>Nome</label>
                         <input
@@ -37,7 +37,7 @@ const GuestsFormItem = ({ index }) => {
                         />
                     </div>
                 </div>
-                <div className="col col-12 col-md-4">
+                <div className="col col-12 col-md-6 col-lg-4">
                     <div className="d-flex flex-column gap-1 input-container">
                         <label htmlFor={`guest-last-name-${index}`}>Cognome</label>
                         <input
@@ -51,7 +51,7 @@ const GuestsFormItem = ({ index }) => {
                         />
                     </div>
                 </div>
-                <div className="col col-12 col-md-2">
+                <div className="col col-12 col-md-4 col-lg-2">
                     <div className="d-flex flex-column gap-1 input-container">
                         <label htmlFor={`guest-gender-${index}`}>Sesso</label>
                         <select
@@ -67,7 +67,7 @@ const GuestsFormItem = ({ index }) => {
                         </select>
                     </div>
                 </div>
-                <div className="col col-12 col-md-3">
+                <div className="col col-12 col-md-8 col-lg-3">
                     <div className="d-flex flex-column gap-1 input-container">
                         <label htmlFor={`guest-date-of-birth-${index}`}>Data di nascita</label>
                         <input

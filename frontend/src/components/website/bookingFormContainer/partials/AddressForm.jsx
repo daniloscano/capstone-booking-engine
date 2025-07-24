@@ -31,8 +31,8 @@ const AddressForm = () => {
 
     return (
         <>
-            <div className="row align-items-center py-2">
-                <div className="col col-12 col-md-6">
+            <div className="row align-items-center py-2 gy-3">
+                <div className="col col-12 col-md-5">
                     <div className="d-flex flex-column gap-1 input-container">
                         <label htmlFor="address-street">Indirizzo</label>
                         <input
@@ -46,7 +46,7 @@ const AddressForm = () => {
                         />
                     </div>
                 </div>
-                <div className="col col-12 col-md-2">
+                <div className="col col-12 col-md-3">
                     <div className="d-flex flex-column gap-1 input-container">
                         <label htmlFor="address-zipcode">CAP</label>
                         <input
@@ -75,8 +75,8 @@ const AddressForm = () => {
                     </div>
                 </div>
             </div>
-            <div className="row align-items-center py-2">
-                <div className="col col-12 col-md-6">
+            <div className="row align-items-center py-2 gy-3">
+                <div className="col col-12 col-md-8">
                     <div className="d-flex flex-column gap-1 input-container">
                         <label htmlFor="address-region">Provincia</label>
                         <input
@@ -90,7 +90,7 @@ const AddressForm = () => {
                         />
                     </div>
                 </div>
-                <div className="col col-12 col-md-6">
+                <div className="col col-12 col-md-4">
                     <div className="d-flex flex-column gap-1 input-container">
                         <label htmlFor="address-nation">Nazione</label>
                         <input

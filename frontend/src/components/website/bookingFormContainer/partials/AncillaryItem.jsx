@@ -32,7 +32,7 @@ const AncillaryItem = ({ancillary}) => {
     return (
         <>
             <div
-                className="row align-items-center p-2 my-4 rounded rounded-2 ancillary-item"
+                className="row align-items-center p-2 py-4 py-md-3 px-md-3 my-4 rounded rounded-2 ancillary-item"
             >
                 <div className="col col-12 col-md-10">
                     <h4 className="p-0 my-1">{ancillary.name}</h4>

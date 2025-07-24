@@ -5,7 +5,11 @@ const RoomDetailPage = () => {
     return (
         <>
             <WebsiteBaseLayout>
-                <RoomDetails />
+                <div className="d-flex flex-column page-wrapper">
+                    <main>
+                        <RoomDetails/>
+                    </main>
+                </div>
             </WebsiteBaseLayout>
         </>
     );

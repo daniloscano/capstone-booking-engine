@@ -11,14 +11,14 @@
 }
 
 .input-container label {
-    font-size: 1.28em;
+    font-size: 1.2em;
 }
 
 .booking-form-input {
     background-color: var(--white-color);
     outline: none;
     border: 2px solid var(--primary);
-    font-size: 1.16em;
+    font-size: 1.1em;
 }
 
 .booking-form-input::placeholder {
@@ -26,11 +26,11 @@
 }
 
 .review-text, .review-price {
-    font-size: 1.28em;
+    font-size: 1.2em;
 }
 
 .review-booking-description {
-    font-size: 1.28em;
+    font-size: 1.2em;
 }
 
 .review-table {
@@ -38,5 +38,5 @@
 }
 
 .payment-review {
-    font-size: 1.28em;
+    font-size: 1.2em;
 }

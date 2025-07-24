@@ -21,8 +21,8 @@ const DocumentForm = () => {
 
     return (
         <>
-            <div className="row align-items-center py-2">
-                <div className="col col-12 col-md-5">
+            <div className="row align-items-center py-2 gy-3">
+                <div className="col col-12">
                     <div className="d-flex flex-column gap-1 input-container">
                         <label htmlFor="document-type">Documento</label>
                         <select
@@ -39,7 +39,7 @@ const DocumentForm = () => {
                         </select>
                     </div>
                 </div>
-                <div className="col col-12 col-md-4">
+                <div className="col col-12 col-md-7">
                     <div className="d-flex flex-column gap-1 input-container">
                         <label htmlFor="document-number">Numero</label>
                         <input
@@ -53,7 +53,7 @@ const DocumentForm = () => {
                         />
                     </div>
                 </div>
-                <div className="col col-12 col-md-3">
+                <div className="col col-12 col-md-5">
                     <div className="d-flex flex-column gap-1 input-container">
                         <label htmlFor="document-expire-date">Data di Scadenza</label>
                         <input

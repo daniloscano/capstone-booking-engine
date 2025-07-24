@@ -182,14 +182,14 @@ const BookingFormContainer = () => {
                     <div className="p-4 rounded rounded-2 my-4 review-container">
                         <h3>Riepilogo</h3>
                         <div className="row py-2">
-                            <div className="col col-12 col-md-8">
+                            <div className="col col-12 col-lg-7">
                                 <p className="py-2 review-booking-description">
                                     Stai confermando una prenotazione
                                     dal {format(checkIn, 'dd/MM/yyyy')} al {format(checkOut, 'dd/MM/yyyy')} per {adults + children} ospiti {hasInfant ? 'e un neonato' : ''}.<br/>
                                     La camera scelta è una {solution.roomTypeId.name} in {policy.bookingPolicyId.name}
                                 </p>
                             </div>
-                            <div className="col col-12 col-md-4">
+                            <div className="col col-12 col-lg-5">
                                 <table className="ms-5 review-table">
                                     <tbody>
                                     <tr>

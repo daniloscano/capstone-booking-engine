@@ -41,7 +41,7 @@ const BookingEngineForm = () => {
         <>
             <form
                 onSubmit={onSubmit}
-                className="row align-items-center py-4 px-2 booking-engine-form">
+                className="row align-items-center py-4 px-2 gy-3 gy-lg-0 booking-engine-form">
                 <div className="col col-12 col-lg-3">
                     <div className="d-flex flex-column gap-1 input-container">
                         <Calendar

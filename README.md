@@ -10,6 +10,10 @@ Sviluppata come progetto finale per il corso di Web Developer Part Time di Epico
 
 Il progetto simula il sito web di un hotel, con una sezione pubblica che presenta le camere, i servizi e le informazioni generali, e un booking engine per la richiesta di preventivi e prenotazioni. È inclusa una sezione **backoffice** protetta da autenticazione, destinata alla gestione degli asset da parte di **admin** e **operatori**.
 
+## Live Demo
+
+Puoi provare il progetto comodamente, accedendo a questo link: https://capstone-booking-engine.vercel.app/
+
 ## Tecnologie utilizzate
 
 - **MongoDB** – Database NoSQL per la gestione dei dati

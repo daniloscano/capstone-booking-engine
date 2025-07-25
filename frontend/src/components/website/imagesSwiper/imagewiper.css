@@ -1,0 +1,16 @@
+.image-slide {
+    display: block;
+    width: 100%;
+}
+
+.images-swiper-wrapper .swiper-button-prev,
+.images-swiper-wrapper .swiper-button-next {
+    color: var(--white-color);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.images-swiper-wrapper:hover .swiper-button-prev,
+.images-swiper-wrapper:hover .swiper-button-next {
+    opacity: 1;
+}

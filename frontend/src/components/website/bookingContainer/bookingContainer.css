@@ -1,0 +1,15 @@
+.booking-container-subtitle {
+    font-size: 1.24em;
+}
+
+.booking-details-card,
+.guests-details-card,
+.booking-summary-card {
+    background-color: rgba(177, 138, 85, 0.45);
+}
+
+.booking-details-info,
+.guests-details-info,
+.booking-summary-info {
+    font-size: 1.24em;
+}

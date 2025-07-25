@@ -1,0 +1,12 @@
+.navigation {
+    position: sticky;
+    top: 0;
+    width: 100dvw;
+    z-index: 2;
+    background-color: var(--secondary);
+    border-bottom: 1px solid var(--border);
+}
+
+.brand-link {
+    color: var(--white-color);
+}

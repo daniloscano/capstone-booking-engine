@@ -1,0 +1,89 @@
+.booking-engine-form {
+    background-color: var(--secondary);
+}
+
+.input-container label {
+    color: var(--primary);
+    font-size: 1.05em;
+    font-weight: bold;
+}
+
+.booking-engine-form-input {
+    background-color: var(--white-color);
+    outline: none;
+    border: 2px solid var(--primary);
+}
+
+.booking-engine-form-input::placeholder {
+    color: var(--text-primary);
+}
+
+.p-calendar {
+    background-color: var(--white-color);
+    outline: none;
+    border: 2px solid var(--primary);
+    padding: 4px 8px;
+}
+
+.p-calendar-w-btn {
+
+}
+
+.p-inputtext {
+    border: none;
+    color: var(--text-primary);
+}
+
+.p-inputtext::placeholder {
+    color: var(--text-primary);
+    padding: 0 80px;
+}
+
+.p-datepicker {
+    background-color: var(--white-color);
+    padding: 1em;
+    border: 1px solid var(--primary);
+}
+
+.p-datepicker-month, .p-datepicker-year {
+    color: var(--primary);
+    font-weight: bold;
+}
+
+.p-datepicker-other-month {
+    background-color: var(--border);
+    color: var(--accent);
+}
+
+.p-datepicker-calendar td:hover {
+    background-color: var(--primary);
+    color: var(--white-color);
+}
+
+.p-datepicker-calendar td > span[data-p-highlight="true"] {
+    background-color: var(--primary);
+    color: var(--white-color);
+}
+
+.p-datepicker-prev, .p-datepicker-next {
+    background-color: var(--primary);
+    border: none;
+    padding: 4px;
+    color: var(--white-color);
+}
+
+.check-availability-btn {
+    width: 100%;
+    background-color: var(--primary);
+    border: 1px solid var(--primary);
+    color: var(--white-color);
+}
+
+.check-availability-btn:hover {
+    transform: scale(1.04);
+}
+
+.check-availability-btn:active {
+    background-color: var(--primary-hover);
+    border: 1px solid var(--primary-hover);
+}

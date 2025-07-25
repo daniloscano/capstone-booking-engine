@@ -20,7 +20,6 @@ import useAddressFormStore from "../../../stores/website/useAddressFormStore.js"
 import useDocumentFormStore from "../../../stores/website/useDocumentFormStore.js";
 import useGuestsFormStore from "../../../stores/website/useGuestsFormStore.js";
 import usePaymentFormStore from "../../../stores/website/usePaymentFormStore.js";
-import useBookingStore from "../../../stores/website/useBookingStore.js";
 
 const BookingFormContainer = () => {
     const navigate = useNavigate()
@@ -121,7 +120,7 @@ const BookingFormContainer = () => {
 
         const bookingId = await createBooking(payload)
 
-        navigate(`/booking/${bookingId}`)
+        await navigate(`/booking/${bookingId}`)
     }
 
     return (

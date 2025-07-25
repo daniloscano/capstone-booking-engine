@@ -58,8 +58,6 @@ const createBooking = async (
 
         const ancillariesTotalPrice = ancillaryPriceItems.reduce((sum, ancillary) => sum += ancillary.price, 0)
 
-        console.log(ancillariesTotalPrice)
-
         const address = new AddressSchema(masterGuestAddress)
         await address.save()
 

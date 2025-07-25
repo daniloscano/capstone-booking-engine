@@ -5,7 +5,6 @@ const BookingPage = () => {
     return (
         <>
             <WebsiteBaseLayout>
-                <h1>Booking</h1>
                 <BookingContainer />
             </WebsiteBaseLayout>
         </>
